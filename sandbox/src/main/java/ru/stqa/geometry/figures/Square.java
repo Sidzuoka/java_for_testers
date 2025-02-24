@@ -6,20 +6,26 @@ public class Square {
             System.out.println("Площадь квадрата со стороной"  + a + " = " + (a * a));
         }
     ***/
+    private double side;
+
+    public Square(double side) {
+        this.side = side;
+    }
+
 
     //(a * a) -> Refactor -> Extract Method -> squareArea(a)
     // a -> Refactor -> Rename -> side
-    public static void printSquareArea(double side) {
-        String text = String.format("Площадь квадрата со стороной %f = %f", side, area(side));
+    public static void printSquareArea(Square s) {
+        // для получения св-ва s.side
+        String text = String.format("Площадь квадрата со стороной %f = %f", s.side, s.area());
         System.out.println(text);
     }
 
-    //ф-ия на вход принимает параметр с типом данных double и возвращает double тип данных
-    public static double area(double a) {
-        return a * a;
+    public double area() {
+        return this.side * this.side;
     }
 
-    public static double perimeter(double a) {
-        return 4 * a;
+    public double perimeter() {
+        return this.side * 4;
     }
 }

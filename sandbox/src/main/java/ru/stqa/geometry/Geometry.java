@@ -8,9 +8,9 @@ public class Geometry {
         // var side = 7;
         // System.out.println("Площадь квадрата со стороной " + side + " = " + (side * side));
 
-        Square.printSquareArea(7.0);
-        Square.printSquareArea(5.0);
-        Square.printSquareArea(3.0);
+        Square.printSquareArea(new Square(7.0));
+        Square.printSquareArea(new Square(5.0));
+        Square.printSquareArea(new Square(3.0));
 
         //вызвали м-д printRectangleArea(a,b), теперь создаем на него ф-ии
         //пкм на м-д Create Method

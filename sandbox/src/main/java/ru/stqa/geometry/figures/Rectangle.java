@@ -1,6 +1,15 @@
 package ru.stqa.geometry.figures;
 
 public class Rectangle {
+
+    private double a;
+    private double b;
+
+    public Rectangle(double a, double b) {
+        this.a = a;
+        this.b = b;
+    }
+
     //созданная ф-ия Create Method
     //добавляем код ф-ии
     public static void printRectangleArea(double a, double b) {

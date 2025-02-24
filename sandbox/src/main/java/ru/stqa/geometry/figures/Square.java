@@ -1,16 +1,11 @@
 package ru.stqa.geometry.figures;
 
-public class Square {
+public record Square(double side) {
     /***
         static void printSquareArea(double a) {
             System.out.println("Площадь квадрата со стороной"  + a + " = " + (a * a));
         }
     ***/
-    private double side;
-
-    public Square(double side) {
-        this.side = side;
-    }
 
 
     //(a * a) -> Refactor -> Extract Method -> squareArea(a)

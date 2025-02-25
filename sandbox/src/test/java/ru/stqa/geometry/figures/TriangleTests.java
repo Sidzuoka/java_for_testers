@@ -7,7 +7,7 @@ public class TriangleTests {
 
             @Test //аннотация для запуска теста
             void canCalculatePerimeter() {
-                //выызываем проверямый м-д и сохраняем его
+                //вызываем проверямый м-д и сохраняем его
                 var tr = new Triangle(5.0, 7.0, 8.0);
                 double result = tr.calculatePerimeter();
                 Assertions.assertEquals(20.0, result);

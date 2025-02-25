@@ -22,6 +22,8 @@ public class Geometry {
         System.out.println(tr.calculatePerimeter());
         System.out.println(tr.calculateSquare());
 
+        Triangle.printTriangleSquare(new Triangle(5.0, 7.0, 8.0));
+
     }
 
 }

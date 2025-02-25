@@ -33,8 +33,8 @@ public class Triangle {
             return Math.sqrt(p*(p-this.a)*(p-this.b)*(p-this.c));
    }
 /***
-    public static void printTriangleSquare(double a, double b, double c) {
-        var text = String.format("Площадь треугольника со сторонами %f, %f, %f = %f", a, b, c, calculateSquare());
+    public static void printTriangleSquare(Triangle tr) {
+        var text = String.format("Площадь треугольника со сторонами %f, %f, %f = %f", this.a, this.b, this.c, tr.calculateSquare());
         System.out.println(text);
     }
 ***/

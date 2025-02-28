@@ -8,13 +8,19 @@ public record Triangle (
 
     public Triangle {
         // Condition check over sides of triangle
-        if (a < 0 || b < 0 || c < 0
-                || (a + b <= c) || a + c <= b || b + c <= a)
+        if (a < 0 || b < 0 || c < 0)
         {
             // print message if condition fails
-            throw new IllegalArgumentException("Triangle side should be non-negative " +
-                    "and sum of any two sides must be smaller than third side");
+            throw new IllegalArgumentException("Triangle side should be non-negative ");
         }
+
+        if (a + b <= c || a + c <= b || b + c <= a)
+        {
+            // print message if condition fails
+            throw new IllegalArgumentException("Sum of any two sides must be smaller than third side");
+        }
+
+
     }
 
    public double calculatePerimeter() {

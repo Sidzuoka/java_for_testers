@@ -18,9 +18,9 @@ public class Geometry {
         Rectangle.printRectangleArea(3.0, 5.0);
         Rectangle.printRectangleArea(8.0, 9.0);
 
-        Triangle tr = new Triangle(5.0, 7.0, 8.0);
-        System.out.println(tr.calculatePerimeter());
-        System.out.println(tr.calculateSquare());
+       // Triangle tr = new Triangle(5.0, 7.0, 8.0);
+       // System.out.println(tr.calculatePerimeter());
+       // System.out.println(tr.calculateSquare());
 
         Triangle.printTriangleSquare(new Triangle(5.0, 7.0, 8.0));
 

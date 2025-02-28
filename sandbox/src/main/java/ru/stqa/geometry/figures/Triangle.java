@@ -6,26 +6,24 @@ public record Triangle (
         double c
 ) {
 
+    public Triangle {
+        // Condition check over sides of triangle
+        if (a < 0 || b < 0 || c < 0
+                || (a + b <= c) || a + c <= b || b + c <= a)
+        {
+            // print message if condition fails
+            throw new IllegalArgumentException("Triangle side should be non-negative " +
+                    "and sum of any two sides must be smaller than third side");
+        }
+    }
+
    public double calculatePerimeter() {
-      return this.a + this.b + this.c;
+      return a + b + c;
    }
 
    public double calculateSquare() {
-       // Condition check over sides of triangle
-           if (this.a < 0 || this.b < 0 || this.c < 0 || (this.a + this.b <= this.c)
-                   || this.a + this.c <= this.b || this.b + this.c <= this.a)
-
-           // Length of sides must be positive and sum of
-           // any two sides must be smaller than third side
-           {
-               // print message if condition fails
-               System.out.println("Not a valid side value");
-               System.exit(0);
-           }
-
-           //else
             double p = calculatePerimeter()/2;
-            return Math.sqrt(p*(p-this.a)*(p-this.b)*(p-this.c));
+            return Math.sqrt(p*(p-a)*(p-b)*(p-c));
    }
 
     public static void printTriangleSquare(Triangle tr) {

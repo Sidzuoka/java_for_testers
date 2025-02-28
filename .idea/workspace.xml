@@ -6,14 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/out/production/classes/Hello.class" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/out/production/classes/Hello.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/out/production/classes/ru/stqa/geometry/figures/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/out/production/classes/ru/stqa/geometry/figures/Square.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/out/test/classes/ru/stqa/geometry/figures/MathTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/out/test/classes/ru/stqa/geometry/figures/MathTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/out/test/classes/ru/stqa/geometry/figures/SquareTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/out/test/classes/ru/stqa/geometry/figures/SquareTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/Hello.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/main/java/Hello.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/figures/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/figures/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/figures/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/figures/Square.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/src/test/java/ru/stqa/geometry/figures/SquareTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/test/java/ru/stqa/geometry/figures/SquareTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/out/production/classes/ru/stqa/geometry/figures/Triangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/out/production/classes/ru/stqa/geometry/figures/Triangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/out/test/classes/ru/stqa/geometry/figures/TriangleTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/out/test/classes/ru/stqa/geometry/figures/TriangleTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/figures/Rectangle1.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/figures/Rectangle1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/figures/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/figures/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/test/java/ru/stqa/geometry/figures/TriangleTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/test/java/ru/stqa/geometry/figures/TriangleTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +25,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/sandbox">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -74,8 +74,10 @@
     "Gradle.sandbox [:org.example.Main.main()].executor": "Run",
     "Gradle.sandbox [:ru.stqa.geometry.Geometry.main()].executor": "Run",
     "JUnit.MathTests.testDivideByZero.executor": "Run",
+    "JUnit.RectangleTests.cannotCreateRectangleWithNegativeSide.executor": "Run",
     "JUnit.SquareTests.cannotCreateSquareWithNegativeSide.executor": "Run",
     "JUnit.SquareTests.executor": "Run",
+    "JUnit.TriangleTests.cannotCreateTriangleWithNegativeSide.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -94,26 +96,10 @@
       <recent name="Rectangle" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RectangleTests.cannotCreateRectangleWithNegativeSide">
+  <component name="RunManager" selected="JUnit.TriangleTests.cannotCreateTriangleWithNegativeSide">
     <configuration name="Hello" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Hello" />
       <module name="sandbox.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MathTests.testDivideByZero" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sandbox.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.stqa.geometry.figures.RectangleTests" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.geometry.figures" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.geometry.figures.MathTests" />
-      <option name="METHOD_NAME" value="testDivideByZero" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -165,13 +151,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TriangleTests.cannotCreateTriangleWithNegativeSide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sandbox.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.geometry.figures.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.geometry.figures" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.geometry.figures.TriangleTests" />
+      <option name="METHOD_NAME" value="cannotCreateTriangleWithNegativeSide" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TriangleTests.cannotCreateTriangleWithNegativeSide" />
         <item itemvalue="JUnit.RectangleTests.cannotCreateRectangleWithNegativeSide" />
         <item itemvalue="JUnit.SquareTests.cannotCreateSquareWithNegativeSide" />
         <item itemvalue="JUnit.SquareTests" />
         <item itemvalue="Application.Hello" />
-        <item itemvalue="JUnit.MathTests.testDivideByZero" />
       </list>
     </recent_temporary>
   </component>

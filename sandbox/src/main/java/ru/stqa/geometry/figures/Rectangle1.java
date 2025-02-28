@@ -11,7 +11,6 @@ public record Rectangle1(
         if (a < 0 || b < 0) {
             throw new IllegalArgumentException("Rectangle side should be non-negative");
         }
-
     }
 
     //созданная ф-ия Create Method

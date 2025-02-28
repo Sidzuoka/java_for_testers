@@ -29,7 +29,30 @@ public class SquareTests {
             Assertions.fail(); //если не получили исключение, то тест должен упасть
         } catch (IllegalArgumentException exception) {
             //если попали в catch, то все хорошо
-
         }
+    }
+
+    @Test
+    void testEquality() {
+        var s1 = new Square(5.0);
+        var s2 = new Square(5.0);
+        Assertions.assertEquals(s1, s2);
+    }
+
+    @Test
+    void testNonEquality() {
+        var s1 = new Square(5.0);
+        var s2 = new Square(4.0);
+        Assertions.assertNotEquals(s1, s2);
+    }
+
+    @Test
+    void testFail() {
+        var s1 = new Square(5.0);
+        var s2 = new Square(5.0);
+        // == можно сравнивать только принитивные типы, boolean
+        //Assertions.assertTrue(s1 == s2); //передать логическое условие, кот. должно быть истинным
+        // equals м-д - для сравнения 2-х объектов
+        Assertions.assertTrue(s1.equals(s2));
     }
 }

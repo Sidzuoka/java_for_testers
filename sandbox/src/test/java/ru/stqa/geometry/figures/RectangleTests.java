@@ -17,4 +17,20 @@ public class RectangleTests {
         }
     }
 
+    @Test
+    void testEquality() {
+        //равность сторон a 1ого и 2ого, b 1ого и 2ого
+        var r1 = new Rectangle1(5.0, 4.0);
+        var r2 = new Rectangle1(5.0, 4.0);
+        Assertions.assertEquals(r1, r2);
+    }
+
+    @Test
+    void testEquality2() {
+        //равность сторон a 1ого и b 2ого, b 1ого и a 2ого
+        var r1 = new Rectangle1(5.0, 4.0);
+        var r2 = new Rectangle1(4.0, 5.0);
+        Assertions.assertEquals(r1, r2);
+    }
+
 }

@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/out/production/classes/Hello.class" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/out/production/classes/Hello.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/out/production/classes/ru/stqa/geometry/figures/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/out/production/classes/ru/stqa/geometry/figures/Square.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/out/test/classes/ru/stqa/geometry/figures/MathTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/out/test/classes/ru/stqa/geometry/figures/MathTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/out/test/classes/ru/stqa/geometry/figures/SquareTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/out/test/classes/ru/stqa/geometry/figures/SquareTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/Hello.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/main/java/Hello.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/figures/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/figures/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/figures/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/figures/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/test/java/ru/stqa/geometry/figures/SquareTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/test/java/ru/stqa/geometry/figures/SquareTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +65,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Hello.executor": "Debug",
+    "Application.Hello.executor": "Run",
     "Gradle.SquareTests.canCalculateArea.executor": "Run",
     "Gradle.SquareTests.executor": "Run",
     "Gradle.TriangleTests.executor": "Run",
@@ -66,6 +74,8 @@
     "Gradle.sandbox [:org.example.Main.main()].executor": "Run",
     "Gradle.sandbox [:ru.stqa.geometry.Geometry.main()].executor": "Run",
     "JUnit.MathTests.testDivideByZero.executor": "Run",
+    "JUnit.SquareTests.cannotCreateSquareWithNegativeSide.executor": "Run",
+    "JUnit.SquareTests.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -84,7 +94,7 @@
       <recent name="Rectangle" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Hello">
+  <component name="RunManager" selected="JUnit.RectangleTests.cannotCreateRectangleWithNegativeSide">
     <configuration name="Hello" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Hello" />
       <module name="sandbox.main" />
@@ -92,35 +102,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SquareTests.canCalculateArea" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/sandbox" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;ru.stqa.geometry.figures.SquareTests.canCalculateArea&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="MathTests.testDivideByZero" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sandbox.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.stqa.geometry.figures.*" />
+          <option name="PATTERN" value="ru.stqa.geometry.figures.RectangleTests" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -132,11 +118,60 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RectangleTests.cannotCreateRectangleWithNegativeSide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sandbox.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.geometry.figures.RectangleTests" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.geometry.figures" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.geometry.figures.RectangleTests" />
+      <option name="METHOD_NAME" value="cannotCreateRectangleWithNegativeSide" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SquareTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sandbox.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.geometry.figures.RectangleTests" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.geometry.figures" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.geometry.figures.SquareTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SquareTests.cannotCreateSquareWithNegativeSide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sandbox.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.geometry.figures.RectangleTests" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.geometry.figures" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.geometry.figures.SquareTests" />
+      <option name="METHOD_NAME" value="cannotCreateSquareWithNegativeSide" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RectangleTests.cannotCreateRectangleWithNegativeSide" />
+        <item itemvalue="JUnit.SquareTests.cannotCreateSquareWithNegativeSide" />
+        <item itemvalue="JUnit.SquareTests" />
         <item itemvalue="Application.Hello" />
         <item itemvalue="JUnit.MathTests.testDivideByZero" />
-        <item itemvalue="Gradle.SquareTests.canCalculateArea" />
       </list>
     </recent_temporary>
   </component>
@@ -158,11 +193,6 @@
           <url>file://$PROJECT_DIR$/sandbox/src/main/java/org/example/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/sandbox/src/main/java/Hello.java</url>
-          <line>6</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,6 +1,18 @@
 package ru.stqa.geometry.figures;
 
-public record Rectangle(double a, double b) {
+public record Rectangle1(
+        double a,
+        double b
+) {
+
+    //Конструктор
+    public Rectangle1 {
+        //параметры не нужны, т.к. описаны в record
+        if (a < 0 || b < 0) {
+            throw new IllegalArgumentException("Rectangle side should be non-negative");
+        }
+
+    }
 
     //созданная ф-ия Create Method
     //добавляем код ф-ии

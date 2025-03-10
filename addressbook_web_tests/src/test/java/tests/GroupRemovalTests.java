@@ -9,12 +9,12 @@ public class GroupRemovalTests extends TestBase{
 
     @Test
     public void canRemoveGroup() {
-        app.openGroupsPag();
+        app.groups().openGroupsPag();
         //проверяем наличие группы, если нет, создаем новую
-        if (!app.isGroupPresent()) {
-            app.createGroup(new GroupData("group name", "group header", "group footer"));
+        if (!app.groups().isGroupPresent()) {
+            app.groups().createGroup(new GroupData("group name", "group header", "group footer"));
         }
-        app.removeGroup();
+        app.groups().removeGroup();
     }
 
 }

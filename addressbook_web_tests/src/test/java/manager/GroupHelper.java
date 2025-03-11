@@ -3,16 +3,15 @@ package manager;
 import model.GroupData;
 import org.openqa.selenium.By;
 
-public class GroupHelper {
-    private final ApplicationManager manager;
+public class GroupHelper extends HelperBase {
 
-    public GroupHelper(ApplicationManager manager) { //в конструктор передается ссылка на manager
-        this.manager = manager;
+    public GroupHelper(ApplicationManager manager) {
+        super(manager); //в конструктор передается ссылка на manager
     }
 
     public void openGroupsPag() {
         if (! manager.isElementPresent(By.name("new"))) {
-            manager.driver.findElement(By.linkText("groups")).click();
+            click(By.linkText("groups"));
         }
     }
 
@@ -23,21 +22,63 @@ public class GroupHelper {
 
     public void createGroup(GroupData group) {
         openGroupsPag();
-        manager.driver.findElement(By.name("new")).click();
-        manager.driver.findElement(By.name("group_name")).click();
-        manager.driver.findElement(By.name("group_name")).sendKeys(group.name());
-        manager.driver.findElement(By.name("group_header")).click();
-        manager.driver.findElement(By.name("group_header")).sendKeys(group.header());
-        manager.driver.findElement(By.name("group_footer")).click();
-        manager.driver.findElement(By.name("group_footer")).sendKeys(group.footer());
-        manager.driver.findElement(By.name("submit")).click();
-        manager.driver.findElement(By.linkText("groups")).click();
+        initGroupCreation();
+        fillGroupForm(group);
+        submitGroupCreation();
+        returnToGroupsPage();
     }
 
     public void removeGroup() {
         openGroupsPag();
-        manager.driver.findElement(By.name("selected[]")).click();
-        manager.driver.findElement(By.name("delete")).click();
-        manager.driver.findElement(By.linkText("group page")).click();
+        selectGroup();
+        removeSelectedGroup();
+        returnToGroupsPage();
     }
+
+    public void modifyGroup(GroupData modifiedGroup) {
+        openGroupsPag();
+        selectGroup(); //галочку поставили
+        initGroupModification(); //кнопка EditGroup отжата
+        fillGroupForm(modifiedGroup); // заполняем поля формы
+        submitGroupModifiction(); // update кнопка
+        returnToGroupsPage(); // жмем groupPage - возвращаемся на страницу со списком групп
+    }
+    
+    private void submitGroupCreation() {
+        click(By.name("submit"));
+    }
+    
+
+    private void initGroupCreation() {
+        click(By.name("new"));
+    }
+    
+
+    private void removeSelectedGroup() {
+        click(By.name("delete"));
+    }
+
+    private void returnToGroupsPage() {
+        click(By.linkText("group page"));
+    }
+
+    private void submitGroupModifiction() {
+        click(By.name("update"));
+    }
+
+    private void fillGroupForm(GroupData group) {
+        // один и тот же метод и для создания и для модификации групп
+        type(By.name("group_name"), group.name());
+        type(By.name("group_header"), group.header());
+        type(By.name("group_footer"), group.footer());
+    }
+
+    private void initGroupModification() {
+        click(By.name("edit"));
+    }
+
+    private void selectGroup() {
+        click(By.name("selected[]"));
+    }
+
 }

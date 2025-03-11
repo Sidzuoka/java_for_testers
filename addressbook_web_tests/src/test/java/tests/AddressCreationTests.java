@@ -1,36 +1,32 @@
 package tests;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class AddressCreationTests {
-    private WebDriver driver;
+public class AddressCreationTests extends TestBase{
+    private static WebDriver driver;
 
     @BeforeEach
     public void setUp() {
-        driver = new FirefoxDriver();
-        driver.get("http://localhost/addressbook/addressbook/");
-        driver.manage().window().setSize(new Dimension(1050, 662));
-        driver.findElement(By.name("user")).sendKeys("admin");
-        driver.findElement(By.name("pass")).sendKeys("secret");
-        driver.findElement(By.xpath("//input[@value=\'Login\']")).click();
-        driver.findElement(By.xpath("//a[contains(text(),'add new')]")).click();
+        if (driver == null) {
+            driver = new FirefoxDriver();
+            Runtime.getRuntime().addShutdownHook(new Thread(driver::quit));
+            driver.get("http://localhost/addressbook/addressbook/");
+            driver.manage().window().setSize(new Dimension(1050, 662));
+            driver.findElement(By.name("user")).sendKeys("admin");
+            driver.findElement(By.name("pass")).sendKeys("secret");
+            driver.findElement(By.xpath("//input[@value=\'Login\']")).click();
+        }
     }
 
-    @AfterEach
-    public void tearDown() {
-        driver.quit();
-        //driver.findElement(By.linkText("Logout")).click();
-    }
 
     @Test
     public void canCreateAddress() {
+        if (!isElementPresent1(By.name("firstname"))) {
+            driver.findElement(By.xpath("//a[contains(text(),'add new')]")).click();
+        }
         driver.findElement(By.name("firstname")).click();
         driver.findElement(By.name("firstname")).sendKeys("FirstName");
         driver.findElement(By.name("middlename")).click();
@@ -40,7 +36,7 @@ public class AddressCreationTests {
         driver.findElement(By.name("nickname")).click();
         driver.findElement(By.name("nickname")).sendKeys("Nickname");
         //driver.findElement(By.xpath("xpath=//input[@name='photo']")).click();
-       // driver.findElement(By.name("photo")).sendKeys("C:\\TestingChalleng.txt");
+        // driver.findElement(By.name("photo")).sendKeys("C:\\TestingChalleng.txt");
         driver.findElement(By.name("title")).click();
         driver.findElement(By.name("title")).sendKeys("Title");
         driver.findElement(By.name("company")).click();
@@ -99,8 +95,21 @@ public class AddressCreationTests {
         driver.findElement(By.linkText("home")).click();
     }
 
+    private boolean isElementPresent1(By locator) {
+        try {
+            driver.findElement(locator);
+            return true;
+        } catch (NoSuchElementException exception) {
+            return false;
+
+        }
+    }
+
     @Test
     public void canCreateAddressWithEmptyField() {
+        if (!isElementPresent1(By.name("firstname"))) {
+            driver.findElement(By.xpath("//a[contains(text(),'add new')]")).click();
+        }
         driver.findElement(By.name("firstname")).click();
         driver.findElement(By.name("firstname")).sendKeys("");
         driver.findElement(By.name("middlename")).click();

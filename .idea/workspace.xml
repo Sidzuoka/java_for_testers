@@ -48,8 +48,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -252,9 +252,9 @@
       <list>
         <item itemvalue="Gradle.AddressRemovalTests" />
         <item itemvalue="Gradle.AddressCreationTests" />
+        <item itemvalue="Gradle.GroupModificationTests" />
         <item itemvalue="Gradle.AddressCreationTests.addressCreationTests" />
         <item itemvalue="Gradle.Tests in 'tests'" />
-        <item itemvalue="Gradle.GroupModificationTests" />
       </list>
     </recent_temporary>
   </component>

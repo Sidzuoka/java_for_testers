@@ -24,12 +24,47 @@ public class AddressHelper {
 
     public void openHomePage() {
         if (!appMng.isElementPresent1(By.linkText("home"))) {
-            appMng.driver.findElement(By.linkText("home")).click();
+            ReturnToHomePage();
         }
     }
 
     public void createAddress(AddressData address) {
         openAddressPage();
+        fillAddressForm(address);
+        submitAddressModification();
+        ReturnToHomePage();
+    }
+
+    public void removeAddress() {
+        openHomePage();
+        selectAddress(); //selectAddress()
+        submitAddressRemoval();
+    }
+
+    private void submitAddressRemoval() {
+        appMng.driver.findElement(By.xpath("//input[@value=\'Delete\']")).click();
+    }
+
+    private void selectAddress() {
+        appMng.driver.findElement(By.id("2")).click();
+    }
+
+    public void modifyAddress(AddressData modifyAddress) {
+        openAddressPage();
+        fillAddressForm(modifyAddress);
+        submitAddressModification();
+        ReturnToHomePage();
+    }
+
+    private void ReturnToHomePage() {
+        appMng.driver.findElement(By.linkText("home")).click();
+    }
+
+    private void submitAddressModification() {
+        appMng.driver.findElement(By.xpath("(//input[@name=\'submit\'])[2]")).click();
+    }
+
+    private void fillAddressForm(AddressData address) {
         appMng.driver.findElement(By.name("firstname")).click();
         appMng.driver.findElement(By.name("firstname")).sendKeys(address.firstname());
         appMng.driver.findElement(By.name("lastname")).click();
@@ -40,13 +75,5 @@ public class AddressHelper {
         appMng.driver.findElement(By.name("home")).sendKeys(address.home());
         appMng.driver.findElement(By.name("email")).click();
         appMng.driver.findElement(By.name("email")).sendKeys(address.email());
-        appMng.driver.findElement(By.xpath("(//input[@name=\'submit\'])[2]")).click();
-        appMng.driver.findElement(By.linkText("home")).click();
-    }
-
-    public void removeAddress() {
-        openHomePage();
-        appMng.driver.findElement(By.id("2")).click();
-        appMng.driver.findElement(By.xpath("//input[@value=\'Delete\']")).click();
     }
 }

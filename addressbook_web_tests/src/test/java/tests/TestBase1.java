@@ -12,7 +12,8 @@ public class TestBase1 {
         if (appmng == null) {
             appmng = new AppMng();
         }
-        appmng.init1();
+        appmng.init1(System.getProperty("browser", "firefox"));
+        // передали системное свойство в параметр метода
     }
 
 }

@@ -8,12 +8,12 @@ public class AddressRemovalTests extends TestBase1{
 
     @Test
     public void canRemoveAddress() {
-        openHomePage();
-        if (!isAddressPresent()) {
-            createAddress(new AddressData("Firstname", "Lastname",
+        appmng.openHomePage();
+        if (!appmng.isAddressPresent()) {
+            appmng.createAddress(new AddressData("Firstname", "Lastname",
                     "Address", "HomeTelephone", "email"));
         }
-        removeAddress();
+        appmng.removeAddress();
     }
 
 }

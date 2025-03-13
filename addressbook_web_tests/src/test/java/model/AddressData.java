@@ -1,49 +1,34 @@
-/*package model;
+package model;
 
-public record AddressData(
-        String firstName,
-        String middleName,
-        String lastName,
-        String nickName,
-        //photo - file load,
-        String title,
-        String company,
+public record AddressData (
+        String firstname,
+        String lastname,
         String address,
-        String homeTelephone,
-        String mobileTelephone,
-        String workTelephone,
-        String faxTelephone,
-        String email,
-        String email2,
-        String email3,
-        String homepage
-        /*
-        int birthday, //2 списка
-        int anniversary //2 списка
-        //group
-        ) {
-        */
+        String home,
+        String email
+) {
+    public AddressData() {
+        this("", "", "", "", "");
 
-
-
-
-/*
-    public AddressData () {
-        this("",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "");
     }
 
-    public AddressData withFirstName(String firtName) {
+    public AddressData withFirstName(String firstname) {
+        return new AddressData(firstname, this.lastname, this.address, this.home, this.email);
+    }
 
+    public AddressData withLastName(String lastname) {
+        return new AddressData(this.firstname, lastname, this.address, this.home, this.email);
+    }
+
+    public AddressData withAddress(String address) {
+        return new AddressData(this.firstname, this.lastname, address, this.home, this.email);
+    }
+
+    public AddressData withHome(String home) {
+        return new AddressData(this.firstname, this.lastname, this.address, home, this.email);
+    }
+
+    public AddressData withEmail(String email) {
+        return new AddressData(this.firstname, this.lastname, this.address, this.home, email);
     }
 }
-*/

@@ -1,5 +1,6 @@
 package tests;
 
+import model.AddressData;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -11,38 +12,17 @@ public class TestBase1 {
 
     protected static WebDriver driver;
 
-    protected static void createAddress(String firstname, String middlename, String lastname, String nickname, String title, String company,
-                                        String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage) {
+    protected static void createAddress(AddressData address) {
         driver.findElement(By.name("firstname")).click();
-        driver.findElement(By.name("firstname")).sendKeys(firstname);
-        driver.findElement(By.name("middlename")).click();
-        driver.findElement(By.name("middlename")).sendKeys(middlename);
+        driver.findElement(By.name("firstname")).sendKeys(address.firstname());
         driver.findElement(By.name("lastname")).click();
-        driver.findElement(By.name("lastname")).sendKeys(lastname);
-        driver.findElement(By.name("nickname")).click();
-        driver.findElement(By.name("nickname")).sendKeys(nickname);
-        driver.findElement(By.name("title")).click();
-        driver.findElement(By.name("title")).sendKeys(title);
-        driver.findElement(By.name("company")).click();
-        driver.findElement(By.name("company")).sendKeys(company);
+        driver.findElement(By.name("lastname")).sendKeys(address.lastname());
         driver.findElement(By.name("address")).click();
-        driver.findElement(By.name("address")).sendKeys(address);
+        driver.findElement(By.name("address")).sendKeys(address.address());
         driver.findElement(By.name("home")).click();
-        driver.findElement(By.name("home")).sendKeys(home);
-        driver.findElement(By.name("mobile")).click();
-        driver.findElement(By.name("mobile")).sendKeys(mobile);
-        driver.findElement(By.name("work")).click();
-        driver.findElement(By.name("work")).sendKeys(work);
-        driver.findElement(By.name("fax")).click();
-        driver.findElement(By.name("fax")).sendKeys(fax);
+        driver.findElement(By.name("home")).sendKeys(address.home());
         driver.findElement(By.name("email")).click();
-        driver.findElement(By.name("email")).sendKeys(email);
-        driver.findElement(By.name("email2")).click();
-        driver.findElement(By.name("email2")).sendKeys(email2);
-        driver.findElement(By.name("email3")).click();
-        driver.findElement(By.name("email3")).sendKeys(email3);
-        driver.findElement(By.name("homepage")).click();
-        driver.findElement(By.name("homepage")).sendKeys(homepage);
+        driver.findElement(By.name("email")).sendKeys(address.email());
         driver.findElement(By.xpath("(//input[@name=\'submit\'])[2]")).click();
         driver.findElement(By.linkText("home")).click();
     }

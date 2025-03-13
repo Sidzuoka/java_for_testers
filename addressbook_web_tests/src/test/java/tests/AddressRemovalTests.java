@@ -1,5 +1,6 @@
 package tests;
 
+import model.AddressData;
 import org.junit.jupiter.api.Test;
 
 
@@ -9,8 +10,8 @@ public class AddressRemovalTests extends TestBase1{
     public void canRemoveAddress() {
         openHomePage();
         if (!isAddressPresent()) {
-            createAddress("Firstname", "Middlename", "Lastname", "Nickname", "Title", "Company", "Address",
-                    "Home", "Mobile", "Work", "Fax", "email", "email2", "email3", "homepage");
+            createAddress(new AddressData("Firstname", "Lastname",
+                    "Address", "HomeTelephone", "email"));
         }
         removeAddress();
     }

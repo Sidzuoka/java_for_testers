@@ -1,6 +1,5 @@
 package manager;
 
-import model.AddressData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
@@ -8,8 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class AppMng {
-    public WebDriver driver;
+    protected WebDriver driver;
     private LoginHelper1 session1;
+    private AddressHelper address;
 
     public void init1() {
         if (driver == null) {
@@ -17,7 +17,7 @@ public class AppMng {
             Runtime.getRuntime().addShutdownHook(new Thread(driver::quit));
             driver.get("http://localhost/addressbook/addressbook/");
             driver.manage().window().setSize(new Dimension(1050, 662));
-            session1.login("admin", "secret");
+            session1().login("admin", "secret");
         }
     }
 
@@ -26,6 +26,13 @@ public class AppMng {
             session1 = new LoginHelper1(this);
         }
         return session1; //возвращаем ссылку на этого помощника
+    }
+
+    public AddressHelper address() {
+        if(address == null) {
+            address = new AddressHelper(this);
+        }
+        return address;
     }
 
     public boolean isElementPresent1(By locator) {
@@ -38,39 +45,4 @@ public class AppMng {
         }
     }
 
-    public void createAddress(AddressData address) {
-        driver.findElement(By.name("firstname")).click();
-        driver.findElement(By.name("firstname")).sendKeys(address.firstname());
-        driver.findElement(By.name("lastname")).click();
-        driver.findElement(By.name("lastname")).sendKeys(address.lastname());
-        driver.findElement(By.name("address")).click();
-        driver.findElement(By.name("address")).sendKeys(address.address());
-        driver.findElement(By.name("home")).click();
-        driver.findElement(By.name("home")).sendKeys(address.home());
-        driver.findElement(By.name("email")).click();
-        driver.findElement(By.name("email")).sendKeys(address.email());
-        driver.findElement(By.xpath("(//input[@name=\'submit\'])[2]")).click();
-        driver.findElement(By.linkText("home")).click();
-    }
-
-    public void openAddressPage() {
-        if (!isElementPresent1(By.name("firstname"))) {
-            driver.findElement(By.xpath("//a[contains(text(),'add new')]")).click();
-        }
-    }
-
-    public boolean isAddressPresent() {
-        return isElementPresent1(By.id("2"));
-    }
-
-    public void removeAddress() {
-        driver.findElement(By.id("2")).click();
-        driver.findElement(By.xpath("//input[@value=\'Delete\']")).click();
-    }
-
-    public void openHomePage() {
-        if (!isElementPresent1(By.linkText("home"))) {
-            driver.findElement(By.linkText("home")).click();
-        }
-    }
 }

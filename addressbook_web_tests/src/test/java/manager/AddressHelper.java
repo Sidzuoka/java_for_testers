@@ -8,12 +8,13 @@ public class AddressHelper {
     private final AppMng appMng;
 
     public AddressHelper(AppMng appMng) {
+
         this.appMng = appMng;
     }
 
     public void openAddressPage() {
         if (!appMng.isElementPresent1(By.name("firstname"))) {
-            appMng.driver.findElement(By.xpath("//a[contains(text(),'add new')]")).click();
+            click(By.xpath("//a[contains(text(),'add new')]"));
         }
     }
 
@@ -24,7 +25,7 @@ public class AddressHelper {
 
     public void openHomePage() {
         if (!appMng.isElementPresent1(By.linkText("home"))) {
-            ReturnToHomePage();
+            returnToHomePage();
         }
     }
 
@@ -32,48 +33,67 @@ public class AddressHelper {
         openAddressPage();
         fillAddressForm(address);
         submitAddressModification();
-        ReturnToHomePage();
+        returnToHomePage();
     }
 
     public void removeAddress() {
         openHomePage();
         selectAddress(); //selectAddress()
-        submitAddressRemoval();
-    }
-
-    private void submitAddressRemoval() {
-        appMng.driver.findElement(By.xpath("//input[@value=\'Delete\']")).click();
-    }
-
-    private void selectAddress() {
-        appMng.driver.findElement(By.id("2")).click();
+        removeSelectedAddress();
     }
 
     public void modifyAddress(AddressData modifyAddress) {
         openAddressPage();
+        //selectAddress();
+        initAddressModification();
         fillAddressForm(modifyAddress);
-        submitAddressModification();
-        ReturnToHomePage();
+        updateAddressModification();
+        returnToHomePage();
     }
 
-    private void ReturnToHomePage() {
-        appMng.driver.findElement(By.linkText("home")).click();
+
+    private void fillAddressForm(AddressData address) {
+        type(By.name("firstname"), address.firstname());
+        type(By.name("lastname"), address.lastname());
+        type(By.name("address"), address.address());
+        type(By.name("home"), address.home());
+        type(By.name("email"), address.email());
+    }
+
+    private void type(By locator, String text) {
+        click(locator);
+        appMng.driver.findElement(locator).sendKeys(text);
+    }
+
+
+    private void removeSelectedAddress() {
+        click(By.xpath("//input[@value=\'Delete\']"));
+    }
+
+    private void selectAddress() {
+        click(By.id("2"));
+    }
+
+
+    private void returnToHomePage() {
+        click(By.linkText("home"));
     }
 
     private void submitAddressModification() {
-        appMng.driver.findElement(By.xpath("(//input[@name=\'submit\'])[2]")).click();
+        click(By.xpath("(//input[@name=\'submit\'])[2]"));
     }
 
-    private void fillAddressForm(AddressData address) {
-        appMng.driver.findElement(By.name("firstname")).click();
-        appMng.driver.findElement(By.name("firstname")).sendKeys(address.firstname());
-        appMng.driver.findElement(By.name("lastname")).click();
-        appMng.driver.findElement(By.name("lastname")).sendKeys(address.lastname());
-        appMng.driver.findElement(By.name("address")).click();
-        appMng.driver.findElement(By.name("address")).sendKeys(address.address());
-        appMng.driver.findElement(By.name("home")).click();
-        appMng.driver.findElement(By.name("home")).sendKeys(address.home());
-        appMng.driver.findElement(By.name("email")).click();
-        appMng.driver.findElement(By.name("email")).sendKeys(address.email());
+    private void updateAddressModification() {
+        click(By.xpath("xpath=(//input[@name='update'])[2]"));
     }
+
+    private void initAddressModification() {
+        click(By.xpath("xpath=//img[@alt='Edit']"));
+    }
+
+    private void click(By locator) {
+        appMng.driver.findElement(locator).click();
+    }
+
+
 }

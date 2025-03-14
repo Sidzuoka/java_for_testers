@@ -3,13 +3,11 @@ package manager;
 import model.AddressData;
 import org.openqa.selenium.By;
 
-public class AddressHelper {
-
-    private final AppMng appMng;
+public class AddressHelper extends HelperBase1{
 
     public AddressHelper(AppMng appMng) {
+        super(appMng);
 
-        this.appMng = appMng;
     }
 
     public void openAddressPage() {
@@ -44,11 +42,10 @@ public class AddressHelper {
 
     public void modifyAddress(AddressData modifyAddress) {
         openAddressPage();
-        //selectAddress();
-        initAddressModification();
-        fillAddressForm(modifyAddress);
-        updateAddressModification();
-        returnToHomePage();
+        //initAddressModification();
+        //fillAddressForm(modifyAddress);
+        //updateAddressModification();
+        //returnToHomePage();
     }
 
 
@@ -58,11 +55,6 @@ public class AddressHelper {
         type(By.name("address"), address.address());
         type(By.name("home"), address.home());
         type(By.name("email"), address.email());
-    }
-
-    private void type(By locator, String text) {
-        click(locator);
-        appMng.driver.findElement(locator).sendKeys(text);
     }
 
 
@@ -84,16 +76,17 @@ public class AddressHelper {
     }
 
     private void updateAddressModification() {
-        click(By.xpath("xpath=(//input[@name='update'])[2]"));
+        click(By.xpath("(//input[@name='update'])[2]"));
     }
 
-    private void initAddressModification() {
-        click(By.xpath("xpath=//img[@alt='Edit']"));
-    }
 
-    private void click(By locator) {
-        appMng.driver.findElement(locator).click();
-    }
+    /*
+        private void initAddressModification() {
+            click(By.xpath("//img[@alt='edit']"));
+        }
+
+
+         */
 
 
 }

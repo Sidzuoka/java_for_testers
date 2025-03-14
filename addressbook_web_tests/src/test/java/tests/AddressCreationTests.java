@@ -8,7 +8,7 @@ public class AddressCreationTests extends TestBase1{
 
     @Test
     public void canCreateAddress() {
-        appmng.address().createAddress( new AddressData("Firstname", "Lastname",
+        appmng.address().createAddress( new AddressData("AFirstname", "ALastname",
                 "Address", "HomeTelephone", "email"));
     }
 

@@ -3,16 +3,16 @@ package tests;
 import model.AddressData;
 import org.junit.jupiter.api.Test;
 
-public class AddressModificationTests extends TestBase1 {
+public class AddressModificationTests extends TestBase {
 
 
     @Test
     void canModifyAddress() {
-        appmng.address().openHomePage();
-        if (!appmng.address().isAddressPresent()) {
-            appmng.address().createAddress(new AddressData("Firstname", "Lastname",
+        app.address().openHomePage();
+        if (!app.address().isAddressPresent()) {
+            app.address().createAddress(new AddressData("Firstname", "Lastname",
                     "Address", "HomeTelephone", "email"));
         }
-        appmng.address().modifyAddress(new AddressData().withFirstName("modified FirstName"));
+        app.address().modifyAddress(new AddressData().withFirstName("modified FirstName"));
     }
 }

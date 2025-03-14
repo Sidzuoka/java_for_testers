@@ -3,26 +3,26 @@ package manager;
 import model.AddressData;
 import org.openqa.selenium.By;
 
-public class AddressHelper extends HelperBase1{
+public class AddressHelper extends HelperBase{
 
-    public AddressHelper(AppMng appMng) {
-        super(appMng);
+    public AddressHelper(ApplicationManager manager) {
+        super(manager);
 
     }
 
     public void openAddressPage() {
-        if (!appMng.isElementPresent1(By.name("firstname"))) {
+        if (!manager.isElementPresent(By.name("firstname"))) {
             click(By.xpath("//a[contains(text(),'add new')]"));
         }
     }
 
     public boolean isAddressPresent() {
         openHomePage();
-        return appMng.isElementPresent1(By.id("2"));
+        return manager.isElementPresent(By.id("2"));
     }
 
     public void openHomePage() {
-        if (!appMng.isElementPresent1(By.linkText("home"))) {
+        if (!manager.isElementPresent(By.linkText("home"))) {
             returnToHomePage();
         }
     }

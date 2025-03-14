@@ -3,23 +3,23 @@ package tests;
 import model.AddressData;
 import org.junit.jupiter.api.Test;
 
-public class AddressCreationTests extends TestBase1{
+public class AddressCreationTests extends TestBase{
 
 
     @Test
     public void canCreateAddress() {
-        appmng.address().createAddress( new AddressData("AFirstname", "ALastname",
+        app.address().createAddress( new AddressData("AFirstname", "ALastname",
                 "Address", "HomeTelephone", "email"));
     }
 
     @Test
     public void canCreateAddressWithEmptyField() {
-        appmng.address().createAddress(new AddressData());
+        app.address().createAddress(new AddressData());
     }
 
     @Test
     public void canCreateAddressWithFirstNameOnly() {
-        appmng.address().createAddress(new AddressData().withFirstName("OneField - FirstName"));
+        app.address().createAddress(new AddressData().withFirstName("OneField - FirstName"));
     }
 
 }

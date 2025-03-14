@@ -15,6 +15,8 @@ public class ApplicationManager {
 
     private GroupHelper groups;
 
+    private AddressHelper address;
+
 
 
     public void init(String browser) {
@@ -47,6 +49,14 @@ public class ApplicationManager {
         }
         return groups;
     }
+
+    public AddressHelper address() {
+        if(address == null) {
+            address = new AddressHelper(this);
+        }
+        return address;
+    }
+
 
     protected boolean isElementPresent(By locator) {
         //если находит элемент -> возвращает его,

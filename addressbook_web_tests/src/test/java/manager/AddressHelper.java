@@ -63,7 +63,7 @@ public class AddressHelper extends HelperBase{
     }
 
     private void selectAddress() {
-        click(By.id("2"));
+        click(By.name("selected[]"));
     }
 
 

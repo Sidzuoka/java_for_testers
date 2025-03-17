@@ -249,9 +249,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.GroupCreationTests.canCreateMultipleGroups" />
+        <item itemvalue="Gradle.GroupCreationTests.canCreateGroup" />
         <item itemvalue="Gradle.GroupRemovalTests.canRemoveAllGroupsAtOnce" />
         <item itemvalue="Gradle.GroupRemovalTests" />
-        <item itemvalue="Gradle.GroupCreationTests.canCreateGroup" />
         <item itemvalue="JUnit.CollectionTests.arrayTests" />
       </list>
     </recent_temporary>

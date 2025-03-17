@@ -9,7 +9,7 @@ public class GroupHelper extends HelperBase {
         super(manager); //в конструктор передается ссылка на manager
     }
 
-    public void openGroupsPag() {
+    public void openGroupsPage() {
         if (! manager.isElementPresent(By.name("new"))) {
             click(By.linkText("groups"));
         }
@@ -17,7 +17,7 @@ public class GroupHelper extends HelperBase {
 
 
     public void createGroup(GroupData group) {
-        openGroupsPag();
+        openGroupsPage();
         initGroupCreation();
         fillGroupForm(group);
         submitGroupCreation();
@@ -25,14 +25,14 @@ public class GroupHelper extends HelperBase {
     }
 
     public void removeGroup() {
-        openGroupsPag();
+        openGroupsPage();
         selectGroup();
-        removeSelectedGroup();
+        removeSelectedGroups();
         returnToGroupsPage();
     }
 
     public void modifyGroup(GroupData modifiedGroup) {
-        openGroupsPag();
+        openGroupsPage();
         selectGroup(); //галочку поставили
         initGroupModification(); //кнопка EditGroup отжата
         fillGroupForm(modifiedGroup); // заполняем поля формы
@@ -50,7 +50,7 @@ public class GroupHelper extends HelperBase {
     }
     
 
-    private void removeSelectedGroup() {
+    private void removeSelectedGroups() {
         click(By.name("delete"));
     }
 
@@ -78,11 +78,22 @@ public class GroupHelper extends HelperBase {
     }
 
     public int getCount() {
-        openGroupsPag();
+        openGroupsPage();
         return manager.driver.findElements(By.name("selected[]")).size();
     }
 
     public void removeAllGroups() {
-        var checkboxes = manager.driver.findElements(By.name("selected[]"));
+        openGroupsPage();
+        selectAllGroups();
+        removeSelectedGroups();
     }
+
+    private void selectAllGroups() {
+        var checkboxes = manager.driver.findElements(By.name("selected[]"));
+        for (var checkbox : checkboxes) {
+            checkbox.click();
+        }
+    }
+
+
 }

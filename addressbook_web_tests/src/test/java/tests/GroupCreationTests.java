@@ -28,4 +28,22 @@ public class GroupCreationTests extends TestBase {
         //createGroup(new GroupData().withName("new name group"));
     }
 
+    @Test
+    public void canCreateMultipleGroups() {
+        int n = 5;
+
+        //посчитать кол-во групп до выполнения операции
+        int groupCount = app.groups().getCount();
+
+        for (int i = 0; i < n; i++ ){
+            app.groups().createGroup(new GroupData( randomString(i * 10), "group header", "group footer"));
+
+        }
+        //после операции получаем новое значение
+        int newGroupCount = app.groups().getCount();
+        Assertions.assertEquals(groupCount + n, newGroupCount);
+
+    }
+
+
 }

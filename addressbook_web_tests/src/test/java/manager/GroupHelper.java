@@ -15,10 +15,6 @@ public class GroupHelper extends HelperBase {
         }
     }
 
-    public boolean isGroupPresent() {
-        openGroupsPag();
-        return manager.isElementPresent(By.name("selected[]"));
-    }
 
     public void createGroup(GroupData group) {
         openGroupsPag();
@@ -81,4 +77,8 @@ public class GroupHelper extends HelperBase {
         click(By.name("selected[]"));
     }
 
+    public int getCount() {
+        openGroupsPag();
+        return manager.driver.findElements(By.name("selected[]")).size();
+    }
 }

@@ -22,7 +22,7 @@ public class CollectionTests {
     }
 
     @Test
-    void ListTests(){
+    void ListTests() {
         var list = new ArrayList<String>(List.of("a", "b", "c"));
         Assertions.assertEquals(3, list.size());
 /*

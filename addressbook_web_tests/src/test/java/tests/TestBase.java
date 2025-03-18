@@ -18,7 +18,7 @@ public class TestBase {
         app.init(System.getProperty("browser", "firefox"));
     }
 
-    //если не сделать статическим, не сможем вызвать в Grou[CreationTests
+    //если не сделать статическим, не сможем вызвать в GroupCreationTests
     public static String randomString(int n) {
         var rnd = new Random();
         var result = "";

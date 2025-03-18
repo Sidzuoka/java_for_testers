@@ -18,25 +18,31 @@ public class GroupCreationTests extends TestBase {
         //2 - фиксированные значения - group name, group name'
         //5 - циклом сгенерированные со случайными значениями
         var result = new ArrayList<GroupData>(List.of(
+                new GroupData(),
+                new GroupData().withName("new name group"),
                 new GroupData("group name", "", ""),
                 new GroupData("group name'", "", "")));
         for (int i = 0; i < 5; i++ ){
             result.add(new GroupData(randomString(i * 10), randomString(i * 10), randomString(i * 10)));
         }
         return result;
+       /*
+        // перебирает 2 значения name - пустой и непустой
+        for (var name : List.of("", "group name")) {
+            // перебирает 2 возможных значения header - пустой и непустой
+            for (var header : List.of("", "group header")) {
+            // для каждой пары name и header перебирает footer - пустой и непустой
+                for (var footer : List.of("", "group footer")) {
+                    result.add(new GroupData(name, header, footer));
+                }
+            }
+        }
+
+        */
+
 
     }
 
-    @Test
-    public void canCreateGroupWithEmptyName() {
-        app.groups().createGroup(new GroupData());
-    }
-
-    @Test
-    public void canCreateGroupWithNameOnly() {
-        app.groups().createGroup(new GroupData().withName("new name group"));
-        //createGroup(new GroupData().withName("new name group"));
-    }
 
     @ParameterizedTest
     @MethodSource("groupProvider")

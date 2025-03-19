@@ -17,8 +17,8 @@ public class AddressRemovalTests extends TestBase{
         int addressCount = app.address().getCountAddress();
         app.address().removeAddress();
         int newAddressCount = app.address().getCountAddress();
-        //Assertions.assertEquals(addressCount - 1, newAddressCount);
-        Assertions.assertEquals(0, newAddressCount);
+        Assertions.assertEquals(addressCount - 1, newAddressCount);
+        //Assertions.assertEquals(0, newAddressCount);
     }
 
     @Test

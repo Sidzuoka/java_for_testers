@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressCreationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressRemovalTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressRemovalTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +133,7 @@
       <recent name="Rectangle" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AddressCreationTests">
+  <component name="RunManager" selected="Gradle.GroupCreationTests">
     <configuration name="AddressCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -230,7 +230,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="GroupCreationTests.canNotCreateGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GroupCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
@@ -243,7 +243,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tests.GroupCreationTests.canNotCreateGroup&quot;" />
+            <option value="&quot;tests.GroupCreationTests&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -257,17 +257,17 @@
     <list>
       <item itemvalue="Gradle.AddressCreationTests" />
       <item itemvalue="Gradle.AddressRemovalTests" />
+      <item itemvalue="Gradle.GroupCreationTests" />
       <item itemvalue="Gradle.AddressCreationTests.canCreateAddress" />
       <item itemvalue="Gradle.AddressCreationTests.canCreateMultipleAddress" />
-      <item itemvalue="Gradle.GroupCreationTests.canNotCreateGroup" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.GroupCreationTests" />
         <item itemvalue="Gradle.AddressCreationTests" />
         <item itemvalue="Gradle.AddressRemovalTests" />
         <item itemvalue="Gradle.AddressCreationTests.canCreateMultipleAddress" />
         <item itemvalue="Gradle.AddressCreationTests.canCreateAddress" />
-        <item itemvalue="Gradle.GroupCreationTests.canNotCreateGroup" />
       </list>
     </recent_temporary>
   </component>

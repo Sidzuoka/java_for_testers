@@ -14,7 +14,7 @@ public class GroupCreationTests extends TestBase {
 
     public static List<GroupData> groupProvider() {
         //13 групп создаст
-        //8 - комбинации 4*2 из вложенных циклов
+        //8 - комбинации 2^3 из вложенных циклов
         //5 - циклом сгенерированные со случайными значениями
 
         var result = new ArrayList<GroupData>();
@@ -46,13 +46,15 @@ public class GroupCreationTests extends TestBase {
         app.groups().createGroup(group);
         //после операции получаем новое значение
         int newGroupCount = app.groups().getCount();
+        //проверяем, что кол-во групп изменилось
         Assertions.assertEquals(groupCount + 1, newGroupCount);
     }
 
 
     public static List<GroupData> negativeGroupProvider() {
         //1 - негативный - name' - когда не можем создать группу
-        var result = new ArrayList<GroupData>(List.of(new GroupData("group name'", "", "")));
+        var result = new ArrayList<GroupData>(List.of(
+                new GroupData("group name'", "", "")));
         return result;
 
     }
@@ -65,6 +67,7 @@ public class GroupCreationTests extends TestBase {
         app.groups().createGroup(group);
         //после операции получаем новое значение
         int newGroupCount = app.groups().getCount();
+        //проверяет, что кол-во групп не изменилось - т.к. не можем создать группу с name'
         Assertions.assertEquals(groupCount, newGroupCount);
     }
 

@@ -18,7 +18,7 @@ public class AddressHelper extends HelperBase{
 
     public boolean isAddressPresent() {
         openHomePage();
-        return manager.isElementPresent(By.id("2"));
+        return manager.isElementPresent(By.name("selected[]"));
     }
 
     public void openHomePage() {
@@ -77,6 +77,11 @@ public class AddressHelper extends HelperBase{
 
     private void updateAddressModification() {
         click(By.xpath("(//input[@name='update'])[2]"));
+    }
+
+    public int getCountAddress() {
+        openHomePage();
+        return manager.driver.findElements(By.name("selected[]")).size();
     }
 
 

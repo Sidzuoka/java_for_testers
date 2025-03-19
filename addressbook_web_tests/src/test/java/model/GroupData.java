@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public record GroupData(String name, String header, String footer) {
 
     //конструктор без параметров
@@ -9,7 +11,7 @@ public record GroupData(String name, String header, String footer) {
 
     public GroupData withName(String name) {
         return new GroupData(name, this.header, this.footer);
-        //name - новый,header и footer, как у существующего объекта
+        //name - новый, header и footer, как у существующего объекта
     }
 
     public GroupData withHeader(String name) {
@@ -19,4 +21,5 @@ public record GroupData(String name, String header, String footer) {
     public GroupData withFooter(String name) {
         return new GroupData(this.name, this.header, footer);
     }
+
 }

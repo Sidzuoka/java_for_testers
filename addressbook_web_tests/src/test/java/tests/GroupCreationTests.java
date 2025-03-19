@@ -69,6 +69,7 @@ public class GroupCreationTests extends TestBase {
         int newGroupCount = app.groups().getCount();
         //проверяет, что кол-во групп не изменилось - т.к. не можем создать группу с name'
         Assertions.assertEquals(groupCount, newGroupCount);
+
     }
 
 

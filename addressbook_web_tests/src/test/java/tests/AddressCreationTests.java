@@ -3,14 +3,29 @@ package tests;
 import model.AddressData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddressCreationTests extends TestBase{
 
 
-    @Test
-    public void canCreateAddress() {
+    public static List<String> addressFirstNameProvider() {
+        var result = new ArrayList<String>();
+
+        for (int i = 0; i < 5; i++) {
+            result.add(randomString(i * 10));
+        }
+        return result;
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"FirstName", "FirstName'"})
+    public void canCreateAddress(String firstName) {
         int addressCount = app.address().getCountAddress();
-        app.address().createAddress( new AddressData("AFirstname", "ALastname",
+        app.address().createAddress( new AddressData(firstName, "Lastname",
                 "Address", "HomeTelephone", "email"));
         int newAddressCount = app.address().getCountAddress();
         Assertions.assertEquals(addressCount + 1, newAddressCount);
@@ -26,15 +41,15 @@ public class AddressCreationTests extends TestBase{
         app.address().createAddress(new AddressData().withFirstName("OneField - FirstName"));
     }
 
-    @Test
-    public void canCreateMultipleAddress() {
-        int n = 5;
+    @ParameterizedTest
+    @MethodSource("addressFirstNameProvider")
+    public void canCreateMultipleAddress(String firstName) {
+
         int addressCount = app.address().getCountAddress();
 
-        for (int i = 0; i < n; i++) {
-            app.address().createAddress(new AddressData(randomString(i*10), "Lastname",
+        app.address().createAddress(new AddressData(firstName, "Lastname",
                     "Address", "HomeTelephone", "email"));
-        }
+
 
         int newAddressCount = app.address().getCountAddress();
         Assertions.assertEquals(addressCount + n, newAddressCount);

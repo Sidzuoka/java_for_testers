@@ -16,10 +16,6 @@ public class AddressHelper extends HelperBase{
         }
     }
 
-    public boolean isAddressPresent() {
-        openHomePage();
-        return manager.isElementPresent(By.name("selected[]"));
-    }
 
     public void openHomePage() {
         if (!manager.isElementPresent(By.linkText("home"))) {

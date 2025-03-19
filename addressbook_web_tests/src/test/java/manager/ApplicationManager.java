@@ -30,7 +30,7 @@ public class ApplicationManager {
             }
 
             Runtime.getRuntime().addShutdownHook(new Thread(driver::quit)); //остановка браузера
-            driver.get("http://localhost/addressbook/addressbook/");
+            driver.get("http://localhost/addressbook/");
             driver.manage().window().setSize(new Dimension(1050, 660));
             session().login("admin","secret");
         }

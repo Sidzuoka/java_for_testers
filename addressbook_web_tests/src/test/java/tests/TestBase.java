@@ -19,6 +19,7 @@ public class TestBase {
     }
 
     //если не сделать статическим, не сможем вызвать в GroupCreationTests
+    //n - длина rnd Str - количество сгенерируемых символов
     public static String randomString(int n) {
         var rnd = new Random();
         var result = "";

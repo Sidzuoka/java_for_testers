@@ -25,13 +25,19 @@ public class GroupCreationTests extends TestBase {
             for (var header : List.of("", "group header")) {
             // для каждой пары name и header перебирает footer - пустой и непустой
                 for (var footer : List.of("", "group footer")) {
-                    result.add(new GroupData(name, header, footer));
+                    result.add(new GroupData()
+                            .withName(name)
+                            .withHeader(header)
+                            .withFooter(footer));
                 }
             }
         }
         for (int i = 0; i < 5; i++ ){
             //длина строки i=0 -> входные данные могут дублироваться, т.к. рандомно подбираются
-            result.add(new GroupData(randomString(i * 10), randomString(i * 10), randomString(i * 10)));
+            result.add(new GroupData()
+                    .withName(randomString(i * 10))
+                    .withHeader(randomString(i * 10))
+                    .withFooter(randomString(i * 10)));
         }
         return result;
 
@@ -54,7 +60,7 @@ public class GroupCreationTests extends TestBase {
     public static List<GroupData> negativeGroupProvider() {
         //1 - негативный - name' - когда не можем создать группу
         var result = new ArrayList<GroupData>(List.of(
-                new GroupData("group name'", "", "")));
+                new GroupData("", "group name'", "", "")));
         return result;
 
     }

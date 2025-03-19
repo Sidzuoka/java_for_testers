@@ -33,7 +33,7 @@ public class AddressHelper extends HelperBase{
     public void removeAddress() {
         openHomePage();
         selectAddress(); //selectAddress()
-        removeSelectedAddress();
+        removeSelectedAddresses();
     }
 
     public void modifyAddress(AddressData modifyAddress) {
@@ -54,7 +54,7 @@ public class AddressHelper extends HelperBase{
     }
 
 
-    private void removeSelectedAddress() {
+    private void removeSelectedAddresses() {
         click(By.xpath("//input[@value=\'Delete\']"));
     }
 
@@ -78,6 +78,19 @@ public class AddressHelper extends HelperBase{
     public int getCountAddress() {
         openHomePage();
         return manager.driver.findElements(By.name("selected[]")).size();
+    }
+
+    public void removeAllAddress() {
+        openHomePage();
+        selectAllAddresses();
+        removeSelectedAddresses();
+    }
+
+    private void selectAllAddresses() {
+        var checkboxes = manager.driver.findElements(By.name("selected[]"));
+        for (var checkbox : checkboxes) {
+            checkbox.click();
+        }
     }
 
 

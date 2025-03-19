@@ -20,4 +20,17 @@ public class AddressRemovalTests extends TestBase{
         //Assertions.assertEquals(addressCount - 1, newAddressCount);
     }
 
+    @Test
+    void canRemoveAllAddressAtOnce() {
+        app.address().openHomePage();
+        if (app.address().getCountAddress() == 0) {
+            app.address().createAddress(new AddressData("Firstname", "Lastname",
+                    "Address", "HomeTelephone", "email"));
+        }
+        app.address().removeAllAddress();
+        Assertions.assertEquals(0, app.address().getCountAddress());
+    }
+
+
+
 }

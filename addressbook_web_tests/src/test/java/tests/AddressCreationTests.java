@@ -12,18 +12,18 @@ public class AddressCreationTests extends TestBase{
 
     public static List<AddressData> addressProvider() {
         var result = new ArrayList<AddressData>();
-        for (var firstName : List.of("", "firstName")) {
-            for (var lastName : List.of("", "lastName")) {
+        for (var firstname : List.of("", "firstname")) {
+            for (var lastname : List.of("", "lastname")) {
                 for (var address : List.of("", "address")) {
                     for (var home : List.of("", "home")) {
                         for (var email: List.of("", "email")){
                             result.add(new AddressData()
-                                    .withFirstName(firstName)
-                                    .withFirstName(lastName)
+                                    .withFirstName(firstname)
+                                    .withLastName(lastname)
                                     .withAddress(address)
                                     .withHome(home)
                                     .withEmail(email));
-                                    //id еще нет, будет, когда группа будет реально создана
+
                         }
                     }
                 }

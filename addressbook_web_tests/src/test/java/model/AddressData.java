@@ -1,7 +1,8 @@
 package model;
 
 public record AddressData (
-        String id, String firstname,
+        String id,
+        String firstname,
         String lastname,
         String address,
         String home,

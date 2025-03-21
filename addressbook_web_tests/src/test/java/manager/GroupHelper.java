@@ -34,9 +34,9 @@ public class GroupHelper extends HelperBase {
         returnToGroupsPage();
     }
 
-    public void modifyGroup(GroupData modifiedGroup) {
+    public void modifyGroup(GroupData group, GroupData modifiedGroup) {
         openGroupsPage();
-        selectGroup(null); //галочку поставили
+        selectGroup(group); //галочку поставили
         initGroupModification(); //кнопка EditGroup отжата
         fillGroupForm(modifiedGroup); // заполняем поля формы
         submitGroupModifiction(); // update кнопка
@@ -100,6 +100,7 @@ public class GroupHelper extends HelperBase {
 
 
     public List<GroupData> getList() {
+        openGroupsPage();
         //прочитать данные циклом из веб-приложения и построить список
         var groups = new ArrayList<GroupData>();
         //с тегом span, которые имют класс group

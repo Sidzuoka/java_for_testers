@@ -3,6 +3,9 @@ package manager;
 import model.AddressData;
 import org.openqa.selenium.By;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AddressHelper extends HelperBase{
 
     public AddressHelper(ApplicationManager manager) {
@@ -30,9 +33,9 @@ public class AddressHelper extends HelperBase{
         returnToHomePage();
     }
 
-    public void removeAddress() {
+    public void removeAddress(AddressData address) {
         openHomePage();
-        selectAddress(); //selectAddress()
+        selectAddress(address); //selectAddress()
         removeSelectedAddresses();
     }
 
@@ -58,8 +61,8 @@ public class AddressHelper extends HelperBase{
         click(By.xpath("//input[@value=\'Delete\']"));
     }
 
-    private void selectAddress() {
-        click(By.name("selected[]"));
+    private void selectAddress(AddressData address) {
+        click(By.cssSelector(String.format("input[value='%s']", address.id())));
     }
 
 
@@ -93,6 +96,17 @@ public class AddressHelper extends HelperBase{
         }
     }
 
+    public List<AddressData> getList() {
+        var address = new ArrayList<AddressData>();
+        var tds = manager.driver.findElements(By.cssSelector("td.center"));
+        for (var td : tds) {
+            var firstname = td.getText();
+            var checkbox = td.findElement(By.name("selected[]"));
+            var id = checkbox.getDomAttribute("value");
+            address.add(new AddressData().withId(id).withFirstName(firstname));
+        }
+        return address;
+    }
 
     /*
         private void initAddressModification() {
@@ -100,7 +114,7 @@ public class AddressHelper extends HelperBase{
         }
 
 
-         */
 
+     */
 
 }

@@ -10,7 +10,7 @@ public class AddressModificationTests extends TestBase {
     void canModifyAddress() {
         app.address().openHomePage();
         if (app.address().getCountAddress() == 0) {
-            app.address().createAddress(new AddressData("Firstname", "Lastname",
+            app.address().createAddress(new AddressData("", "Firstname", "Lastname",
                     "Address", "HomeTelephone", "email"));
         }
         app.address().modifyAddress(new AddressData().withFirstName("modified FirstName"));

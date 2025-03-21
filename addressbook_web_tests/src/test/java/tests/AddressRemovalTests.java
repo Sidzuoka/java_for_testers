@@ -4,6 +4,10 @@ import model.AddressData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 
 public class AddressRemovalTests extends TestBase{
 
@@ -11,13 +15,18 @@ public class AddressRemovalTests extends TestBase{
     public void canRemoveAddress() {
         app.address().openHomePage();
         if (app.address().getCountAddress() == 0) {
-            app.address().createAddress(new AddressData("Firstname", "Lastname",
+            app.address().createAddress(new AddressData("", "Firstname", "Lastname",
                     "Address", "HomeTelephone", "email"));
         }
-        int addressCount = app.address().getCountAddress();
-        app.address().removeAddress();
-        int newAddressCount = app.address().getCountAddress();
-        Assertions.assertEquals(addressCount - 1, newAddressCount);
+
+        var oldAddress = app.address().getList();
+        var rnd = new Random();
+        var index = rnd.nextInt(oldAddress.size());
+        app.address().removeAddress(oldAddress.get(index));
+        var newAddress = app.address().getList();
+        var expectedList = new ArrayList<>(oldAddress);
+        expectedList.remove(index);
+        Assertions.assertEquals(newAddress, expectedList);
         //Assertions.assertEquals(0, newAddressCount);
     }
 
@@ -25,7 +34,7 @@ public class AddressRemovalTests extends TestBase{
     void canRemoveAllAddressAtOnce() {
         app.address().openHomePage();
         if (app.address().getCountAddress() == 0) {
-            app.address().createAddress(new AddressData("Firstname", "Lastname",
+            app.address().createAddress(new AddressData("", "Firstname", "Lastname",
                     "Address", "HomeTelephone", "email"));
         }
         app.address().removeAllAddress();

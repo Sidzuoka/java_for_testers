@@ -17,15 +17,25 @@ public class AddressCreationTests extends TestBase{
                 for (var address : List.of("", "address")) {
                     for (var home : List.of("", "home")) {
                         for (var email: List.of("", "email")){
-                            result.add(new AddressData(firstName, lastName, address, home, email));
+                            result.add(new AddressData()
+                                    .withFirstName(firstName)
+                                    .withFirstName(lastName)
+                                    .withAddress(address)
+                                    .withHome(home)
+                                    .withEmail(email));
+                                    //id еще нет, будет, когда группа будет реально создана
                         }
                     }
                 }
             }
         }
         for (int i = 0; i < 5; i++) {
-            result.add(new AddressData(randomString(i * 10), randomString(i * 10),
-                    randomString(i * 10), randomString(i * 10), randomString(i * 10)));
+            result.add(new AddressData()
+                    .withFirstName(randomString(i * 10))
+                    .withLastName(randomString(i * 10))
+                    .withAddress(randomString(i * 10))
+                    .withHome(randomString(i * 10))
+                    .withEmail(randomString(i * 10)));
         }
         return result;
     }
@@ -33,7 +43,7 @@ public class AddressCreationTests extends TestBase{
 
     public static List<AddressData> negativeAddressProvider() {
         var result = new ArrayList<AddressData>(List.of(
-                new AddressData("FirstName'", "", "", "", "")));
+                new AddressData("", "FirstName'", "", "", "", "")));
         return result;
     }
 

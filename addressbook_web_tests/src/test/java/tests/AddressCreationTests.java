@@ -61,7 +61,6 @@ public class AddressCreationTests extends TestBase{
         newAddress.sort(compareById);
         var expectedList = new ArrayList<>(oldAddress);
         expectedList.add(address.withId(newAddress.get(newAddress.size() - 1).id())
-                .withFirstName("")
                 .withAddress("")
                 .withHome("")
                 .withEmail("")); //нашли элемент и взяли у него идентификатор

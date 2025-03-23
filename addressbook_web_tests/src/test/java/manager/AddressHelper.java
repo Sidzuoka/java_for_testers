@@ -104,11 +104,13 @@ public class AddressHelper extends HelperBase{
         for (var tr : trs) {
             var fieldLastname = tr.findElement(By.cssSelector("td.center + td"));
             var lastname = fieldLastname.getText();
+            var fieldFirstName = tr.findElement(By.cssSelector("tr[name=entry] td:nth-child(3)"));
+            var firstname = fieldFirstName.getText();
             //System.out.println(lastname);
             var checkbox = tr.findElement(By.cssSelector("input[name='selected[]']"));
             var id = checkbox.getDomAttribute("value");
             //System.out.println(id);
-            address.add(new AddressData().withId(id).withLastName(lastname));
+            address.add(new AddressData().withId(id).withLastName(lastname).withFirstName(firstname));
 
         }
         return address;

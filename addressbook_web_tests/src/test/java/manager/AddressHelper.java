@@ -39,12 +39,13 @@ public class AddressHelper extends HelperBase{
         removeSelectedAddresses();
     }
 
-    public void modifyAddress(AddressData modifyAddress) {
-        openAddressPage();
-        //initAddressModification();
-        //fillAddressForm(modifyAddress);
-        //updateAddressModification();
-        //returnToHomePage();
+    public void modifyAddress(AddressData address, AddressData modifyAddress) {
+        openHomePage();
+        selectAddress(address);
+        initAddressModification();
+        fillAddressForm(modifyAddress);
+        updateAddressModification();
+        returnToHomePage();
     }
 
 
@@ -112,13 +113,13 @@ public class AddressHelper extends HelperBase{
         return address;
     }
 
-    /*
+
         private void initAddressModification() {
-            click(By.xpath("//img[@alt='edit']"));
+            click(By.cssSelector("img[title='Edit']"));
         }
 
 
 
-     */
+
 
 }

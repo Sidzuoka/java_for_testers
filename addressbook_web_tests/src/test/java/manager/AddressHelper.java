@@ -37,6 +37,7 @@ public class AddressHelper extends HelperBase{
         openHomePage();
         selectAddress(address); //selectAddress()
         removeSelectedAddresses();
+        returnToHomePage();
     }
 
     public void modifyAddress(AddressData address, AddressData modifyAddress) {

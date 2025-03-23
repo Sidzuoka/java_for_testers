@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -17,7 +18,6 @@ public class AddressRemovalTests extends TestBase{
             app.address().createAddress(new AddressData("", "Firstname", "Lastname",
                     "Address", "HomeTelephone", "email"));
         }
-
         var oldAddress = app.address().getList();
         var rnd = new Random();
         var index = rnd.nextInt(oldAddress.size());
@@ -27,6 +27,7 @@ public class AddressRemovalTests extends TestBase{
         expectedList.remove(index);
         Assertions.assertEquals(newAddress, expectedList);
         //Assertions.assertEquals(0, newAddressCount);
+
     }
 
     @Test

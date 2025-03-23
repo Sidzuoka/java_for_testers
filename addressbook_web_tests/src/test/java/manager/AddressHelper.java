@@ -98,12 +98,16 @@ public class AddressHelper extends HelperBase{
 
     public List<AddressData> getList() {
         var address = new ArrayList<AddressData>();
-        var tds = manager.driver.findElements(By.cssSelector("td.center"));
-        for (var td : tds) {
-            var firstname = td.getText();
-            var checkbox = td.findElement(By.name("selected[]"));
+        var trs = manager.driver.findElements(By.cssSelector("tr[name=entry]"));
+        for (var tr : trs) {
+            var fieldLastname = tr.findElement(By.cssSelector("td.center + td"));
+            var lastname = fieldLastname.getText();
+            System.out.println(lastname);
+            var checkbox = tr.findElement(By.cssSelector("input[name='selected[]']"));
             var id = checkbox.getDomAttribute("value");
-            address.add(new AddressData().withId(id).withFirstName(firstname));
+            System.out.println(id);
+            address.add(new AddressData().withId(id).withLastName(lastname));
+
         }
         return address;
     }

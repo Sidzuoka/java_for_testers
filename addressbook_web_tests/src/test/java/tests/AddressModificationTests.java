@@ -31,7 +31,9 @@ public class AddressModificationTests extends TestBase {
             return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
         };
         newAddress.sort(compareById);
+        //System.out.println(newAddress);
         expectedList.sort(compareById);
+        //System.out.println(expectedList);
         Assertions.assertEquals(newAddress, expectedList);
 
     }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class AddressCreationTests extends TestBase{
@@ -51,19 +52,30 @@ public class AddressCreationTests extends TestBase{
     @ParameterizedTest
     @MethodSource("addressProvider")
     public void canCreateMultipleAddress(AddressData address) {
-        int addressCount = app.address().getCountAddress();
+        var oldAddress = app.address().getList();
         app.address().createAddress(address);
-        int newAddressCount = app.address().getCountAddress();
-        Assertions.assertEquals(addressCount + 1, newAddressCount);
+        var newAddress = app.address().getList();
+        Comparator<AddressData> compareById = (o1, o2) -> {
+            return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
+        };
+        newAddress.sort(compareById);
+        var expectedList = new ArrayList<>(oldAddress);
+        expectedList.add(address.withId(newAddress.get(newAddress.size() - 1).id())
+                .withFirstName("")
+                .withAddress("")
+                .withHome("")
+                .withEmail("")); //нашли элемент и взяли у него идентификатор
+        expectedList.sort(compareById);
+        Assertions.assertEquals(newAddress, expectedList);
     }
 
     @ParameterizedTest
     @MethodSource("negativeAddressProvider")
     public void canNotCreateAddress(AddressData address) {
-        int addressCount = app.address().getCountAddress();
+        var oldAddress = app.address().getList();
         app.address().createAddress(address);
-        int newAddressCount = app.address().getCountAddress();
-        Assertions.assertEquals(addressCount, newAddressCount);
+        var newAddress = app.address().getList();
+        Assertions.assertEquals(newAddress, oldAddress);
     }
 
 }

@@ -19,14 +19,17 @@ public class AddressRemovalTests extends TestBase{
                     "Address", "HomeTelephone", "email"));
         }
         var oldAddress = app.address().getList();
+        //System.out.println(oldAddress);
         var rnd = new Random();
         var index = rnd.nextInt(oldAddress.size());
         app.address().removeAddress(oldAddress.get(index));
         var newAddress = app.address().getList();
+        //System.out.println(newAddress);
         var expectedList = new ArrayList<>(oldAddress);
+        //System.out.println(expectedList);
         expectedList.remove(index);
         Assertions.assertEquals(newAddress, expectedList);
-        //Assertions.assertEquals(0, newAddressCount);
+
 
     }
 

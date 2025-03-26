@@ -2,6 +2,7 @@ package tests;
 
 import model.AddressData;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import java.util.ArrayList;
@@ -23,7 +24,8 @@ public class AddressCreationTests extends TestBase{
                                     .withLastName(lastname)
                                     .withAddress(address)
                                     .withHome(home)
-                                    .withEmail(email));
+                                    .withEmail(email)
+                                    .withPhoto("src/test/resources/images/avatar.png"));
 
                         }
                     }
@@ -44,7 +46,7 @@ public class AddressCreationTests extends TestBase{
 
     public static List<AddressData> negativeAddressProvider() {
         var result = new ArrayList<AddressData>(List.of(
-                new AddressData("", "FirstName'", "", "", "", "")));
+                new AddressData("", "FirstName'", "", "", "", "", "")));
         return result;
     }
 
@@ -63,10 +65,25 @@ public class AddressCreationTests extends TestBase{
         expectedList.add(address.withId(newAddress.get(newAddress.size() - 1).id())
                 .withAddress("")
                 .withHome("")
-                .withEmail("")); //нашли элемент и взяли у него идентификатор
+                .withEmail(""));
+                //.withPhoto("src/test/resources/images/avatar.png")); //нашли элемент и взяли у него идентификатор
         expectedList.sort(compareById);
         Assertions.assertEquals(newAddress, expectedList);
     }
+
+    @Test
+    void canCreateOneAddress() {
+        var address = new AddressData()
+                .withLastName(randomString(10))
+                .withFirstName(randomString(10))
+                .withAddress(randomString(10))
+                .withHome(randomString(10))
+                .withEmail(randomString(10))
+                .withPhoto("src/test/resources/images/avatar.png");
+        app.address().createAddress(address);
+
+    }
+
 
     @ParameterizedTest
     @MethodSource("negativeAddressProvider")

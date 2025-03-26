@@ -16,7 +16,7 @@ public class AddressModificationTests extends TestBase {
         app.address().openHomePage();
         if (app.address().getCountAddress() == 0) {
             app.address().createAddress(new AddressData("", "Firstname", "Lastname",
-                    "Address", "HomeTelephone", "email"));
+                    "Address", "HomeTelephone", "email", ""));
         }
         var oldAddress = app.address().getList();
         var rnd = new Random();

@@ -24,8 +24,7 @@ public class AddressCreationTests extends TestBase{
                                     .withLastName(lastname)
                                     .withAddress(address)
                                     .withHome(home)
-                                    .withEmail(email)
-                                    .withPhoto("src/test/resources/images/avatar.png"));
+                                    .withEmail(email));
 
                         }
                     }
@@ -66,7 +65,7 @@ public class AddressCreationTests extends TestBase{
                 .withAddress("")
                 .withHome("")
                 .withEmail(""));
-                //.withPhoto("src/test/resources/images/avatar.png")); //нашли элемент и взяли у него идентификатор
+                //.withPhoto("src/test/resources/images/man.png")); //нашли элемент и взяли у него идентификатор
         expectedList.sort(compareById);
         Assertions.assertEquals(newAddress, expectedList);
     }
@@ -79,7 +78,7 @@ public class AddressCreationTests extends TestBase{
                 .withAddress(randomString(10))
                 .withHome(randomString(10))
                 .withEmail(randomString(10))
-                .withPhoto("src/test/resources/images/avatar.png");
+                .withPhoto(randomFile("src/test/resources/images"));
         app.address().createAddress(address);
 
     }

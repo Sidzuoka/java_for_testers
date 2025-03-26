@@ -26,7 +26,7 @@ public class AddressRemovalTests extends TestBase{
         //System.out.println(newAddress);
         var expectedList = new ArrayList<>(oldAddress);
         //System.out.println(expectedList);
-        //System.out.println(expectedList.remove(index));
+        expectedList.remove(index);
         Assertions.assertEquals(newAddress, expectedList);
     }
 

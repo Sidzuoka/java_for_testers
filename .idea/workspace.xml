@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/addressbook_web_tests.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/addressbook_web_tests.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/addressbook_web_tests.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/addressbook_web_tests.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/generator/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/generator/Generator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressCreationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/GroupCreationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/TestBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +101,7 @@
     "Gradle.Tests in 'addressbook_web_tests.test'.executor": "Run",
     "Gradle.Tests in 'tests'.executor": "Run",
     "Gradle.TriangleTests.executor": "Run",
-    "Gradle.addressbook_web_tests [:generator.Generator.main()].executor": "Run",
+    "Gradle.addressbook_web_tests [:generator.Generator.main()].executor": "Debug",
     "Gradle.sandbox [:Geometry.main()].executor": "Run",
     "Gradle.sandbox [:Hello.main()].executor": "Run",
     "Gradle.sandbox [:org.example.Main.main()].executor": "Run",
@@ -133,6 +134,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="common.Common" />
       <recent name="manager.AppMng" />
       <recent name="ApplicationManager" />
       <recent name="Square" />

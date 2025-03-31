@@ -20,17 +20,6 @@ public class TestBase {
         app.init(System.getProperty("browser", "firefox"));
     }
 
-    //если не сделать статическим, не сможем вызвать в GroupCreationTests
-    //n - длина rnd Str - количество сгенерируемых символов
-    public static String randomString(int n) {
-        var rnd = new Random();
-        var result = "";
-        for (int i = 0; i < n; i++) {
-            result = result + (char)('a' + rnd.nextInt(26));
-        }
-        return result;
-    }
-
     public static String randomFile(String dir) {
         var fileNames =  new File(dir).list();
         var rnd = new Random();

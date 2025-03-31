@@ -1,5 +1,6 @@
 package tests;
 
+import common.CommonFunctions;
 import model.AddressData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -33,11 +34,11 @@ public class AddressCreationTests extends TestBase{
         }
         for (int i = 0; i < 5; i++) {
             result.add(new AddressData()
-                    .withFirstName(randomString(i * 10))
-                    .withLastName(randomString(i * 10))
-                    .withAddress(randomString(i * 10))
-                    .withHome(randomString(i * 10))
-                    .withEmail(randomString(i * 10)));
+                    .withFirstName(CommonFunctions.randomString(i * 10))
+                    .withLastName(CommonFunctions.randomString(i * 10))
+                    .withAddress(CommonFunctions.randomString(i * 10))
+                    .withHome(CommonFunctions.randomString(i * 10))
+                    .withEmail(CommonFunctions.randomString(i * 10)));
         }
         return result;
     }
@@ -73,11 +74,11 @@ public class AddressCreationTests extends TestBase{
     @Test
     void canCreateOneAddress() {
         var address = new AddressData()
-                .withLastName(randomString(10))
-                .withFirstName(randomString(10))
-                .withAddress(randomString(10))
-                .withHome(randomString(10))
-                .withEmail(randomString(10))
+                .withLastName(CommonFunctions.randomString(10))
+                .withFirstName(CommonFunctions.randomString(10))
+                .withAddress(CommonFunctions.randomString(10))
+                .withHome(CommonFunctions.randomString(10))
+                .withEmail(CommonFunctions.randomString(10))
                 .withPhoto(randomFile("src/test/resources/images"));
         app.address().createAddress(address);
 

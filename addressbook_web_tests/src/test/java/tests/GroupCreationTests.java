@@ -2,6 +2,7 @@ package tests;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import common.CommonFunctions;
 import model.GroupData;
 import org.junit.jupiter.api.Assertions;
@@ -48,6 +49,8 @@ public class GroupCreationTests extends TestBase {
 
 
         //сгенерированные рандомные тестовые данные из файла
+
+        /*
         var json = "";
 
         try (var reader = new FileReader("groups.json");
@@ -61,11 +64,23 @@ public class GroupCreationTests extends TestBase {
         }
 
 
-        //var json = Files.readString(Paths.get("groups.json")); //строка из файла
+         */
+
+        /*
+        //считывание файла формата json
+        var json = Files.readString(Paths.get("groups.json")); //строка из файла
         ObjectMapper mapper = new ObjectMapper();
 
         var value = mapper.readValue(json, new TypeReference<List<GroupData>>() {}); //{} - пустая реализация,
         result.addAll(value); //добавить в список все из файла                                                                                                            // класс, у кот. ничего нет, только декларация
+        return result;
+
+
+         */
+        //считывание файла формата xml
+        var mapper = new XmlMapper();
+        var value = mapper.readValue(new File("groups.xml"), new TypeReference<List<GroupData>>() {});
+        result.addAll(value);
         return result;
 
     }

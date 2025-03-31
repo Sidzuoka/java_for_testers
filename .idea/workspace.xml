@@ -147,7 +147,7 @@
     <configuration name="Generator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="generator.Generator" />
       <module name="addressbook_web_tests.test" />
-      <option name="PROGRAM_PARAMETERS" value="--type groups --output groups.yaml --format yaml --count 3" />
+      <option name="PROGRAM_PARAMETERS" value="--type groups --output groups.xml --format xml --count 3" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/addressbook_web_tests" />
       <extension name="coverage">
         <pattern>

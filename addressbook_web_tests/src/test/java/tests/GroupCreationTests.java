@@ -46,7 +46,6 @@ public class GroupCreationTests extends TestBase {
 
          */
 
-        /*
 
         //сгенерированные рандомные тестовые данные из файла
         var json = "";
@@ -62,8 +61,7 @@ public class GroupCreationTests extends TestBase {
         }
 
         
-         */
-        var json = Files.readString(Paths.get("groups.json")); //строка из файла
+        //var json = Files.readString(Paths.get("groups.json")); //строка из файла
         ObjectMapper mapper = new ObjectMapper();
 
         var value = mapper.readValue(json, new TypeReference<List<GroupData>>() {}); //{} - пустая реализация,

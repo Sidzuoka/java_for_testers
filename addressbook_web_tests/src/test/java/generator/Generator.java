@@ -4,6 +4,7 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import common.CommonFunctions;
 import model.GroupData;
 
@@ -72,7 +73,7 @@ public class Generator {
 
     //сохранение строки в файл
     private void save(Object data) throws IOException {
-        if ("json".equals(format)) {
+        if ("json".equals(format)) { //https://github.com/FasterXML/jackson-databind
             ObjectMapper mapper = new ObjectMapper();
             mapper.enable(SerializationFeature.INDENT_OUTPUT); //вывод в более удобном виде (построчно и т.д.)
             var json = mapper.writeValueAsString(data); //преобразование в формат JSON - в виде строки
@@ -80,6 +81,9 @@ public class Generator {
             try (var writer = new FileWriter(output)) {
                 writer.write(json);
             }
+        } if ("yaml".equals(format)) { //https://github.com/FasterXML/jackson-dataformats-text/tree/master/yaml
+            ObjectMapper mapper = new YAMLMapper();
+            mapper.writeValue(new File(output), data);
         } else {
             throw new IllegalArgumentException("Неизвестный формат " + format);
         }

@@ -60,7 +60,7 @@ public class GroupCreationTests extends TestBase {
             }
         }
 
-        
+
         //var json = Files.readString(Paths.get("groups.json")); //строка из файла
         ObjectMapper mapper = new ObjectMapper();
 

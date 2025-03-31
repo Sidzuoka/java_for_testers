@@ -8,6 +8,7 @@ import common.CommonFunctions;
 import model.GroupData;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -68,11 +69,17 @@ public class Generator {
         return null;
     }
 
+
+    //сохранение строки в файл
     private void save(Object data) throws IOException {
         if ("json".equals(format)) {
             ObjectMapper mapper = new ObjectMapper();
             mapper.enable(SerializationFeature.INDENT_OUTPUT); //вывод в более удобном виде (построчно и т.д.)
-            mapper.writeValue(new File(output), data);
+            var json = mapper.writeValueAsString(data); //преобразование в формат JSON - в виде строки
+
+            try (var writer = new FileWriter(output)) {
+                writer.write(json);
+            }
         } else {
             throw new IllegalArgumentException("Неизвестный формат " + format);
         }

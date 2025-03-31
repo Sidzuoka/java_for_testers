@@ -1,11 +1,16 @@
 package tests;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import common.CommonFunctions;
 import model.AddressData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -13,8 +18,10 @@ import java.util.List;
 public class AddressCreationTests extends TestBase{
 
 
-    public static List<AddressData> addressProvider() {
+    public static List<AddressData> addressProvider() throws IOException {
         var result = new ArrayList<AddressData>();
+
+        /*
         for (var firstname : List.of("", "firstname")) {
             for (var lastname : List.of("", "lastname")) {
                 for (var address : List.of("", "address")) {
@@ -32,21 +39,51 @@ public class AddressCreationTests extends TestBase{
                 }
             }
         }
-        for (int i = 0; i < 5; i++) {
-            result.add(new AddressData()
-                    .withFirstName(CommonFunctions.randomString(i * 10))
-                    .withLastName(CommonFunctions.randomString(i * 10))
-                    .withAddress(CommonFunctions.randomString(i * 10))
-                    .withHome(CommonFunctions.randomString(i * 10))
-                    .withEmail(CommonFunctions.randomString(i * 10)));
+
+         */
+
+        //сгенерированные рандомные тестовые данные из файла
+
+        /*
+        var json = "";
+
+        try (var reader = new FileReader("address.json");
+            var breader = new BufferedReader(reader)
+        ) {
+            var line = breader.readLine();
+            while (line != null) {
+                json = json + line;
+                line = breader.readLine();
+            }
         }
+
+
+         */
+
+        /*
+        //считывание файла формата json
+        var json = Files.readString(Paths.get("address.json")); //строка из файла
+        ObjectMapper mapper = new ObjectMapper();
+
+        var value = mapper.readValue(json, new TypeReference<List<AddressData>>() {}); //{} - пустая реализация,
+        result.addAll(value); //добавить в список все из файла                                                                                                            // класс, у кот. ничего нет, только декларация
         return result;
+
+
+         */
+        //считывание файла формата xml
+        var mapper = new XmlMapper();
+        var value = mapper.readValue(new File("address.xml"), new TypeReference<List<AddressData>>() {});
+        result.addAll(value);
+        return result;
+
     }
+
 
 
     public static List<AddressData> negativeAddressProvider() {
         var result = new ArrayList<AddressData>(List.of(
-                new AddressData("", "FirstName'", "", "", "", "", "")));
+                new AddressData("", "FirstName'", "", "", "", "", "src/test/resources/images/man.png")));
         return result;
     }
 
@@ -65,7 +102,8 @@ public class AddressCreationTests extends TestBase{
         expectedList.add(address.withId(newAddress.get(newAddress.size() - 1).id())
                 .withAddress("")
                 .withHome("")
-                .withEmail(""));
+                .withEmail("")
+                .withPhoto("src/test/resources/images/man.png"));
                 //.withPhoto("src/test/resources/images/man.png")); //нашли элемент и взяли у него идентификатор
         expectedList.sort(compareById);
         Assertions.assertEquals(newAddress, expectedList);

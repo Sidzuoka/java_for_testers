@@ -9,12 +9,12 @@ public record AddressData (
         String email,
         String photo) {
     public AddressData() {
-        this("", "", "", "", "", "", "");
+        this("", "", "", "", "", "", "src/test/resources/images/man.png");
 
     }
 
     public AddressData withId(String id) {
-        return new AddressData(id , this.firstname, this.lastname, this.address, this.home, this.email, "");
+        return new AddressData(id , this.firstname, this.lastname, this.address, this.home, this.email, this.photo);
     }
 
     public AddressData withFirstName(String firstname) {

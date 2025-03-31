@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import common.CommonFunctions;
+import model.AddressData;
 import model.GroupData;
 
 import java.io.File;
@@ -49,7 +50,7 @@ public class Generator {
     private Object generate() {
         if ("groups".equals(type)) {
             return generateGroups();
-        } else if ("contacts".equals(type)) {
+        } else if ("address".equals(type)) {
             return generatorContacts();
         } else {
             throw new IllegalArgumentException("Неизвестный тип данных " + type);
@@ -68,7 +69,18 @@ public class Generator {
     }
 
     private Object generatorContacts() {
-        return null;
+        var result = new ArrayList<AddressData>();
+        for (int i = 0; i < count; i++) {
+            result.add(new AddressData()
+                    .withFirstName(CommonFunctions.randomString(i * 10))
+                    .withLastName(CommonFunctions.randomString(i * 10))
+                    .withAddress(CommonFunctions.randomString(i * 10))
+                    .withHome(CommonFunctions.randomString(i * 10))
+                    .withEmail(CommonFunctions.randomString(i * 10))
+                    .withPhoto("src/test/resources/images/man.png"));
+
+        }
+        return result;
     }
 
 

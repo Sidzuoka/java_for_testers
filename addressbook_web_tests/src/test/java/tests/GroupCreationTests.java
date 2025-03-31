@@ -1,5 +1,7 @@
 package tests;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import common.CommonFunctions;
 import model.GroupData;
 import org.junit.jupiter.api.Assertions;
@@ -7,6 +9,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -14,13 +18,14 @@ import java.util.List;
 
 public class GroupCreationTests extends TestBase {
 
-    public static List<GroupData> groupProvider() {
+    public static List<GroupData> groupProvider() throws IOException {
         //13 групп создаст
         //8 - комбинации 2^3 из вложенных циклов
         //5 - циклом сгенерированные со случайными значениями
 
         var result = new ArrayList<GroupData>();
 
+        /*
         // перебирает 2 значения name - пустой и непустой
         for (var name : List.of("", "group name")) {
             // перебирает 2 возможных значения header - пустой и непустой
@@ -34,13 +39,12 @@ public class GroupCreationTests extends TestBase {
                 }
             }
         }
-        for (int i = 0; i < 5; i++ ){
-            //длина строки i=0 -> входные данные могут дублироваться, т.к. рандомно подбираются
-            result.add(new GroupData()
-                    .withName(CommonFunctions.randomString(i * 10))
-                    .withHeader(CommonFunctions.randomString(i * 10))
-                    .withFooter(CommonFunctions.randomString(i * 10)));
-        }
+        
+         */
+        //сгенерированные рандомные тестовые данные из файла
+        ObjectMapper mapper = new ObjectMapper();
+        var value = mapper.readValue(new File("groups.json"), new TypeReference<List<GroupData>>() {}); //{} - пустая реализация,
+        result.addAll(value); //добавить в список все из файла                                                                                                            // класс, у кот. ничего нет, только декларация
         return result;
 
     }

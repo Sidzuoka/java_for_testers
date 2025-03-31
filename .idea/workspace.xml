@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules/addressbook_web_tests.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/addressbook_web_tests.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/addressbook_web_tests.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/addressbook_web_tests.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/generator/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/generator/Generator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressCreationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/GroupCreationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/TestBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +102,7 @@
     "Gradle.Tests in 'addressbook_web_tests.test'.executor": "Run",
     "Gradle.Tests in 'tests'.executor": "Run",
     "Gradle.TriangleTests.executor": "Run",
-    "Gradle.addressbook_web_tests [:generator.Generator.main()].executor": "Debug",
+    "Gradle.addressbook_web_tests [:generator.Generator.main()].executor": "Run",
     "Gradle.sandbox [:Geometry.main()].executor": "Run",
     "Gradle.sandbox [:Hello.main()].executor": "Run",
     "Gradle.sandbox [:org.example.Main.main()].executor": "Run",
@@ -125,6 +126,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/devel/homework/java_for_testers/addressbook_web_tests",
     "onboarding.tips.debug.path": "C:/devel/homework/java_for_testers/sandbox/src/main/java/org/example/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -141,11 +143,12 @@
       <recent name="Rectangle" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Generator">
+  <component name="RunManager" selected="Gradle.GroupCreationTests">
     <configuration name="Generator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="generator.Generator" />
       <module name="addressbook_web_tests.test" />
       <option name="PROGRAM_PARAMETERS" value="--type groups --output groups.json --format json --count 3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/addressbook_web_tests" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="generator.*" />
@@ -155,30 +158,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="AddressCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.AddressCreationTests&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
     </configuration>
     <configuration name="AddressCreationTests.canCreateMultipleAddress" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -252,20 +231,44 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="GroupCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;tests.GroupCreationTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.Generator" />
+      <item itemvalue="Gradle.GroupCreationTests" />
       <item itemvalue="Gradle.AddressCreationTests.canCreateMultipleAddress" />
       <item itemvalue="Gradle.AddressCreationTests.canCreateOneAddress" />
       <item itemvalue="Gradle.AddressRemovalTests" />
-      <item itemvalue="Gradle.AddressCreationTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.GroupCreationTests" />
         <item itemvalue="Application.Generator" />
         <item itemvalue="Gradle.AddressCreationTests.canCreateOneAddress" />
         <item itemvalue="Gradle.AddressRemovalTests" />
         <item itemvalue="Gradle.AddressCreationTests.canCreateMultipleAddress" />
-        <item itemvalue="Gradle.AddressCreationTests" />
       </list>
     </recent_temporary>
   </component>

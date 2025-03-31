@@ -2,8 +2,13 @@ package generator;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import common.CommonFunctions;
 import model.GroupData;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -24,7 +29,7 @@ public class Generator {
 
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         var generator = new Generator(); //замена вызова статик ф-и на метод созданного объекта
         JCommander.newBuilder()         // какие данные будим генерировать - данные для создания группы или контактов
                 .addObject(generator)            //генерировать объекты типа GroupData или AddressData
@@ -33,7 +38,7 @@ public class Generator {
         generator.run();
     }
 
-    private void run() {
+    private void run() throws IOException {
         var data = generate();
         save(data);
     }
@@ -63,7 +68,15 @@ public class Generator {
         return null;
     }
 
-    private void save(Object data) {
+    private void save(Object data) throws IOException {
+        if ("json".equals(format)) {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.enable(SerializationFeature.INDENT_OUTPUT); //вывод в более удобном виде (построчно и т.д.)
+            mapper.writeValue(new File(output), data);
+        } else {
+            throw new IllegalArgumentException("Неизвестный формат " + format);
+        }
+
     }
 
 

@@ -21,7 +21,7 @@ public class AddressCreationTests extends TestBase{
     public static List<AddressData> addressProvider() throws IOException {
         var result = new ArrayList<AddressData>();
 
-        /*
+
         for (var firstname : List.of("", "firstname")) {
             for (var lastname : List.of("", "lastname")) {
                 for (var address : List.of("", "address")) {
@@ -40,7 +40,7 @@ public class AddressCreationTests extends TestBase{
             }
         }
 
-         */
+
 
         //сгенерированные рандомные тестовые данные из файла
 
@@ -102,9 +102,8 @@ public class AddressCreationTests extends TestBase{
         expectedList.add(address.withId(newAddress.get(newAddress.size() - 1).id())
                 .withAddress("")
                 .withHome("")
-                .withEmail("")
-                .withPhoto("src/test/resources/images/man.png"));
-                //.withPhoto("src/test/resources/images/man.png")); //нашли элемент и взяли у него идентификатор
+                .withEmail(""));
+                //.withPhoto("src/test/resources/images/man.png"));
         expectedList.sort(compareById);
         Assertions.assertEquals(newAddress, expectedList);
     }

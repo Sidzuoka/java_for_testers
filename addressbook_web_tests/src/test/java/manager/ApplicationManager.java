@@ -21,6 +21,8 @@ public class ApplicationManager {
 
     private Properties properties;
 
+    private JdbcHelper jdbc;
+
 
 
     public void init(String browser, Properties properties) {
@@ -62,6 +64,12 @@ public class ApplicationManager {
         return address;
     }
 
+    public JdbcHelper jdbc() {
+        if(jdbc == null) {
+            jdbc = new JdbcHelper(this);
+        }
+        return jdbc;
+    }
 
     protected boolean isElementPresent(By locator) {
         //если находит элемент -> возвращает его,

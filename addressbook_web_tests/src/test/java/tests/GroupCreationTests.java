@@ -82,37 +82,34 @@ public class GroupCreationTests extends TestBase {
         var value = mapper.readValue(new File("groups.xml"), new TypeReference<List<GroupData>>() {});
         result.addAll(value);
         return result;
+    }
 
+    public static List<GroupData> singleRandomGroup() {
+        return List.of(new GroupData()
+                .withName(CommonFunctions.randomString(10))
+                .withHeader(CommonFunctions.randomString(10))
+                .withFooter(CommonFunctions.randomString(10)));
     }
 
 
     @ParameterizedTest
-    @MethodSource("groupProvider")
-    public void canCreateMultipleGroups(GroupData group) {
-        //сравниваем списки
-        var oldGroups = app.groups().getList();
+    @MethodSource("singleRandomGroup")
+    public void canCreateGroup(GroupData group) {
+        var oldGroups = app.jdbc().getGroupList();
         app.groups().createGroup(group);
-        //после операции получаем новую группу
-        var newGroups = app.groups().getList();
-        //добавляем в конец ожидаемого списка группу
-
-        //порядок элементов в NewGroup и ExpectedList не совпадает, новая группа после добавления может быть в середине списка
-        //упорядочиваем списки по идентификаторам
+        var newGroups = app.jdbc().getGroupList();
         Comparator<GroupData> compareById = (o1, o2) -> {
             return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
         };
         newGroups.sort(compareById);
-        //в ExpectedList идентификатор новой группе был присвоен после создания
-        //возьмем последний элемент в списке newGroups - элемент с самым большим id
-        //можем так сделать, id новой группе присваивается по возрастанию следующим числом
-        //мы не ищем фактический id, а прогнозируем его
+        var maxId = newGroups.get(newGroups.size() - 1).id();
         var expectedList = new ArrayList<>(oldGroups);
-        //создавать будет группа с непустыми/правильными Header и Footer, но перед сравнением мы их очистим
-        expectedList.add(group.withId(newGroups.get(newGroups.size() - 1).id()).withHeader("").withFooter(""));
+        expectedList.add(group.withId(maxId));
         expectedList.sort(compareById);
-        Assertions.assertEquals(newGroups, expectedList);
+        Assertions.assertEquals(newGroups, expectedList);//сравнение происходит по всем столбцам name, header, footer - раньше header, footer обнуляли, т.к. не могли получить из GUI
 
     }
+
 
 
     public static List<GroupData> negativeGroupProvider() {
@@ -132,6 +129,31 @@ public class GroupCreationTests extends TestBase {
         Assertions.assertEquals(newGroups, oldGroups);
 
     }
+
+
+
+
+        /*
+    @ParameterizedTest
+    @MethodSource("groupProvider")
+    public void canCreateMultipleGroups(GroupData group) {
+        var oldGroups = app.groups().getList();
+        app.groups().createGroup(group);
+        var newGroups = app.groups().getList();
+        Comparator<GroupData> compareById = (o1, o2) -> {
+            return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
+        };
+        newGroups.sort(compareById);
+        var expectedList = new ArrayList<>(oldGroups);
+        expectedList.add(group.withId(newGroups.get(newGroups.size() - 1).id()).withHeader("").withFooter(""));
+        expectedList.sort(compareById);
+        Assertions.assertEquals(newGroups, expectedList);
+
+    }
+
+
+     */
+
 
 
 }

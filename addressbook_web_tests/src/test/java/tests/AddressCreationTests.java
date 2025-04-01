@@ -102,8 +102,8 @@ public class AddressCreationTests extends TestBase{
         expectedList.add(address.withId(newAddress.get(newAddress.size() - 1).id())
                 .withAddress("")
                 .withHome("")
-                .withEmail(""));
-                //.withPhoto("src/test/resources/images/man.png"));
+                .withEmail("")
+                .withPhoto("src/test/resources/images/man.png"));
         expectedList.sort(compareById);
         Assertions.assertEquals(newAddress, expectedList);
     }
@@ -116,7 +116,7 @@ public class AddressCreationTests extends TestBase{
                 .withAddress(CommonFunctions.randomString(10))
                 .withHome(CommonFunctions.randomString(10))
                 .withEmail(CommonFunctions.randomString(10))
-                .withPhoto(randomFile("src/test/resources/images"));
+                .withPhoto(CommonFunctions.randomFile("src/test/resources/images"));
         app.address().createAddress(address);
 
     }

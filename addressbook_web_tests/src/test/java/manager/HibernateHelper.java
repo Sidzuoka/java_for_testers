@@ -51,6 +51,18 @@ public class HibernateHelper extends HelperBase{
         //приводим к строке тип данных число для id, полученного из таблицы, через конкатенацию со строкой
     }
 
+    //из о. типа GroupData строит о. GroupRecord типа
+    private static GroupRecord convert(GroupData data) {
+        //чтобы не сломался parseInt(id) - т.к. при создании нового объекта id нет - пустая строка
+        var id = data.id();
+        if ("".equals(id)) {
+            id = "0";
+        }
+        //вызывает конструктор и передает туда параметры /из строки в число - id
+        return new GroupRecord(Integer.parseInt(id), data.name(), data.header(), data.footer());
+        //приводим к строке тип данных число для id, полученного из таблицы, через конкатенацию со строкой
+    }
+
 
     public List<GroupData> getGroupList() {
         return convertList(sessionFactory.fromSession(session -> {
@@ -59,4 +71,24 @@ public class HibernateHelper extends HelperBase{
     }
 
 
+    //считает кол-во групп в результате выполнения запроса
+    public long getGroupCount() {
+        return (sessionFactory.fromSession(session -> {
+            //.fromSession - когда нужно что-то вернуть
+            return session.createQuery("select count (*) from GroupRecord", Long.class).getSingleResult(); //нужны данные типа GroupData - в List так заявлено - используем ф-ию - преобразователь типов из GroupRecord в GroupData
+        }));
+    }
+
+    //выполнить запрос к БД, который создает новый объект
+    public void createGroup(GroupData groupData) {
+        sessionFactory.inSession(session -> {
+            session.getTransaction().begin();
+            //нужно сохранять объект типа Record, т.е. нужно выполнить обратную конвертацию из GroupData -> GroupRecord
+            session.persist(convert(groupData));
+            session.getTransaction().commit(); //открытые сессии сохраняем в консистентном состоянии
+        });
+        //.inSession - выполнить действие, ничего не возвращать
+
+
+    }
 }

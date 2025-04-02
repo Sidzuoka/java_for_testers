@@ -108,6 +108,18 @@ public class GroupCreationTests extends TestBase {
         expectedList.sort(compareById);
         Assertions.assertEquals(newGroups, expectedList);//сравнение происходит по всем столбцам name, header, footer - раньше header, footer обнуляли, т.к. не могли получить из GUI
 
+        /*
+        //в GUI тот же список групп, что и в БД
+        var newUiGroups = app.groups().getList();
+        newUiGroups.add(group.withId(newGroups.get(newGroups.size() - 1).id()).withHeader("").withFooter(""));
+        newUiGroups.sort(compareById);
+        System.out.println(newUiGroups);
+        System.out.println(newGroups);
+        Assertions.assertEquals(newGroups, newUiGroups);
+
+
+         */
+
     }
 
 

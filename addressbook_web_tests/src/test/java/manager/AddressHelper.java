@@ -56,7 +56,7 @@ public class AddressHelper extends HelperBase{
         type(By.name("address"), address.address());
         type(By.name("home"), address.home());
         type(By.name("email"), address.email());
-        attach(By.name("photo"), address.photo());
+        //attach(By.name("photo"), address.photo());
 
     }
 

@@ -83,7 +83,7 @@ public class AddressCreationTests extends TestBase{
 
     public static List<AddressData> negativeAddressProvider() {
         var result = new ArrayList<AddressData>(List.of(
-                new AddressData("", "FirstName'", "", "", "", "", "src/test/resources/images/man.png")));
+                new AddressData("", "FirstName'", "", "", "", "")));
         return result;
     }
 
@@ -98,6 +98,28 @@ public class AddressCreationTests extends TestBase{
     }
 
 
+
+    @ParameterizedTest
+    @MethodSource("singleRandomAddress")
+    public void canCreateAddress(AddressData address) {
+        var oldAddress = app.hbm().getAddressList();
+        app.address().createAddress(address);
+        var newAddress = app.hbm().getAddressList();
+        Comparator<AddressData> compareById = (o1, o2) -> {
+            return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
+        };
+        newAddress.sort(compareById);
+        var maxId = newAddress.get(newAddress.size() - 1).id();
+
+        var expectedList = new ArrayList<>(oldAddress);
+        expectedList.add(address.withId(maxId));
+        expectedList.sort(compareById);
+        Assertions.assertEquals(newAddress, expectedList);
+
+    }
+
+    /*
+    //Jdbc_Address
     @ParameterizedTest
     @MethodSource("singleRandomAddress")
     public void canCreateAddress(AddressData address) {
@@ -116,6 +138,8 @@ public class AddressCreationTests extends TestBase{
         Assertions.assertEquals(newAddress, expectedList);
 
     }
+
+     */
 
 
     /*

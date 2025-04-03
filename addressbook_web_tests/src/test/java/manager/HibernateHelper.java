@@ -1,13 +1,13 @@
 package manager;
 
+import manager.hbm.AddressRecord;
 import manager.hbm.GroupRecord;
+import model.AddressData;
 import model.GroupData;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AvailableSettings;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.tool.schema.Action;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class HibernateHelper extends HelperBase{
 
 
         sessionFactory = new Configuration()
-                        //.addAnnotatedClass(Book.class)
+                        .addAnnotatedClass(AddressRecord.class)
                         .addAnnotatedClass(GroupRecord.class) //работать с классом, где опис. привязка к табл. БД
                         // MySQL
                         .setProperty(AvailableSettings.JAKARTA_JDBC_URL, "jdbc:mysql://localhost/addressbook")
@@ -65,7 +65,7 @@ public class HibernateHelper extends HelperBase{
 
 
     public List<GroupData> getGroupList() {
-        return convertList(sessionFactory.fromSession(session -> {
+        return convertList((List<GroupRecord>) sessionFactory.fromSession(session -> {
             return session.createQuery("from GroupRecord", GroupRecord.class).list(); //нужны данные типа GroupData - в List так заявлено - используем ф-ию - преобразователь типов из GroupRecord в GroupData
         }));
     }
@@ -89,6 +89,29 @@ public class HibernateHelper extends HelperBase{
         });
         //.inSession - выполнить действие, ничего не возвращать
 
-
     }
+
+
+
+
+    static List<AddressData> convertListAddrr(List<AddressRecord> records) {
+        List<AddressData> result = new ArrayList<>();
+        for (var record : records) {
+            result.add(convertAddrr(record));
+        }
+        return result;
+    }
+
+    private static AddressData convertAddrr(AddressRecord record) {
+        return new AddressData("" + record.id, record.firstname, record.lastname, record.address, record.home, record.email);
+    }
+
+    public List<AddressData> getAddressList() {
+        return convertListAddrr((List<AddressRecord>) sessionFactory.fromSession(session -> {
+            return session.createQuery("from AddressRecord", AddressRecord.class).list();
+        }));
+    }
+
+
+
 }

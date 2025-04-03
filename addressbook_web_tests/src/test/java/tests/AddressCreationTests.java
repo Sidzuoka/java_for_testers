@@ -87,7 +87,66 @@ public class AddressCreationTests extends TestBase{
         return result;
     }
 
+    public static List<AddressData> singleRandomAddress() {
+        return List.of(new AddressData()
+                .withLastName(CommonFunctions.randomString(10))
+                .withFirstName(CommonFunctions.randomString(10))
+                .withAddress(CommonFunctions.randomString(10))
+                .withHome(CommonFunctions.randomString(10))
+                .withEmail(CommonFunctions.randomString(10))
+                .withPhoto("src/test/resources/images/man.png"));
+    }
 
+
+    @ParameterizedTest
+    @MethodSource("singleRandomAddress")
+    public void canCreateAddress(AddressData address) {
+        var oldAddress = app.jdbc().getAddressList();
+        app.address().createAddress(address);
+        var newAddress = app.jdbc().getAddressList();
+        Comparator<AddressData> compareById = (o1, o2) -> {
+            return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
+        };
+        newAddress.sort(compareById);
+        var maxId = newAddress.get(newAddress.size() - 1).id();
+
+        var expectedList = new ArrayList<>(oldAddress);
+        expectedList.add(address.withId(maxId));
+        expectedList.sort(compareById);
+        Assertions.assertEquals(newAddress, expectedList);
+
+    }
+
+
+    /*
+    @ParameterizedTest
+    @MethodSource("singleRandomAddress")
+    public void canCreateAddress(AddressData address) {
+
+        var newUiAddress = app.address().getList();
+        app.address().createAddress(address);
+        var newAddress1 = new ArrayList<>(app.jdbc().getAddressList());
+        newAddress1.add(address.withAddress("").withHome("").withEmail(""));
+
+        Comparator<AddressData> compareById1 = (o1, o2) -> {
+            return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
+        };
+        newAddress1.sort(compareById1);
+        var maxId1 = newAddress1.get(newAddress1.size() - 1).id();
+
+        var expectedList1 = new ArrayList<>(newUiAddress);
+        expectedList1.add(address.withId(maxId1));
+        expectedList1.sort(compareById1);
+        System.out.println(expectedList1);
+        System.out.println(newAddress1);
+        Assertions.assertEquals(newAddress1, expectedList1);
+    }
+
+     */
+
+
+
+    /*
     @ParameterizedTest
     @MethodSource("addressProvider")
     public void canCreateMultipleAddress(AddressData address) {
@@ -107,6 +166,8 @@ public class AddressCreationTests extends TestBase{
         expectedList.sort(compareById);
         Assertions.assertEquals(newAddress, expectedList);
     }
+
+     */
 
     @Test
     void canCreateOneAddress() {

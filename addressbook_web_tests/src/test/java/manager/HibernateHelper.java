@@ -24,10 +24,10 @@ public class HibernateHelper extends HelperBase{
                         .addAnnotatedClass(AddressRecord.class)
                         .addAnnotatedClass(GroupRecord.class) //работать с классом, где опис. привязка к табл. БД
                         // MySQL
-                        .setProperty(AvailableSettings.JAKARTA_JDBC_URL, "jdbc:mysql://localhost/addressbook")
+                        .setProperty(AvailableSettings.URL, "jdbc:mysql://localhost/addressbook")
                         // Credentials
-                        .setProperty(AvailableSettings.JAKARTA_JDBC_USER, "root")
-                        .setProperty(AvailableSettings.JAKARTA_JDBC_PASSWORD, "")
+                        .setProperty(AvailableSettings.USER, "root")
+                        .setProperty(AvailableSettings.PASS, "")
                         // Create a new SessionFactory
                         .buildSessionFactory();
 
@@ -93,6 +93,7 @@ public class HibernateHelper extends HelperBase{
 
 
 
+//--------------------------------------------------Address----------------------------------------------------------------------------------------------------------
 
     static List<AddressData> convertListAddrr(List<AddressRecord> records) {
         List<AddressData> result = new ArrayList<>();
@@ -106,6 +107,14 @@ public class HibernateHelper extends HelperBase{
         return new AddressData("" + record.id, record.firstname, record.lastname, record.address, record.home, record.email);
     }
 
+    private static AddressRecord convertAddrr1(AddressData address) {
+        var id = address.id();
+        if ("".equals(id)) {
+            id  = "0";
+        }
+        return new AddressRecord(Integer.parseInt(id), address.firstname(), address.lastname(), address.address(), address.home(), address.email());
+    }
+
     public List<AddressData> getAddressList() {
         return convertListAddrr((List<AddressRecord>) sessionFactory.fromSession(session -> {
             return session.createQuery("from AddressRecord", AddressRecord.class).list();
@@ -113,5 +122,18 @@ public class HibernateHelper extends HelperBase{
     }
 
 
+    public Long getCountAddress() {
+        return sessionFactory.fromSession(session -> {
+            return session.createQuery("select count (*) from AddressRecord", Long.class).getSingleResult();
+        });
+    }
 
+    public void createAddressStatic(AddressData addressData) {
+        sessionFactory.inSession(session -> {
+            session.getTransaction().begin();
+            session.persist(convertAddrr1(addressData));
+            session.getTransaction().commit();
+        });
+
+    }
 }

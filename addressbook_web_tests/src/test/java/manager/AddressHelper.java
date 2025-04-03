@@ -42,7 +42,6 @@ public class AddressHelper extends HelperBase{
 
     public void modifyAddress(AddressData address, AddressData modifyAddress) {
         openHomePage();
-        //selectAddress(address);
         initAddressModification(address);
         fillAddressForm(modifyAddress);
         updateAddressModification();
@@ -121,12 +120,8 @@ public class AddressHelper extends HelperBase{
 
 
         private void initAddressModification(AddressData address) {
-            //click(By.cssSelector("img[title='Edit']"));
             click(By.cssSelector(String.format("a[href='edit.php?id=%s'] img", address.id())));
-            //click(By.cssSelector(String.format("input[value='%s']", address.id())));
         }
-
-
 
 
 

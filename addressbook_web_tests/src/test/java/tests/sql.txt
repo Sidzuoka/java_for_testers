@@ -1,0 +1,7 @@
+SELECT * FROM address_in_groups ag LEFT JOIN addressbook ab ON ab.id = ag.id WHERE ab.id IS NULL;
+вернет запись, относящуюся к несуществующему контакту
+
+
+DELETE ag FROM 'address_in_groups' ag LEFT JOIN addressbook ab ON ab.id = ag.id WHERE ad.id IS NULL
+
+DELETE FROM `address_in_groups` WHERE `address_in_groups`.`id` = 961 AND `address_in_groups`.`group_id` = 69;

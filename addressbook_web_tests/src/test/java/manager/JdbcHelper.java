@@ -55,4 +55,20 @@ public class JdbcHelper extends HelperBase{
         }
         return address;
     }
+
+    public void checkConsistency() {
+        try (var conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook", "root", "");
+             var statement = conn.createStatement();
+             var result = statement.executeQuery(
+                     "SELECT * FROM address_in_groups ag LEFT JOIN addressbook ab ON ab.id = ag.id WHERE ab.id IS NULL;"))
+                //проверка будет зависеть от результата, кот. вернет SQL-запрос
+        {
+            //если список результатов не пустой, значит нужно выбросить исключение
+            if (result.next()) {
+                throw new IllegalStateException("DB is corrupted");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e); //выбрасывается более общее, ловится более частное исключение
+        }
+    }
 }

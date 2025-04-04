@@ -95,10 +95,10 @@ public class Generator {
             try (var writer = new FileWriter(output)) {
                 writer.write(json);
             }
-        } if ("yaml".equals(format)) { //https://github.com/FasterXML/jackson-dataformats-text/tree/master/yaml
+        } else if ("yaml".equals(format)) { //https://github.com/FasterXML/jackson-dataformats-text/tree/master/yaml
             ObjectMapper mapper = new YAMLMapper();
             mapper.writeValue(new File(output), data);
-        } if ("xml".equals(format)) { //https://github.com/FasterXML/jackson-dataformat-xml
+        } else if ("xml".equals(format)) { //https://github.com/FasterXML/jackson-dataformat-xml
             ObjectMapper mapper = new XmlMapper();
             mapper.writeValue(new File(output), data);
         } else {

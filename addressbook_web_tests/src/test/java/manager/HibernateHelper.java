@@ -24,7 +24,7 @@ public class HibernateHelper extends HelperBase{
                         .addAnnotatedClass(AddressRecord.class)
                         .addAnnotatedClass(GroupRecord.class) //работать с классом, где опис. привязка к табл. БД
                         // MySQL
-                        .setProperty(AvailableSettings.URL, "jdbc:mysql://localhost/addressbook")
+                        .setProperty(AvailableSettings.URL, "jdbc:mysql://localhost/addressbook?zeroDateTimeBehavior=convertToNull")//нулевые даты будут игнорироваться
                         // Credentials
                         .setProperty(AvailableSettings.USER, "root")
                         .setProperty(AvailableSettings.PASS, "")
@@ -116,9 +116,9 @@ public class HibernateHelper extends HelperBase{
     }
 
     public List<AddressData> getAddressList() {
-        return convertListAddrr((List<AddressRecord>) sessionFactory.fromSession(session -> {
-            return session.createQuery("from AddressRecord", AddressRecord.class).list();
-        }));
+        return sessionFactory.fromSession(session -> {
+            return convertListAddrr((List<AddressRecord>) session.createQuery("from AddressRecord", AddressRecord.class).list());
+        });
     }
 
 
@@ -135,5 +135,11 @@ public class HibernateHelper extends HelperBase{
             session.persist(convertToAddrrData(addressData));
             session.getTransaction().commit();
         });
+    }
+
+    public List<AddressData> getAddresssInGroup(GroupData group) {
+        return (sessionFactory.fromSession(session -> {
+            return convertListAddrr(session.get(GroupRecord.class, group.id()).addresses);
+        }));
     }
 }

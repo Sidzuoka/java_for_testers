@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import common.CommonFunctions;
 import model.AddressData;
+import model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -96,6 +97,45 @@ public class AddressCreationTests extends TestBase{
                 .withEmail(CommonFunctions.randomString(10))
                 .withPhoto("src/test/resources/images/man.png"));
     }
+
+
+    @Test
+    void canCreateAddressInGroup() {
+        var address = new AddressData()
+                .withLastName(CommonFunctions.randomString(10))
+                .withFirstName(CommonFunctions.randomString(10))
+                .withAddress(CommonFunctions.randomString(10))
+                .withHome(CommonFunctions.randomString(10))
+                .withEmail(CommonFunctions.randomString(10))
+                .withPhoto(CommonFunctions.randomFile("src/test/resources/images"));
+
+        if (app.hbm().getGroupCount() == 0) {
+            app.hbm().createGroup(new GroupData("", "group name", "group header", "group footer"));
+        }
+        var group = app.hbm().getGroupList().get(0); //get(0) выбирает первую группу из списка
+
+        //получить список контактов, кот. входят в заданную гр.
+        var oldRelated = app.hbm().getAddresssInGroup(group);
+        app.address().createAddressGr(address, group);
+        var newRelated = app.hbm().getAddresssInGroup(group);
+        Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+        //проверка на содержимое списов
+        /*
+                Comparator<AddressData> compareById = (o1, o2) -> {
+            return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
+        };
+        newAddress.sort(compareById);
+        var maxId = newAddress.get(newAddress.size() - 1).id();
+
+        var expectedList = new ArrayList<>(oldAddress);
+        expectedList.add(address.withId(maxId));
+        expectedList.sort(compareById);
+        Assertions.assertEquals(newAddress, expectedList);
+         */
+
+
+    }
+
 
 
 

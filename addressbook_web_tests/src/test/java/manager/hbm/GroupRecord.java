@@ -5,13 +5,11 @@ package manager.hbm;
 //если нет явного соотв-я, того используем аннотацию @Column
 //фокусируется на том, как данные представлены в БД, на ур. приложения и маскируют от нас инф.
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import model.GroupData;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "group_list")
@@ -33,6 +31,11 @@ public class GroupRecord {
     //т.к. в табл. не задано значение по дефолту, то можно задать текущее значение new Date()
     public Date deprecated = new Date(); //Date или можно использовать тип datetime (см. Структуру таблицы group_list SQL)
 
+    @ManyToMany(fetch = FetchType.LAZY) //связь контакт может входить в несколько групп - по умол. LAZY - загружать в самый последний момент
+    @JoinTable(name = "address_in_groups",
+            joinColumns = @JoinColumn(name = "group_id"),
+            inverseJoinColumns = @JoinColumn(name = "id"))
+    public List<AddressRecord> addresses;
 
 
     public GroupRecord() {

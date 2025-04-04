@@ -13,6 +13,30 @@ public class AddressModificationTests extends TestBase {
 
     @Test
     void canModifyAddress() {
+        if (app.hbm().getAddressCount() == 0) {
+            app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
+                    "Address", "HomeTelephone", "email"));
+        }
+        var oldAddress = app.hbm().getAddressList();
+        var rnd = new Random();
+        var index = rnd.nextInt(oldAddress.size());
+        var testData = new AddressData().withLastName("modified LastName");
+        app.address().modifyAddress(oldAddress.get(index), testData);
+        var newAddress = app.hbm().getAddressList();
+        var expectedList = new ArrayList<>(oldAddress);
+        expectedList.set(index, testData.withId(oldAddress.get(index).id()));
+        Comparator<AddressData> compareById = (o1, o2) -> {
+            return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
+        };
+        newAddress.sort(compareById);
+        expectedList.sort(compareById);
+        Assertions.assertEquals(newAddress, expectedList);
+
+    }
+
+    /*
+    @Test
+    void canModifyAddress() {
         app.address().openHomePage();
         if (app.address().getCountAddress() == 0) {
             app.address().createAddress(new AddressData("", "Firstname", "Lastname",
@@ -37,4 +61,6 @@ public class AddressModificationTests extends TestBase {
         Assertions.assertEquals(newAddress, expectedList);
 
     }
+
+     */
 }

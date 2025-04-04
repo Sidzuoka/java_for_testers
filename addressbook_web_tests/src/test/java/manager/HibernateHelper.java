@@ -98,16 +98,16 @@ public class HibernateHelper extends HelperBase{
     static List<AddressData> convertListAddrr(List<AddressRecord> records) {
         List<AddressData> result = new ArrayList<>();
         for (var record : records) {
-            result.add(convertAddrr(record));
+            result.add(convertToRecord(record));
         }
         return result;
     }
 
-    private static AddressData convertAddrr(AddressRecord record) {
+    private static AddressData convertToRecord(AddressRecord record) {
         return new AddressData("" + record.id, record.firstname, record.lastname, record.address, record.home, record.email);
     }
 
-    private static AddressRecord convertAddrr1(AddressData address) {
+    private static AddressRecord convertToAddrrData(AddressData address) {
         var id = address.id();
         if ("".equals(id)) {
             id  = "0";
@@ -122,18 +122,18 @@ public class HibernateHelper extends HelperBase{
     }
 
 
-    public Long getCountAddress() {
+    public long getAddressCount() {
         return sessionFactory.fromSession(session -> {
             return session.createQuery("select count (*) from AddressRecord", Long.class).getSingleResult();
         });
     }
 
-    public void createAddressStatic(AddressData addressData) {
+
+    public void createAddress(AddressData addressData) {
         sessionFactory.inSession(session -> {
             session.getTransaction().begin();
-            session.persist(convertAddrr1(addressData));
+            session.persist(convertToAddrrData(addressData));
             session.getTransaction().commit();
         });
-
     }
 }

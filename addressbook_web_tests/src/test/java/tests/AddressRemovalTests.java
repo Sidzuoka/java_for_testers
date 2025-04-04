@@ -13,12 +13,11 @@ public class AddressRemovalTests extends TestBase{
 
     @Test
     public void canRemoveAddress() {
-        //app.address().openHomePage();
-        //System.out.println(app.hbm().getCountAddress());
-        if (app.hbm().getCountAddress() == 0) {
-            app.address().createAddress(new AddressData("", "Firstname", "Lastname",
+        if (app.hbm().getAddressCount() == 0) {
+            app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
                     "Address", "HomeTelephone", "email"));
         }
+        System.out.println(app.hbm().getAddressCount());
         var oldAddress = app.hbm().getAddressList();
         System.out.println(oldAddress);
         var rnd = new Random();
@@ -55,14 +54,15 @@ public class AddressRemovalTests extends TestBase{
      */
 
     @Test
-    void canRemoveAllAddressAtOnce() {
-        //app.address().openHomePage();
-        if (app.hbm().getCountAddress() == 0) {
-            app.address().createAddress(new AddressData("", "Firstname", "Lastname",
+    void canRemoveAllAddressAtOnce() throws InterruptedException {
+        if (app.hbm().getAddressCount() == 0) {
+            app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
                     "Address", "HomeTelephone", "email"));
         }
+
+        //Thread.sleep(1000);
         app.address().removeAllAddress();
-        Assertions.assertEquals(0, app.hbm().getCountAddress());
+        Assertions.assertEquals(0, app.hbm().getAddressCount());
     }
 
     /*

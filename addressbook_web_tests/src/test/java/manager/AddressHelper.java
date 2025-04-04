@@ -35,7 +35,7 @@ public class AddressHelper extends HelperBase{
 
     public void removeAddress(AddressData address) {
         openHomePage();
-        selectAddress(address); //selectAddress()
+        selectAddress(address);
         removeSelectedAddresses();
         returnToHomePage();
     }
@@ -68,6 +68,15 @@ public class AddressHelper extends HelperBase{
         click(By.cssSelector(String.format("input[value='%s']", address.id())));
     }
 
+    /*
+    private void selectAllAddress() {
+        click(By.xpath("//input[@onclick=\'MassSelection()\']"));
+    }
+
+     */
+
+
+
 
     private void returnToHomePage() {
         click(By.linkText("home"));
@@ -88,6 +97,7 @@ public class AddressHelper extends HelperBase{
 
     public void removeAllAddress() {
         openHomePage();
+        //selectAllAddress();
         selectAllAddresses();
         removeSelectedAddresses();
     }

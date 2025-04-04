@@ -119,19 +119,22 @@ public class AddressCreationTests extends TestBase{
         app.address().createAddressGr(address, group);
         var newRelated = app.hbm().getAddresssInGroup(group);
         Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+
         //проверка на содержимое списов
-        /*
+
                 Comparator<AddressData> compareById = (o1, o2) -> {
             return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
         };
-        newAddress.sort(compareById);
-        var maxId = newAddress.get(newAddress.size() - 1).id();
+        oldRelated.sort(compareById);
+        var maxId = newRelated.get(newRelated.size() - 1).id();
 
-        var expectedList = new ArrayList<>(oldAddress);
+        var expectedList = new ArrayList<>(oldRelated);
         expectedList.add(address.withId(maxId));
         expectedList.sort(compareById);
-        Assertions.assertEquals(newAddress, expectedList);
-         */
+        System.out.println(newRelated);
+        System.out.println(expectedList);
+        Assertions.assertEquals(newRelated, expectedList);
+
 
 
     }

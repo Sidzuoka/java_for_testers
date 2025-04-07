@@ -1,10 +1,13 @@
 package tests;
 
+import common.CommonFunctions;
 import model.AddressData;
+import model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 
@@ -17,9 +20,9 @@ public class AddressRemovalTests extends TestBase{
             app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
                     "Address", "HomeTelephone", "email"));
         }
-        System.out.println(app.hbm().getAddressCount());
+        //System.out.println(app.hbm().getAddressCount());
         var oldAddress = app.hbm().getAddressList();
-        System.out.println(oldAddress);
+        //System.out.println(oldAddress);
         var rnd = new Random();
         var index = rnd.nextInt(oldAddress.size());
         app.address().removeAddress(oldAddress.get(index));

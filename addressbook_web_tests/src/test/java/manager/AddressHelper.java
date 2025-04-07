@@ -43,8 +43,24 @@ public class AddressHelper extends HelperBase{
         returnToHomePage();
     }
 
+    public void addAddressToGr(AddressData address, GroupData group) {
+        openHomePage();
+        selectAddress(address);
+        selectToGroup(group);
+        submitAddressAddToGr();
+        returnToHomePage();
+    }
+
     private void selectGroup(GroupData group) {
        new Select(manager.driver.findElement(By.name("new_group"))).selectByValue(group.id());//Select - для работы с выпадающими списками
+    }
+
+    private void selectToGroup(GroupData group) {
+        new Select(manager.driver.findElement(By.name("to_group"))).selectByValue(group.id());//Select - для работы с выпадающими списками
+    }
+
+    private void submitAddressAddToGr() {
+        click(By.xpath("//input[@value=\'Add to\']"));
     }
 
     public void removeAddress(AddressData address) {

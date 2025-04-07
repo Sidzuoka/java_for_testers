@@ -32,6 +32,52 @@ public class AddressRemovalTests extends TestBase{
         Assertions.assertEquals(newAddress, expectedList);
     }
 
+    @Test
+    void canRemoveFromGroupAddrr() {
+
+        if (app.hbm().getGroupCount() == 0) {
+            app.hbm().createGroup(new GroupData("", "group name", "group header", "group footer"));
+        }
+
+        var group = app.hbm().getGroupList().get(0);
+
+        if (app.hbm().getAddresssInGroup(group).isEmpty()){
+            app.address().createAddressGr(new AddressData("", "Firstname", "Lastname",
+                    "Address", "HomeTelephone", "email"), group);
+        }
+
+
+        var address = app.hbm().getAddressList().get(0);
+
+        //получить список контактов, кот. входят в заданную гр.
+        var oldRelated = app.hbm().getAddresssInGroup(group);
+        app.address().removeAddressFromGr(address, group);
+        var newRelated = app.hbm().getAddresssInGroup(group);
+        Assertions.assertEquals(oldRelated.size() - 1, newRelated.size());
+
+
+        /*
+        //проверка на содержимое списов
+
+        Comparator<AddressData> compareById = (o1, o2) -> {
+            return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
+        };
+        oldRelated.sort(compareById);
+        var maxId = newRelated.get(newRelated.size() - 1).id();
+
+        var expectedList = new ArrayList<>(oldRelated);
+        expectedList.add(address.withId(maxId));
+        expectedList.sort(compareById);
+        System.out.println(newRelated);
+        System.out.println(expectedList);
+        Assertions.assertEquals(newRelated, expectedList);
+
+         */
+
+
+    }
+
+
 
     /*
     @Test

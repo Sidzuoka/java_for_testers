@@ -63,6 +63,7 @@ public class AddressHelper extends HelperBase{
         click(By.xpath("//input[@value=\'Add to\']"));
     }
 
+
     public void removeAddress(AddressData address) {
         openHomePage();
         selectAddress(address);
@@ -163,6 +164,25 @@ public class AddressHelper extends HelperBase{
             click(By.cssSelector(String.format("a[href='edit.php?id=%s'] img", address.id())));
         }
 
+
+    public void removeAddressFromGr(AddressData address, GroupData group) {
+        openHomePage();
+        selectFromGroup(group);
+        selectAddress(address);
+        submitRemoveAddFromGr();
+        returnToHomePage();
+
+    }
+
+
+    private void selectFromGroup(GroupData group) {
+        new Select(manager.driver.findElement(By.xpath("//select[@name=\'group\']"))).selectByValue(group.id());
+    }
+
+    private void submitRemoveAddFromGr() {
+        click(By.xpath("//input[@name=\'remove\']"));
+        //input[@name='remove']
+    }
 
 
 }

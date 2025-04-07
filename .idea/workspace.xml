@@ -76,6 +76,7 @@
     "Application.Hello.executor": "Run",
     "Gradle.AddressCreationTests.addressCreationTests.executor": "Run",
     "Gradle.AddressCreationTests.canAddAddressInGroup.executor": "Run",
+    "Gradle.AddressCreationTests.canAddToGroupAddrr.executor": "Debug",
     "Gradle.AddressCreationTests.canCreateAddress.executor": "Run",
     "Gradle.AddressCreationTests.canCreateAddressInGroup.executor": "Run",
     "Gradle.AddressCreationTests.canCreateMultipleAddress.executor": "Run",
@@ -86,6 +87,7 @@
     "Gradle.AddressModificationTests.executor": "Run",
     "Gradle.AddressRemovalTests.canRemoveAddress.executor": "Debug",
     "Gradle.AddressRemovalTests.canRemoveAllAddressAtOnce.executor": "Run",
+    "Gradle.AddressRemovalTests.canRemoveFromGroupAddrr.executor": "Run",
     "Gradle.AddressRemovalTests.executor": "Run",
     "Gradle.GroupCreationTests.canCreateGroup.executor": "Run",
     "Gradle.GroupCreationTests.canCreateGroupHBM.executor": "Run",
@@ -145,7 +147,7 @@
       <recent name="Square" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AddressCreationTests">
+  <component name="RunManager" selected="Gradle.AddressRemovalTests.canRemoveFromGroupAddrr">
     <configuration name="AddressCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -194,7 +196,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="AddressCreationTests.canCreateAddressInGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AddressCreationTests.canAddToGroupAddrr" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
@@ -207,7 +209,31 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tests.AddressCreationTests.canCreateAddressInGroup&quot;" />
+            <option value="&quot;tests.AddressCreationTests.canAddToGroupAddrr&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="AddressRemovalTests.canRemoveFromGroupAddrr" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;tests.AddressRemovalTests.canRemoveFromGroupAddrr&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -242,44 +268,20 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="GroupCreationTests.canCreateGroupHBM" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.GroupCreationTests.canCreateGroupHBM&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Gradle.AddressCreationTests" />
       <item itemvalue="Gradle.AddressCreationTests.canAddAddressInGroup" />
+      <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
+      <item itemvalue="Gradle.AddressRemovalTests.canRemoveFromGroupAddrr" />
       <item itemvalue="Gradle.GroupCreationTests" />
-      <item itemvalue="Gradle.GroupCreationTests.canCreateGroupHBM" />
-      <item itemvalue="Gradle.AddressCreationTests.canCreateAddressInGroup" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AddressRemovalTests.canRemoveFromGroupAddrr" />
+        <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
         <item itemvalue="Gradle.AddressCreationTests" />
         <item itemvalue="Gradle.GroupCreationTests" />
         <item itemvalue="Gradle.AddressCreationTests.canAddAddressInGroup" />
-        <item itemvalue="Gradle.AddressCreationTests.canCreateAddressInGroup" />
-        <item itemvalue="Gradle.GroupCreationTests.canCreateGroupHBM" />
       </list>
     </recent_temporary>
   </component>

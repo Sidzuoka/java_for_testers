@@ -138,7 +138,7 @@ public class AddressCreationTests extends TestBase{
 
 
     @Test
-    void canAddAddressInGroup() {
+    void canAddToGroupAddrr() {
 
         if (app.hbm().getAddressCount() == 0) {
             app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
@@ -152,6 +152,8 @@ public class AddressCreationTests extends TestBase{
 
         var address = app.hbm().getAddressList().get(0);
         var group = app.hbm().getGroupList().get(0); //get(0) выбирает первую группу из списка
+
+         //get(0) выбирает первую группу из списка
 
         //получить список контактов, кот. входят в заданную гр.
         var oldRelated = app.hbm().getAddresssInGroup(group);

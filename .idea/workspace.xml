@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressCreationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressRemovalTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressRemovalTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/GroupHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/GroupHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/Geometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/Geometry.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,10 +72,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Geometry.executor": "Run",
     "Application.Hello.executor": "Run",
     "Gradle.AddressCreationTests.addressCreationTests.executor": "Run",
     "Gradle.AddressCreationTests.canAddAddressInGroup.executor": "Run",
-    "Gradle.AddressCreationTests.canAddToGroupAddrr.executor": "Debug",
+    "Gradle.AddressCreationTests.canAddToGroupAddrr.executor": "Run",
     "Gradle.AddressCreationTests.canCreateAddress.executor": "Run",
     "Gradle.AddressCreationTests.canCreateAddressInGroup.executor": "Run",
     "Gradle.AddressCreationTests.canCreateMultipleAddress.executor": "Run",
@@ -147,7 +147,7 @@
       <recent name="Square" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AddressRemovalTests.canRemoveFromGroupAddrr">
+  <component name="RunManager">
     <configuration name="AddressCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />

@@ -4,14 +4,28 @@ import ru.stqa.geometry.figures.Rectangle1; //используем класс, �
 import ru.stqa.geometry.figures.Square;
 import ru.stqa.geometry.figures.Triangle;
 
+import java.util.List;
+import java.util.function.Consumer;
+
 public class Geometry {
     public static void main(String[] args) {
         // var side = 7;
         // System.out.println("Площадь квадрата со стороной " + side + " = " + (side * side));
 
-        Square.printSquareArea(new Square(7.0));
-        Square.printSquareArea(new Square(5.0));
-        Square.printSquareArea(new Square(3.0));
+        var squares = List.of(new Square(7.0), new Square(5.0), new Square(3.0));
+//        for (Square square : squares) {
+//            Square.printSquareArea(square);
+//        }
+
+        //будет содержать ф-ю, кот-я печатает информацию о площади
+        //принимает на вх. параметр, но ничего не возвращает
+        Consumer<Square> print = (square) -> {
+            Square.printSquareArea(square);
+        }; //пишем код ф-ии без имени
+        squares.forEach(print);
+
+
+        /*
 
         //вызвали м-д printRectangleArea(a,b), теперь создаем на него ф-ии
         //пкм на м-д Create Method
@@ -23,6 +37,8 @@ public class Geometry {
        // System.out.println(tr.calculateSquare());
 
         Triangle.printTriangleSquare(new Triangle(5.0, 7.0, 8.0));
+
+         */
 
     }
 

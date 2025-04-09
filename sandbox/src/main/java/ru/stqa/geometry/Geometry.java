@@ -5,24 +5,26 @@ import ru.stqa.geometry.figures.Square;
 import ru.stqa.geometry.figures.Triangle;
 
 import java.util.List;
+import java.util.Random;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public class Geometry {
     public static void main(String[] args) {
-        // var side = 7;
-        // System.out.println("Площадь квадрата со стороной " + side + " = " + (side * side));
+        Supplier<Square> randomSquare = () -> new Square(new Random().nextDouble(100.0));
+        var squares = Stream.generate(randomSquare).limit(5); //будет обращаться к supplier столько раз, сколько потребуется - 5 раз
 
-        var squares = List.of(new Square(7.0), new Square(5.0), new Square(3.0));
-//        for (Square square : squares) {
-//            Square.printSquareArea(square);
-//        }
-
-        //будет содержать ф-ю, кот-я печатает информацию о площади
-        //принимает на вх. параметр, но ничего не возвращает
+        /*
         Consumer<Square> print = (square) -> {
             Square.printSquareArea(square);
+            //Square.printPerimeter(square);
         }; //пишем код ф-ии без имени
         squares.forEach(print);
+
+         */
+
+        squares.peek(Square::printSquareArea); //.forEach(Square::printPerimeter);
 
 
         /*

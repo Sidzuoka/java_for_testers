@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 
 public class GroupCreationTests extends TestBase {
@@ -74,21 +76,25 @@ public class GroupCreationTests extends TestBase {
          */
         //считывание файла формата xml
         var mapper = new XmlMapper();
-        var value = mapper.readValue(new File("groups.xml"), new TypeReference<List<GroupData>>() {});
+        var value = mapper.readValue(new File("groups.xml"), new TypeReference<List<GroupData>>() {
+        });
         result.addAll(value);
         return result;
     }
 
-    public static List<GroupData> singleRandomGroup() {
-        return List.of(new GroupData()
+
+    public static Stream<GroupData> singleRandomGroupStream() {
+        Supplier<GroupData> randomGroup = () -> new GroupData()
                 .withName(CommonFunctions.randomString(10))
                 .withHeader(CommonFunctions.randomString(10))
-                .withFooter(CommonFunctions.randomString(10)));
+                .withFooter(CommonFunctions.randomString(10));
+        return Stream.generate(randomGroup).limit(2);
     }
 
 
+
     @ParameterizedTest
-    @MethodSource("singleRandomGroup")
+    @MethodSource("singleRandomGroupStream")
     public void canCreateGroupHBM(GroupData group) {
         var oldGroups = app.hbm().getGroupList();
         app.groups().createGroup(group);
@@ -104,6 +110,61 @@ public class GroupCreationTests extends TestBase {
         expectedList.sort(compareById);
         Assertions.assertEquals(newGroups, expectedList);
 
+    }
+
+    public static List<GroupData> negativeGroupProvider() {
+        //1 - негативный - name' - когда не можем создать группу
+        var result = new ArrayList<GroupData>(List.of(
+                new GroupData("", "group name'", "", "")));
+        return result;
+
+    }
+
+    @ParameterizedTest
+    @MethodSource("negativeGroupProvider")
+    public void canNotCreateGroup(GroupData group) {
+        var oldGroups = app.groups().getList();
+        app.groups().createGroup(group);
+        var newGroups = app.groups().getList();
+        Assertions.assertEquals(newGroups, oldGroups);
+
+    }
+
+        /*
+
+    public static List<GroupData> singleRandomGroupList() {
+        return List.of(new GroupData()
+                .withName(CommonFunctions.randomString(10))
+                .withHeader(CommonFunctions.randomString(10))
+                .withFooter(CommonFunctions.randomString(10)));
+    }
+
+
+     */
+
+
+
+    /*
+
+    @ParameterizedTest
+    @MethodSource("singleRandomGroupList")
+    public void canCreateGroupHBM(GroupData group) {
+        var oldGroups = app.hbm().getGroupList();
+        app.groups().createGroup(group);
+        var newGroups = app.hbm().getGroupList();
+        Comparator<GroupData> compareById = (o1, o2) -> {
+            return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
+        };
+        newGroups.sort(compareById);
+        var maxId = newGroups.get(newGroups.size() - 1).id();
+
+        var expectedList = new ArrayList<>(oldGroups);
+        expectedList.add(group.withId(maxId));
+        expectedList.sort(compareById);
+        Assertions.assertEquals(newGroups, expectedList);
+
+
+     */
 
 
     /*
@@ -136,33 +197,17 @@ public class GroupCreationTests extends TestBase {
 
          */
 
-    }
 
 
 
 
-    public static List<GroupData> negativeGroupProvider() {
-        //1 - негативный - name' - когда не можем создать группу
-        var result = new ArrayList<GroupData>(List.of(
-                new GroupData("", "group name'", "", "")));
-        return result;
-
-    }
-
-    @ParameterizedTest
-    @MethodSource("negativeGroupProvider")
-    public void canNotCreateGroup(GroupData group) {
-        var oldGroups = app.groups().getList();
-        app.groups().createGroup(group);
-        var newGroups = app.groups().getList();
-        Assertions.assertEquals(newGroups, oldGroups);
-
-    }
 
 
 
 
-        /*
+
+
+
     @ParameterizedTest
     @MethodSource("groupProvider")
     public void canCreateMultipleGroups(GroupData group) {
@@ -181,8 +226,8 @@ public class GroupCreationTests extends TestBase {
     }
 
 
-     */
-
 
 
 }
+
+

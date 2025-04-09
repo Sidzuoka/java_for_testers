@@ -14,7 +14,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
@@ -83,32 +85,35 @@ public class GroupCreationTests extends TestBase {
     }
 
 
-    public static Stream<GroupData> singleRandomGroupStream() {
+    public static Stream<GroupData> randomGroupsStream() {
         Supplier<GroupData> randomGroup = () -> new GroupData()
                 .withName(CommonFunctions.randomString(10))
                 .withHeader(CommonFunctions.randomString(10))
                 .withFooter(CommonFunctions.randomString(10));
-        return Stream.generate(randomGroup).limit(2);
+        return Stream.generate(randomGroup).limit(1);
     }
 
 
 
     @ParameterizedTest
-    @MethodSource("singleRandomGroupStream")
+    @MethodSource("randomGroupsStream")
     public void canCreateGroupHBM(GroupData group) {
         var oldGroups = app.hbm().getGroupList();
         app.groups().createGroup(group);
         var newGroups = app.hbm().getGroupList();
-        Comparator<GroupData> compareById = (o1, o2) -> {
-            return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
-        };
-        newGroups.sort(compareById);
-        var maxId = newGroups.get(newGroups.size() - 1).id();
+
+        var extraGroups = newGroups.stream().filter(g -> ! oldGroups.contains(g)).toList(); //filter - ф-ия, которая принимает на вход элемент потока, возвращает true/false - оставить этот элемент или попустить
+                                                        //отсортировали contains(g), собрали в новый список - toList()
+        var newId = extraGroups.get(0).id(); //get(0) - должен быть один элемент
+
 
         var expectedList = new ArrayList<>(oldGroups);
-        expectedList.add(group.withId(maxId));
-        expectedList.sort(compareById);
-        Assertions.assertEquals(newGroups, expectedList);
+        expectedList.add(group.withId(newId));
+
+        Assertions.assertEquals(Set.copyOf(newGroups), Set.copyOf(expectedList));
+
+        //найти не максимальный id, а тот, которого не было - т.к. в жизни id - не цифры, а строки
+        //берем новый список групп и ищем там группу, которой нет в старом списке групп - id этой группы берем
 
     }
 

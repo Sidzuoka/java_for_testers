@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/common/CommonFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/common/CommonFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/GroupHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/GroupHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/HibernateHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/HibernateHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/GroupCreationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/GroupModificationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/GroupModificationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/test/java/ru/stqa/collections/CollectionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/test/java/ru/stqa/collections/CollectionTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +112,9 @@
     "Gradle.sandbox [:Hello.main()].executor": "Run",
     "Gradle.sandbox [:org.example.Main.main()].executor": "Run",
     "Gradle.sandbox [:ru.stqa.geometry.Geometry.main()].executor": "Run",
+    "JUnit.CollectionTests.ListTests.executor": "Run",
     "JUnit.CollectionTests.arrayTests.executor": "Run",
+    "JUnit.CollectionTests.setTests.executor": "Run",
     "JUnit.GroupCreationTests.canCreateGroup.executor": "Run",
     "JUnit.MathTests.testDivideByZero.executor": "Run",
     "JUnit.RectangleTests.cannotCreateRectangleWithNegativeSide.executor": "Run",
@@ -149,102 +151,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.GroupCreationTests.canCreateGroupHBM">
-    <configuration name="AddressCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.AddressCreationTests&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="AddressCreationTests.canAddToGroupAddrr" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.AddressCreationTests.canAddToGroupAddrr&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="AddressRemovalTests.canRemoveFromGroupAddrr" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.AddressRemovalTests.canRemoveFromGroupAddrr&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="GroupCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.GroupCreationTests&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="GroupCreationTests.canCreateGroupHBM" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -269,20 +175,92 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="GroupModificationTests.canModifyGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;tests.GroupModificationTests.canModifyGroup&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CollectionTests.ListTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sandbox.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.collections.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.collections" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.collections.CollectionTests" />
+      <option name="METHOD_NAME" value="ListTests" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CollectionTests.arrayTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sandbox.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.collections.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.collections" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.collections.CollectionTests" />
+      <option name="METHOD_NAME" value="arrayTests" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CollectionTests.setTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sandbox.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.collections.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.collections" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.collections.CollectionTests" />
+      <option name="METHOD_NAME" value="setTests" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Gradle.GroupCreationTests.canCreateGroupHBM" />
-      <item itemvalue="Gradle.AddressCreationTests" />
-      <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
-      <item itemvalue="Gradle.AddressRemovalTests.canRemoveFromGroupAddrr" />
-      <item itemvalue="Gradle.GroupCreationTests" />
+      <item itemvalue="Gradle.GroupModificationTests.canModifyGroup" />
+      <item itemvalue="JUnit.CollectionTests.ListTests" />
+      <item itemvalue="JUnit.CollectionTests.arrayTests" />
+      <item itemvalue="JUnit.CollectionTests.setTests" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.GroupCreationTests.canCreateGroupHBM" />
-        <item itemvalue="Gradle.AddressRemovalTests.canRemoveFromGroupAddrr" />
-        <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
-        <item itemvalue="Gradle.AddressCreationTests" />
-        <item itemvalue="Gradle.GroupCreationTests" />
+        <item itemvalue="Gradle.GroupModificationTests.canModifyGroup" />
+        <item itemvalue="JUnit.CollectionTests.setTests" />
+        <item itemvalue="JUnit.CollectionTests.ListTests" />
+        <item itemvalue="JUnit.CollectionTests.arrayTests" />
       </list>
     </recent_temporary>
   </component>

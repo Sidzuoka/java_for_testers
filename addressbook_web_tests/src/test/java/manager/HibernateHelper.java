@@ -10,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class HibernateHelper extends HelperBase{
     private SessionFactory sessionFactory;
@@ -34,14 +35,9 @@ public class HibernateHelper extends HelperBase{
     }
 
     //специальная ф-ия, кот. из объектов GroupData, строит объекты GroupRecord
-    static List<GroupData> convertList(List<GroupRecord> records) {
-        List<GroupData> result = new ArrayList<>();
+    static List<GroupData> converGrouptList(List<GroupRecord> records) {
+        return records.stream().map(HibernateHelper::convert).collect(Collectors.toList());
         //переменная пробегает по списку GroupRecord и для каждого из них добавляем новый объект GroupData, кот-ый строится из GroupRecord
-        for (var record : records) {
-            result.add(convert(record));
-
-        }
-        return result;
     }
 
 
@@ -65,7 +61,7 @@ public class HibernateHelper extends HelperBase{
 
 
     public List<GroupData> getGroupList() {
-        return convertList((List<GroupRecord>) sessionFactory.fromSession(session -> {
+        return converGrouptList((List<GroupRecord>) sessionFactory.fromSession(session -> {
             return session.createQuery("from GroupRecord", GroupRecord.class).list(); //нужны данные типа GroupData - в List так заявлено - используем ф-ию - преобразователь типов из GroupRecord в GroupData
         }));
     }
@@ -95,12 +91,8 @@ public class HibernateHelper extends HelperBase{
 
 //--------------------------------------------------Address----------------------------------------------------------------------------------------------------------
 
-    static List<AddressData> convertListAddrr(List<AddressRecord> records) {
-        List<AddressData> result = new ArrayList<>();
-        for (var record : records) {
-            result.add(convertToRecord(record));
-        }
-        return result;
+    static List<AddressData> convertAddressList(List<AddressRecord> records) {
+        return records.stream().map(HibernateHelper::convertToRecord).collect(Collectors.toList());
     }
 
     private static AddressData convertToRecord(AddressRecord record) {
@@ -117,7 +109,7 @@ public class HibernateHelper extends HelperBase{
 
     public List<AddressData> getAddressList() {
         return sessionFactory.fromSession(session -> {
-            return convertListAddrr((List<AddressRecord>) session.createQuery("from AddressRecord", AddressRecord.class).list());
+            return convertAddressList((List<AddressRecord>) session.createQuery("from AddressRecord", AddressRecord.class).list());
         });
     }
 
@@ -139,7 +131,7 @@ public class HibernateHelper extends HelperBase{
 
     public List<AddressData> getAddresssInGroup(GroupData group) {
         return (sessionFactory.fromSession(session -> {
-            return convertListAddrr(session.get(GroupRecord.class, group.id()).addresses);
+            return convertAddressList(session.get(GroupRecord.class, group.id()).addresses);
         }));
     }
 }

@@ -3,10 +3,13 @@ package manager;
 import model.AddressData;
 import model.GroupData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AddressHelper extends HelperBase{
 
@@ -190,5 +193,16 @@ public class AddressHelper extends HelperBase{
                 String.format("//input[@id='%s']/../../td[6]", address.id()))).getText();
                                                 //подъем на два ур. вверх
                                                 //td[6] - в строке ищем ячейку слева-направо 6-ую
+    }
+
+    public Map<String, String> getPhonesDict() {
+        var result = new HashMap<String, String>(); //содержит соотв-е тел. id
+        List<WebElement> rows = manager.driver.findElements(By.name("entry"));
+        for (WebElement row: rows) {
+            var id = row.findElement(By.tagName("input")).getDomAttribute("id");
+            var phones = row.findElements(By.tagName("td")).get(5).getText();
+            result.put(id, phones);
+        }
+        return result;
     }
 }

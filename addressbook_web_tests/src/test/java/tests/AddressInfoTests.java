@@ -22,13 +22,16 @@ public class AddressInfoTests extends TestBase{
         }
 
         var addresses = app.hbm().getAddressList();
-        var address = addresses.get(0);
-        var phones = app.address().getPhones(address); //важен только id, передаем целиком
-        //пустые телефоны при склеивании нужно пропустить
-        var expected = Stream.of(address.home(), address.mobile(), address.work(), address.secondary())
-                .filter(s -> s != null && ! "".equals(s)) //непустые оставляем
-                .collect(Collectors.joining("\n")); // \n - в качестве разделителя
-        Assertions.assertEquals(expected, phones);
+        var phones = app.address().getPhonesDict(); //id - возвращает значения столбеца All_phones - все телефоны, всех контактов - вычленный из строки кусок с телефонами
+        //по очереди проверяем все контакты
+        for (var address: addresses) {
+            //пустые телефоны при склеивании нужно пропустить
+            var expected = Stream.of(address.home(), address.mobile(), address.work(), address.secondary())
+                    .filter(s -> s != null && ! "".equals(s)) //непустые оставляем
+                    .collect(Collectors.joining("\n")); // собираем - \n - в качестве разделителя
+            Assertions.assertEquals(expected, phones.get(address.id()));
+        }
+
 
     }
 }

@@ -21,6 +21,8 @@ public class ReverseChecks {
     void testSort() {
         var input = new ArrayList<>(List.of(3, 7, 4, 9, 0));
         input.sort(Integer::compareTo);
-        Assertions.assertEquals();
+        for (int i = 0; i < input.size() - 1; i++) {
+            Assertions.assertTrue(input.get(i) <= input.get(i + 1));
+        }
     }
 }

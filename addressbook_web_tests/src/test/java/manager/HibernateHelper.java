@@ -8,7 +8,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AvailableSettings;
 import org.hibernate.cfg.Configuration;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -96,7 +95,15 @@ public class HibernateHelper extends HelperBase{
     }
 
     private static AddressData convertToRecord(AddressRecord record) {
-        return new AddressData("" + record.id, record.firstname, record.lastname, record.address, record.home, record.email);
+        return new AddressData().withId("" + record.id)
+                                .withFirstName(record.firstname)
+                                .withLastName(record.lastname)
+                                .withAddress(record.address)
+                                .withHome(record.home)
+                                .withEmail(record.email)
+                                .withMobile(record.mobile)
+                                .withWork(record.work)
+                                .withSecondary(record.phone2);
     }
 
     private static AddressRecord convertToAddrrData(AddressData address) {

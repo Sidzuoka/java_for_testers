@@ -1,13 +1,11 @@
 package tests;
 
-import common.CommonFunctions;
 import model.AddressData;
 import model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Random;
 
 
@@ -18,7 +16,7 @@ public class AddressRemovalTests extends TestBase{
     public void canRemoveAddress() {
         if (app.hbm().getAddressCount() == 0) {
             app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
-                    "Address", "HomeTelephone", "email"));
+                    "Address", "HomeTelephone", "email", "", "", ""));
         }
         //System.out.println(app.hbm().getAddressCount());
         var oldAddress = app.hbm().getAddressList();
@@ -43,7 +41,7 @@ public class AddressRemovalTests extends TestBase{
 
         if (app.hbm().getAddresssInGroup(group).isEmpty()){
             app.address().createAddressGr(new AddressData("", "Firstname", "Lastname",
-                    "Address", "HomeTelephone", "email"), group);
+                    "Address", "HomeTelephone", "email", "", "", ""), group);
         }
 
 
@@ -106,7 +104,7 @@ public class AddressRemovalTests extends TestBase{
     void canRemoveAllAddressAtOnce() throws InterruptedException {
         if (app.hbm().getAddressCount() == 0) {
             app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
-                    "Address", "HomeTelephone", "email"));
+                    "Address", "HomeTelephone", "email", "", "", ""));
         }
 
         //Thread.sleep(1000);

@@ -185,4 +185,10 @@ public class AddressHelper extends HelperBase{
     }
 
 
+    public String getPhones(AddressData address) {
+        return manager.driver.findElement(By.xpath(
+                String.format("//input[@id='%s']/../../td[6]", address.id()))).getText();
+                                                //подъем на два ур. вверх
+                                                //td[6] - в строке ищем ячейку слева-направо 6-ую
+    }
 }

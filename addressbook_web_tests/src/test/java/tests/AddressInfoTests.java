@@ -30,6 +30,41 @@ public class AddressInfoTests extends TestBase{
         var phones = app.address().getPhonesDict(); //id - возвращает значения столбеца All_phones - все телефоны, всех контактов - вычленный из строки кусок с телефонами
         //Сравниваем значения из БД с знач. из GUI
         Assertions.assertEquals(expected, phones);
-
     }
+
+
+    @Test
+    void testOnePhone() {
+        //предусловия - проверить, что список контактов не пустой
+        if (app.hbm().getAddressCount() == 0) {
+            app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
+                    "Address", "HomeTelephone", "email", "", "", ""));
+        }
+
+        var address = app.hbm().getAddressList().get(0);
+
+        var addresses = app.hbm().getAddressList();
+        var expected = addresses.stream().collect(Collectors.toMap(AddressData::id, addressDB ->
+                Stream.of(
+                                addressDB.lastname(),
+                                addressDB.firstname(),
+                                addressDB.address(),
+                                addressDB.email(),
+                                addressDB.home(),
+                                addressDB.mobile(),
+                                addressDB.work(),
+                                addressDB.secondary())
+                        .filter(s -> s != null && ! "".equals(s)) //непустые оставляем
+                        .collect(Collectors.joining("\n")) // склеиваем - \n разделитель
+        ));
+        var phones = app.address().getPhonesDict(); //id - возвращает значения столбеца All_phones - все телефоны, всех контактов - вычленный из строки кусок с телефонами
+        //Сравниваем значения из БД со знач. из GUI
+        Assertions.assertEquals(expected, phones);
+    }
+
+
+
+
+
+
 }

@@ -9,12 +9,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.openqa.selenium.By;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 public class AddressCreationTests extends TestBase{
 
@@ -149,19 +151,37 @@ public class AddressCreationTests extends TestBase{
             app.hbm().createGroup(new GroupData("", "group name", "group header", "group footer"));
         }
 
+        var groupsSize = app.hbm().getGroupList().size();
+        for (int i = 0; i < (groupsSize); i++) {
+            var group = app.hbm().getGroupList().get(i);
+            if (!app.hbm().getAddresssInGroup(group).isEmpty()) {
+                for (var addressInGroup : app.hbm().getAddresssInGroup(group)) {
+                    //System.out.println(String.format("Контакт из группы " + addressInGroup));
+                    for (var address : app.hbm().getAddressList()) {
+                        //System.out.println(String.format("Контакт из списка контактов " + address));
+                        if (!Objects.equals(addressInGroup.id(), address.id())) {
+                            var oldRelated = app.hbm().getAddresssInGroup(group);
+                            app.address().addAddressToGr(address, group);
+                            var newRelated = app.hbm().getAddresssInGroup(group);
+                            Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+                        }
+                    }
+                }
+            } else {
+                for (var address : app.hbm().getAddressList()) {
+                    var oldRelated = app.hbm().getAddresssInGroup(group);
+                    app.address().addAddressToGr(address, group);
+                    var newRelated = app.hbm().getAddresssInGroup(group);
+                    Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+                }
 
-        var address = app.hbm().getAddressList().get(0);
-        var group = app.hbm().getGroupList().get(0); //get(0) выбирает первую группу из списка
-
-         //get(0) выбирает первую группу из списка
-
-        //получить список контактов, кот. входят в заданную гр.
-        var oldRelated = app.hbm().getAddresssInGroup(group);
-        app.address().addAddressToGr(address, group);
-        var newRelated = app.hbm().getAddresssInGroup(group);
-        Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+            }
+        }
+    }
 
 
+
+/*
         //проверка на содержимое списов
 
         Comparator<AddressData> compareById = (o1, o2) -> {
@@ -181,6 +201,18 @@ public class AddressCreationTests extends TestBase{
     }
 
 
+ */
+
+
+
+
+
+
+
+
+
+
+/*ПОТОМ РАСКОММИТИТЬ!!!!!
 
     @ParameterizedTest
     @MethodSource("singleRandomAddress")
@@ -200,6 +232,8 @@ public class AddressCreationTests extends TestBase{
         Assertions.assertEquals(newAddress, expectedList);
 
     }
+    ВОТ ДО СЮДА РАСКОММИТИТЬ!
+ */
 
     /*
     //Jdbc_Address
@@ -276,6 +310,9 @@ public class AddressCreationTests extends TestBase{
 
      */
 
+
+//--------------------------------И ВОТ ЭТО ТОЖЕ РАСКОММИТИТЬ---------------------------------------------------------
+        /*
     @Test
     void canCreateOneAddress() {
         var address = new AddressData()
@@ -299,4 +336,8 @@ public class AddressCreationTests extends TestBase{
         Assertions.assertEquals(newAddress, oldAddress);
     }
 
+
+
+ВОТ ДО СЮДА РАСКОММИТИТЬ!
+         */
 }

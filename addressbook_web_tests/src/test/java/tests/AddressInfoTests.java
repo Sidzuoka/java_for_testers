@@ -9,6 +9,7 @@ import model.AddressData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -23,7 +24,11 @@ public class AddressInfoTests extends TestBase{
 
         var addresses = app.hbm().getAddressList();
         var expected = addresses.stream().collect(Collectors.toMap(AddressData::id, address ->
-            Stream.of(address.home(), address.mobile(), address.work(), address.secondary())
+            Stream.of(
+                            address.home(),
+                            address.mobile(),
+                            address.work(),
+                            address.secondary())
                     .filter(s -> s != null && ! "".equals(s)) //непустые оставляем
                     .collect(Collectors.joining("\n")) // склеиваем - \n разделитель
         ));
@@ -41,30 +46,28 @@ public class AddressInfoTests extends TestBase{
                     "Address", "HomeTelephone", "email", "", "", ""));
         }
 
-        var address = app.hbm().getAddressList().get(0);
 
-        var addresses = app.hbm().getAddressList();
-        var expected = addresses.stream().collect(Collectors.toMap(AddressData::id, addressDB ->
+        var oldAddress = app.hbm().getAddressList();
+        var rnd = new Random();
+        var index = rnd.nextInt(oldAddress.size());
+        var addresses = app.hbm().getAddressList().get(index);
+
+
+        var expected =
                 Stream.of(
-                                addressDB.lastname(),
-                                addressDB.firstname(),
-                                addressDB.address(),
-                                addressDB.email(),
-                                addressDB.home(),
-                                addressDB.mobile(),
-                                addressDB.work(),
-                                addressDB.secondary())
+                                addresses.lastname(),
+                                addresses.firstname(),
+                                addresses.address(),
+                                addresses.email(),
+                                addresses.home(),
+                                addresses.mobile(),
+                                addresses.work(),
+                                addresses.secondary())
                         .filter(s -> s != null && ! "".equals(s)) //непустые оставляем
-                        .collect(Collectors.joining("\n")) // склеиваем - \n разделитель
-        ));
-        var phones = app.address().getPhonesDict(); //id - возвращает значения столбеца All_phones - все телефоны, всех контактов - вычленный из строки кусок с телефонами
+                        .collect(Collectors.joining("\n")); // склеиваем - \n разделитель
+        
+        var phones = app.address().getPhonesDict(); //id - возвращает значения столбца All_phones - все телефоны, всех контактов - вычлененный из строки кусок с телефонами
         //Сравниваем значения из БД со знач. из GUI
         Assertions.assertEquals(expected, phones);
     }
-
-
-
-
-
-
 }

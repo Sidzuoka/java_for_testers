@@ -212,7 +212,7 @@ public class AddressCreationTests extends TestBase{
 
 
 
-/*ПОТОМ РАСКОММИТИТЬ!!!!!
+
 
     @ParameterizedTest
     @MethodSource("singleRandomAddress")
@@ -232,8 +232,7 @@ public class AddressCreationTests extends TestBase{
         Assertions.assertEquals(newAddress, expectedList);
 
     }
-    ВОТ ДО СЮДА РАСКОММИТИТЬ!
- */
+
 
     /*
     //Jdbc_Address
@@ -311,8 +310,7 @@ public class AddressCreationTests extends TestBase{
      */
 
 
-//--------------------------------И ВОТ ЭТО ТОЖЕ РАСКОММИТИТЬ---------------------------------------------------------
-        /*
+
     @Test
     void canCreateOneAddress() {
         var address = new AddressData()
@@ -338,6 +336,5 @@ public class AddressCreationTests extends TestBase{
 
 
 
-ВОТ ДО СЮДА РАСКОММИТИТЬ!
-         */
+
 }

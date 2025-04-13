@@ -97,8 +97,10 @@ public class GroupHelper extends HelperBase {
         manager.driver
                 //серия вызовов - найти элементы и кликнуть по ним
                 //consumer - применить ф-ию ко всем элементам списка
-                .findElements(By.name("selected[]"))
-                .forEach(WebElement::click); //цикл - проходится по элементам листа и кликает, на вх. элементы стр., на выход ничего не возвращает
+                .findElements(By.name("selected[]")) //1. найти элементы
+                .forEach(WebElement::click); //2. для каждого элемента вызвать м-д click
+                                            //цикл - проходится по элементам листа и кликает,
+                                            // на вх. элементы стр., на выход ничего не возвращает
     }
 
 

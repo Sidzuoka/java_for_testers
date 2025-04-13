@@ -102,15 +102,18 @@ public class GroupCreationTests extends TestBase {
         app.groups().createGroup(group);
         var newGroups = app.hbm().getGroupList();
 
+                                                    //проверяет, что элемент не содержится в старом списке
         var extraGroups = newGroups.stream().filter(g -> ! oldGroups.contains(g)).toList(); //filter - ф-ия, которая принимает на вход элемент потока, возвращает true/false - оставить этот элемент или попустить
                                                         //отсортировали contains(g), собрали в новый список - toList()
         var newId = extraGroups.get(0).id(); //get(0) - должен быть один элемент
 
-
+        //в ожидаемый рез. добавляем все старые эл-ты списка
         var expectedList = new ArrayList<>(oldGroups);
+        //в ожидаемый рез. добавляем новый созданный элемент (отфильтрованный)
         expectedList.add(group.withId(newId));
 
         Assertions.assertEquals(Set.copyOf(newGroups), Set.copyOf(expectedList));
+        //сравниваем, как множества, без учета порядка
 
         //найти не максимальный id, а тот, которого не было - т.к. в жизни id - не цифры, а строки
         //берем новый список групп и ищем там группу, которой нет в старом списке групп - id этой группы берем

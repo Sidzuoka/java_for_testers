@@ -61,6 +61,8 @@ public class Generator {
     }
 
     //будим генерировать объекты, либо типв групп, либо типа контактов и складывать их в список
+    //цикл до count раз - generate(dataSupplier)
+    //+ добавление элементов из цикла в список - collect
     private Object generateData(Supplier<Object> dataSupplier) {
         return Stream.generate(dataSupplier).limit(count).collect(Collectors.toList()); //collect - выбрать из потока все элементы и сформировать из этого потока нечто - здесь список
     }

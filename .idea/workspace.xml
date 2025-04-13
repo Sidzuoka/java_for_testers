@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/generator/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/generator/Generator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/GroupHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/GroupHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/hbm/AddressRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/hbm/AddressRecord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressCreationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressInfoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressInfoTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/GroupCreationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/src/test/java/ru/stqa/collections/CollectionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/test/java/ru/stqa/collections/CollectionTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +159,7 @@
       <recent name="Square" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AddressCreationTests.canAddToGroupAddrr">
+  <component name="RunManager" selected="JUnit.CollectionTests.setTests">
     <configuration name="AddressCreationTests.canAddToGroupAddrr" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -180,7 +184,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="AddressInfoTests.testPhones" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AddressCreationTests.canCreateAddress" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
@@ -193,7 +197,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tests.AddressInfoTests.testPhones&quot;" />
+            <option value="&quot;tests.AddressCreationTests.canCreateAddress&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -204,7 +208,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="GroupCreationTests.canCreateGroupHBM" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AddressCreationTests.canCreateOneAddress" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
@@ -217,7 +221,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tests.GroupCreationTests.canCreateGroupHBM&quot;" />
+            <option value="&quot;tests.AddressCreationTests.canCreateOneAddress&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -228,7 +232,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="GroupModificationTests.canModifyGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AddressCreationTests.canNotCreateAddress" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
@@ -241,7 +245,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tests.GroupModificationTests.canModifyGroup&quot;" />
+            <option value="&quot;tests.AddressCreationTests.canNotCreateAddress&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -252,36 +256,36 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ReverseChecks.testSqrt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CollectionTests.setTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sandbox.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.stqa.*" />
+          <option name="PATTERN" value="ru.stqa.collections.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.ReverseChecks" />
-      <option name="METHOD_NAME" value="testSqrt" />
+      <option name="PACKAGE_NAME" value="ru.stqa.collections" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.collections.CollectionTests" />
+      <option name="METHOD_NAME" value="setTests" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="Gradle.AddressCreationTests.canCreateAddress" />
+      <item itemvalue="Gradle.AddressCreationTests.canCreateOneAddress" />
+      <item itemvalue="Gradle.AddressCreationTests.canNotCreateAddress" />
       <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
-      <item itemvalue="Gradle.AddressInfoTests.testPhones" />
-      <item itemvalue="Gradle.GroupCreationTests.canCreateGroupHBM" />
-      <item itemvalue="Gradle.GroupModificationTests.canModifyGroup" />
-      <item itemvalue="JUnit.ReverseChecks.testSqrt" />
+      <item itemvalue="JUnit.CollectionTests.setTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CollectionTests.setTests" />
+        <item itemvalue="Gradle.AddressCreationTests.canNotCreateAddress" />
+        <item itemvalue="Gradle.AddressCreationTests.canCreateOneAddress" />
+        <item itemvalue="Gradle.AddressCreationTests.canCreateAddress" />
         <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
-        <item itemvalue="Gradle.AddressInfoTests.testPhones" />
-        <item itemvalue="JUnit.ReverseChecks.testSqrt" />
-        <item itemvalue="Gradle.GroupCreationTests.canCreateGroupHBM" />
-        <item itemvalue="Gradle.GroupModificationTests.canModifyGroup" />
       </list>
     </recent_temporary>
   </component>

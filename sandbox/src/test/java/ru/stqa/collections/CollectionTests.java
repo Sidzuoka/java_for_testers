@@ -41,21 +41,21 @@ public class CollectionTests {
     @Test
     void setTests() {
         //set - один раз в любом порядке
-        //var set = Set.copyOf(List.of("a", "b", "c", "a"));//copy - берем все элементы списка и формируем из этих элементов множества
+        var set = Set.copyOf(List.of("a", "b", "c", "a"));//copy - берем все элементы списка и формируем из этих элементов множества
         //var set = Set.of("a", "b", "c");
         //Assertions.assertEquals(3, set.size());
        // var element = set.stream().findAny().get();
-        //System.out.println(set);
+        System.out.println(set);
 
 
-        var set = new HashSet<>(List.of("a", "b", "c", "a"));//вызвали конструктор HashSet, проинициал. листом
+        //var set = new HashSet<>(List.of("a", "b", "c", "a"));//вызвали конструктор HashSet, проинициал. листом
         //один раз упорядоченно, можно добавлять новые эл-ты
         //HashSet - от отличии от операций с .of - возвращает элемент, в кот-ый можно добавлять новые элементы
-        Assertions.assertEquals(3, set.size());
+        //Assertions.assertEquals(3, set.size());
 
-        set.add("d");
-        Assertions.assertEquals(4, set.size());
-        System.out.println(set);
+        //set.add("d");
+        //Assertions.assertEquals(4, set.size());
+        //System.out.println(set);
 
 
     }

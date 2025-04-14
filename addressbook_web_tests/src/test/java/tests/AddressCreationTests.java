@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.openqa.selenium.By;
 
 import java.io.File;
 import java.io.IOException;
@@ -86,7 +85,7 @@ public class AddressCreationTests extends TestBase{
 
     public static List<AddressData> negativeAddressProvider() {
         var result = new ArrayList<AddressData>(List.of(
-                new AddressData("", "FirstName'", "", "", "", "", "", "", "")));
+                new AddressData("", "FirstName'", "", "", "", "", "", "", "", "", "")));
         return result;
     }
 
@@ -144,7 +143,7 @@ public class AddressCreationTests extends TestBase{
 
         if (app.hbm().getAddressCount() == 0) {
             app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
-                    "Address", "HomeTelephone", "email", "", "", ""));
+                    "Address", "HomeTelephone", "email", "", "", "", "", ""));
         }
 
         if (app.hbm().getGroupCount() == 0) {

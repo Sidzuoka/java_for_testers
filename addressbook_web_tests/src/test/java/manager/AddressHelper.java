@@ -6,10 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AddressHelper extends HelperBase{
 
@@ -206,6 +203,16 @@ public class AddressHelper extends HelperBase{
         return result;
     }
 
+
+    public String getEmaileDict(AddressData address) {
+        return manager.driver.findElement(By.xpath(
+                String.format("//input[@id='%s']/../../td[5]", address.id()))).getText();
+
+    }
+
+
+
+    /*
     public Map<String, String> getEmaileDict(AddressData address) {
         var result = new HashMap<String, String>(); //содержит соотв-е тел. id
         var id = address.id();
@@ -214,4 +221,52 @@ public class AddressHelper extends HelperBase{
 
         return result;
     }
+
+     */
+
+    public Map<String, String> getAddressDict(AddressData address) {
+        var result = new HashMap<String, String>(); //содержит соотв-е тел. id
+        var id = address.id();
+        var emaile = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[5]", address.id()))).getText();
+        var phone = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[6]", address.id()))).getText();
+        result.put(id, (emaile + '\n' + phone));
+
+        return result;
+    }
+
+
+
+
+
+    /*
+
+    public Map<String, Set<AddressData>> getAddressDict(AddressData address) {
+
+        var id = address.id();
+        var lastname = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[2]", address.id()))).getText();
+        var firstname = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[3]", address.id()))).getText();
+        var address1 = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[4]", address.id()))).getText();
+        var emaile = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[5]", address.id()))).getText();
+        var phone = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[6]", address.id()))).getText();
+
+
+        var addressList = new ArrayList<AddressData>();
+        addressList.add(new AddressData()
+                .withLastName(lastname)
+                .withFirstName(firstname)
+                .withAddress(address1)
+                .withEmail(emaile)
+                .withMobile(phone));
+
+        var set = Set.copyOf(addressList);
+
+        var result = new HashMap<String, Set<AddressData>>(); //содержит соотв-е тел. id
+        result.put(id, set);
+
+        return result;
+
+    }
+
+     */
+
 }

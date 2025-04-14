@@ -15,7 +15,7 @@ public class AddressModificationTests extends TestBase {
     void canModifyAddress() {
         if (app.hbm().getAddressCount() == 0) {
             app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
-                    "Address", "HomeTelephone", "email", "", "", ""));
+                    "Address", "HomeTelephone", "email", "", "", "", "", ""));
         }
         var oldAddress = app.hbm().getAddressList();
         var rnd = new Random();

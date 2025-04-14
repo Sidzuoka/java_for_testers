@@ -17,6 +17,8 @@ public class AddressRecord {
     public String address;
     public String home;
     public String email;
+    public String email2;
+    public String email3;
     public String mobile;
     public String work;
     public String phone2;
@@ -28,8 +30,8 @@ public class AddressRecord {
     //public String mobile = "mobile";
     //public String work = "work";
     public String fax = "fax";
-    public String email2 = "email2";
-    public String email3 = "email3";
+    //public String email2 = "email2";
+    //public String email3 = "email3";
     public String homepage = "homepage";
 
 

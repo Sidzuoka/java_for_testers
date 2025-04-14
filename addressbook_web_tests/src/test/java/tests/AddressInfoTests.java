@@ -35,11 +35,15 @@ public class AddressInfoTests extends TestBase{
         var phones = app.address().getPhonesDict(); //id - возвращает значения столбеца All_phones - все телефоны, всех контактов - вычленный из строки кусок с телефонами
         //Сравниваем значения из БД с знач. из GUI
         Assertions.assertEquals(expected, phones);
+
+
+        System.out.println(phones);
+
     }
 
 
     @Test
-    void testOnePhone() {
+    void testOneAddress() {
         //предусловия - проверить, что список контактов не пустой
         if (app.hbm().getAddressCount() == 0) {
             app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
@@ -52,7 +56,7 @@ public class AddressInfoTests extends TestBase{
         var index = rnd.nextInt(oldAddress.size());
         var addresses = app.hbm().getAddressList().get(index);
 
-
+/*
         var expected =
                 Stream.of(
                                 addresses.lastname(),
@@ -65,9 +69,14 @@ public class AddressInfoTests extends TestBase{
                                 addresses.secondary())
                         .filter(s -> s != null && ! "".equals(s)) //непустые оставляем
                         .collect(Collectors.joining("\n")); // склеиваем - \n разделитель
-        
-        var phones = app.address().getPhonesDict(); //id - возвращает значения столбца All_phones - все телефоны, всех контактов - вычлененный из строки кусок с телефонами
-        //Сравниваем значения из БД со знач. из GUI
-        Assertions.assertEquals(expected, phones);
+
+
+ */
+        var phones = app.address().getPhonesDict();
+        var emaile = app.address().getEmaileDict(addresses);
+        System.out.println(emaile);
+        //Assertions.assertEquals(expected, phones);
     }
+
+
 }

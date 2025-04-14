@@ -205,4 +205,13 @@ public class AddressHelper extends HelperBase{
         }
         return result;
     }
+
+    public Map<String, String> getEmaileDict(AddressData address) {
+        var result = new HashMap<String, String>(); //содержит соотв-е тел. id
+        var id = address.id();
+        var emaile = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[5]", address.id()))).getText();
+        result.put(id, emaile);
+
+        return result;
+    }
 }

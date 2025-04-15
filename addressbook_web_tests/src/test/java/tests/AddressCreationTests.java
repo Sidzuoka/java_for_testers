@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 
 public class AddressCreationTests extends TestBase{
 
@@ -150,92 +149,19 @@ public class AddressCreationTests extends TestBase{
             app.hbm().createGroup(new GroupData("", "group name", "group header", "group footer"));
         }
 
-
-        var groupFirst = app.hbm().getGroupList().get(0);
-        var addressFirst = app.hbm().getAddressList().get(0);
-
-        if (app.hbm().getAddresssInGroup(groupFirst).isEmpty()) {
-            app.address().addAddressToGr(addressFirst, groupFirst);
-        }
-
-        var address = app.jdbc().getIdAddressesInGroup();
+        var group = app.hbm().getGroupList().get(0);
+        var addressInGroup = app.jdbc().getAddressesInGroup();
         //System.out.println(address);
 
-
-        if (!(address.isEmpty())) {
-            for (var id : address) {
-                    var oldRelated = app.hbm().getAddresssInGroup(groupFirst);
-                    app.address().addAddressToGr(id, groupFirst);
-                    var newRelated = app.hbm().getAddresssInGroup(groupFirst);
-                    Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
-
-            }
-        }
-
-
-
-
-
-        /*
-        //---если все адреса в первую группу добавлены, то при повторном запуске, добавит все адреса и во вторую группу тоже----
-        var groupsSize = app.hbm().getGroupList().size();
-        for (int i = 0; i < (groupsSize); i++) {
-            var group = app.hbm().getGroupList().get(i);
-                for (var addressInGroup : app.hbm().getAddresssInGroup(group)) {
-                    for (var address : app.hbm().getAddressList()) {
-                        if (!Objects.equals(addressInGroup.id(), address.id())) {
-                            var oldRelated = app.hbm().getAddresssInGroup(group);
-                            app.address().addAddressToGr(address, group);
-                            var newRelated = app.hbm().getAddresssInGroup(group);
-                            Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
-                        }
-                    }
-                }
-
-            }
-
-         */
-        }
-
-
-    /* ------первая попытка-----две параллельные ветки------------------------------
-            var groupsSize = app.hbm().getGroupList().size();
-        for (int i = 0; i < (groupsSize); i++) {
-            var group = app.hbm().getGroupList().get(i);
-            if (!app.hbm().getAddresssInGroup(group).isEmpty()) {
-                for (var addressInGroup : app.hbm().getAddresssInGroup(group)) {
-                    //System.out.println(String.format("Контакт из группы " + addressInGroup));
-                    for (var address : app.hbm().getAddressList()) {
-                        //System.out.println(String.format("Контакт из списка контактов " + address));
-                        if (!Objects.equals(addressInGroup.id(), address.id())) {
-                            var oldRelated = app.hbm().getAddresssInGroup(group);
-                            app.address().addAddressToGr(address, group);
-                            var newRelated = app.hbm().getAddresssInGroup(group);
-                            Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
-                        }
-                    }
-                }
-            } else {
-                for (var address : app.hbm().getAddressList()) {
-                    var oldRelated = app.hbm().getAddresssInGroup(group);
-                    app.address().addAddressToGr(address, group);
-                    var newRelated = app.hbm().getAddresssInGroup(group);
-                    Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
-                }
-
-            }
+        if (!(addressInGroup.isEmpty())) {
+            var oldRelated = app.hbm().getAddresssInGroup(group);
+            app.address().addAddressToGr(addressInGroup.get(0), group);
+            var newRelated = app.hbm().getAddresssInGroup(group);
+            Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
         }
     }
-
-     */
-
-
-
-
-
-
 /*
-        //проверка на содержимое списов
+        //проверка на содержимое списков
 
         Comparator<AddressData> compareById = (o1, o2) -> {
             return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
@@ -255,16 +181,6 @@ public class AddressCreationTests extends TestBase{
 
 
  */
-
-
-
-
-
-
-
-
-
-
 
 
     @ParameterizedTest

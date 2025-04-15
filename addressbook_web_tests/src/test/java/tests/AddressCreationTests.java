@@ -158,7 +158,27 @@ public class AddressCreationTests extends TestBase{
             app.address().addAddressToGr(addressFirst, groupFirst);
         }
 
+        var idAddList = app.jdbc().getIdAddressesInGroup();
+        System.out.println(idAddList);
 
+
+        if (!(idAddList.isEmpty())) {
+            for (var id : idAddList) {
+                var address = app.hbm().
+                    var oldRelated = app.hbm().getAddresssInGroup(groupFirst);
+                    app.address().addAddressToGr(address, groupFirst);
+                    var newRelated = app.hbm().getAddresssInGroup(groupFirst);
+                    Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+
+            }
+        }
+
+
+
+
+
+        /*
+        //---если все адреса в первую группу добавлены, то при повторном запуске, добавит все адреса и во вторую группу тоже----
         var groupsSize = app.hbm().getGroupList().size();
         for (int i = 0; i < (groupsSize); i++) {
             var group = app.hbm().getGroupList().get(i);
@@ -174,6 +194,8 @@ public class AddressCreationTests extends TestBase{
                 }
 
             }
+
+         */
         }
 
 

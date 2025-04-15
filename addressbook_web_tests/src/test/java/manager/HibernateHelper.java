@@ -65,6 +65,13 @@ public class HibernateHelper extends HelperBase{
         }));
     }
 
+    public long getListAddressInGroup() {
+        return (sessionFactory.fromSession(session -> {
+            //.fromSession - когда нужно что-то вернуть
+            return session.createQuery("select count (*) from GroupRecord", Long.class).getSingleResult(); //нужны данные типа GroupData - в List так заявлено - используем ф-ию - преобразователь типов из GroupRecord в GroupData
+        }));
+    }
+
 
     //считает кол-во групп в результате выполнения запроса
     public long getGroupCount() {

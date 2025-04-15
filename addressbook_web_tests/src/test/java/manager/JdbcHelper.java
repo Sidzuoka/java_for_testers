@@ -71,4 +71,25 @@ public class JdbcHelper extends HelperBase{
             throw new RuntimeException(e); //выбрасывается более общее, ловится более частное исключение
         }
     }
+
+
+
+    public ArrayList<Object> getIdAddressesInGroup() {
+        var idListAddress = new ArrayList<>();
+        try (var conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook", "root", "");
+             var statement = conn.createStatement();
+             var result = statement.executeQuery("SELECT id FROM addressbook WHERE id NOT IN (SELECT id FROM address_in_groups) "))
+        {
+            while(result.next()) {
+                idListAddress.add(result.getString("id"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return idListAddress;
+    }
+
+
+
+
 }

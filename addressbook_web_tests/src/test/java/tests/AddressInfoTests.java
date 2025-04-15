@@ -36,11 +36,10 @@ public class AddressInfoTests extends TestBase{
         //Сравниваем значения из БД с знач. из GUI
         Assertions.assertEquals(expected, phones);
 
-        System.out.println(expected);
-        System.out.println(phones);
+        //System.out.println(expected);
+        //System.out.println(phones);
 
     }
-
 
 
     @Test
@@ -51,14 +50,12 @@ public class AddressInfoTests extends TestBase{
                     "Address", "HomeTelephone", "email", "", "", "", "", ""));
         }
 
-
         var oldAddress = app.hbm().getAddressList();
         var rnd = new Random();
         var index = rnd.nextInt(oldAddress.size());
         var addressOne = app.hbm().getAddressList().get(index);
 
-        //var emaile = app.address().getEmaileDict(addressOne);
-        var address = app.address().getOneList(addressOne);
+        var address = app.address().getOneAddress(addressOne);
 
 
         var expected = Stream.of(
@@ -76,108 +73,8 @@ public class AddressInfoTests extends TestBase{
                 .filter(s -> s != null && !"".equals(s))
                 .collect(Collectors.joining("\n"));
 
-        System.out.println(address);
-        System.out.println(expected);
+        //System.out.println(address);
+        //System.out.println(expected);
         Assertions.assertEquals(expected, address);
-
-
     }
-
-
-        /*
-
-        var expected = addresses.stream().collect(Collectors.toMap(AddressData::id, address ->
-                Stream.of(
-                                address.email(),
-                                address.email2(),
-                                address.email3(),
-                                address.home(),
-                                address.mobile(),
-                                address.work(),
-                                address.secondary())
-                        .filter(s -> s != null && ! "".equals(s)) //непустые оставляем
-                        .collect(Collectors.joining("\n")); // склеиваем - \n разделитель
-
-
-
-         */
-
-
-/*
-        var addressDict = app.address().getAddressDict(addressOne);;
-
-        var phones = app.address().getPhonesDict();
-
-        var emaile = app.address().getEmaileDict(addressOne);
-        //System.out.println(emaile);
-        System.out.println(addressDict);
-        //System.out.println(expected);
-        //Assertions.assertEquals(expected, phones);
-
-
-    }
-
-
- */
-
-
-
-    /*
-    @Test
-    void testOneAddress() {
-        //предусловия - проверить, что список контактов не пустой
-        if (app.hbm().getAddressCount() == 0) {
-            app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
-                    "Address", "HomeTelephone", "email", "", "", "", "", ""));
-        }
-
-
-        var oldAddress = app.hbm().getAddressList();
-        var rnd = new Random();
-        var index = rnd.nextInt(oldAddress.size());
-        var addresses = app.hbm().getAddressList().get(index);
-
-
-
-        var expected =
-                Stream.of(
-                                addresses.lastname(),
-                                addresses.firstname(),
-                                addresses.address(),
-                                addresses.email(),
-                                addresses.email2(),
-                                addresses.email3(),
-                                addresses.home(),
-                                addresses.mobile(),
-                                addresses.work(),
-                                addresses.secondary())
-                        .filter(s -> s != null && ! "".equals(s)) //непустые оставляем
-                        .collect(Collectors.joining("\n")); // склеиваем - \n разделитель
-
-
-
-
-
-        var addr = app.address().stream().collect(Collectors.toMap(AddressData::id, address ->
-                Stream.of(
-                                address.home(),
-                                address.mobile(),
-                                address.work(),
-                                address.secondary())
-                        .filter(s -> s != null && ! "".equals(s)) //непустые оставляем
-                        .collect(Collectors.joining("\n")) // склеиваем - \n разделитель
-        ));
-
-        var phones = app.address().getPhonesDict();
-        var addressDict = app.address().getAddressDict(addresses);
-        var emaile = app.address().getEmaileDict(addresses);
-        //System.out.println(emaile);
-        //System.out.println(addressDict);
-        //System.out.println(expected);
-        //Assertions.assertEquals(expected, phones);
-    }
-
-     */
-
-
 }

@@ -181,7 +181,7 @@ public class AddressHelper extends HelperBase{
 
     private void submitRemoveAddFromGr() {
         click(By.xpath("//input[@name=\'remove\']"));
-        //input[@name='remove']
+
     }
 
 
@@ -193,7 +193,7 @@ public class AddressHelper extends HelperBase{
     }
 
     public Map<String, String> getPhonesDict() {
-        var result = new HashMap<String, String>(); //содержит соотв-е тел. id
+        var result = new HashMap<String, String>(); //содержит соотв-е тел. - id
         List<WebElement> rows = manager.driver.findElements(By.name("entry"));
         for (WebElement row: rows) {
             var id = row.findElement(By.tagName("input")).getDomAttribute("id");
@@ -204,14 +204,7 @@ public class AddressHelper extends HelperBase{
     }
 
 
-    public String getEmaileDict(AddressData address) {
-        return manager.driver.findElement(By.xpath(
-                String.format("//input[@id='%s']/../../td[5]", address.id()))).getText();
-
-    }
-
-
-    public String getOneList(AddressData addressData) {
+    public String getOneAddress(AddressData addressData) {
         openHomePage();
         var id = addressData.id();
         var lastname = manager.driver.findElement(By.xpath(
@@ -227,63 +220,5 @@ public class AddressHelper extends HelperBase{
 
         return (id + "\n" + firstname + "\n" + lastname + "\n" + address + "\n" + email + "\n" + phone);
     }
-
-
-    /*
-    public Map<String, String> getEmaileDict(AddressData address) {
-        var result = new HashMap<String, String>(); //содержит соотв-е тел. id
-        var id = address.id();
-        var emaile = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[5]", address.id()))).getText();
-        result.put(id, emaile);
-
-        return result;
-    }
-
-     */
-
-    public Map<String, String> getAddressDict(AddressData address) {
-        var result = new HashMap<String, String>(); //содержит соотв-е тел. id
-        var id = address.id();
-        var emaile = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[5]", address.id()))).getText();
-        var phone = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[6]", address.id()))).getText();
-        result.put(id, (emaile + '\n' + phone));
-
-        return result;
-    }
-
-
-
-
-
-    /*
-
-    public Map<String, Set<AddressData>> getAddressDict(AddressData address) {
-
-        var id = address.id();
-        var lastname = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[2]", address.id()))).getText();
-        var firstname = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[3]", address.id()))).getText();
-        var address1 = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[4]", address.id()))).getText();
-        var emaile = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[5]", address.id()))).getText();
-        var phone = manager.driver.findElement(By.xpath(String.format("//input[@id='%s']/../../td[6]", address.id()))).getText();
-
-
-        var addressList = new ArrayList<AddressData>();
-        addressList.add(new AddressData()
-                .withLastName(lastname)
-                .withFirstName(firstname)
-                .withAddress(address1)
-                .withEmail(emaile)
-                .withMobile(phone));
-
-        var set = Set.copyOf(addressList);
-
-        var result = new HashMap<String, Set<AddressData>>(); //содержит соотв-е тел. id
-        result.put(id, set);
-
-        return result;
-
-    }
-
-     */
 
 }

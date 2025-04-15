@@ -7,7 +7,6 @@
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/HibernateHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/HibernateHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressInfoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressInfoTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -156,7 +155,7 @@
       <recent name="Square" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AddressInfoTests.testPhones">
+  <component name="RunManager" selected="Gradle.AddressInfoTests.testOneAddress">
     <configuration name="AddressCreationTests.canCreateOneAddress" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -278,8 +277,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.AddressInfoTests.testPhones" />
         <item itemvalue="Gradle.AddressInfoTests.testOneAddress" />
+        <item itemvalue="Gradle.AddressInfoTests.testPhones" />
         <item itemvalue="JUnit.CollectionTests.setTests" />
         <item itemvalue="Gradle.AddressCreationTests.canNotCreateAddress" />
         <item itemvalue="Gradle.AddressCreationTests.canCreateOneAddress" />

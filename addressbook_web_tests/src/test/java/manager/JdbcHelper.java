@@ -74,14 +74,20 @@ public class JdbcHelper extends HelperBase{
 
 
 
-    public ArrayList<Object> getIdAddressesInGroup() {
-        var idListAddress = new ArrayList<>();
+    public List<AddressData> getIdAddressesInGroup() {
+        var idListAddress = new ArrayList<AddressData>();
         try (var conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook", "root", "");
              var statement = conn.createStatement();
-             var result = statement.executeQuery("SELECT id FROM addressbook WHERE id NOT IN (SELECT id FROM address_in_groups) "))
+             var result = statement.executeQuery("SELECT id, lastname, firstname, address, home, email FROM addressbook WHERE id NOT IN (SELECT id FROM address_in_groups)"))
         {
             while(result.next()) {
-                idListAddress.add(result.getString("id"));
+                idListAddress.add(new AddressData()
+                        .withId(result.getString("id"))
+                        .withLastName(result.getString("lastname"))
+                        .withFirstName(result.getString("firstname"))
+                        .withAddress(result.getString("address"))
+                        .withHome(result.getString("home"))
+                        .withEmail(result.getString("email")));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

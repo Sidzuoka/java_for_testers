@@ -158,15 +158,14 @@ public class AddressCreationTests extends TestBase{
             app.address().addAddressToGr(addressFirst, groupFirst);
         }
 
-        var idAddList = app.jdbc().getIdAddressesInGroup();
-        System.out.println(idAddList);
+        var address = app.jdbc().getIdAddressesInGroup();
+        //System.out.println(address);
 
 
-        if (!(idAddList.isEmpty())) {
-            for (var id : idAddList) {
-                var address = app.hbm().
+        if (!(address.isEmpty())) {
+            for (var id : address) {
                     var oldRelated = app.hbm().getAddresssInGroup(groupFirst);
-                    app.address().addAddressToGr(address, groupFirst);
+                    app.address().addAddressToGr(id, groupFirst);
                     var newRelated = app.hbm().getAddresssInGroup(groupFirst);
                     Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
 

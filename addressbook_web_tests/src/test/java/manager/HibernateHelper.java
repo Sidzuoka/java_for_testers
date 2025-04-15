@@ -101,6 +101,8 @@ public class HibernateHelper extends HelperBase{
                                 .withAddress(record.address)
                                 .withHome(record.home)
                                 .withEmail(record.email)
+                                .withEmail2(record.email2)
+                                .withEmail3(record.email3)
                                 .withMobile(record.mobile)
                                 .withWork(record.work)
                                 .withSecondary(record.phone2);

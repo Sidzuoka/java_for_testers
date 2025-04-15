@@ -211,6 +211,23 @@ public class AddressHelper extends HelperBase{
     }
 
 
+    public String getOneList(AddressData addressData) {
+        openHomePage();
+        var id = addressData.id();
+        var lastname = manager.driver.findElement(By.xpath(
+                String.format("//input[@id='%s']/../../td[2]", addressData.id()))).getText();
+        var firstname = manager.driver.findElement(By.xpath(
+                String.format("//input[@id='%s']/../../td[3]", addressData.id()))).getText();
+        var address = manager.driver.findElement(By.xpath(
+                String.format("//input[@id='%s']/../../td[4]", addressData.id()))).getText();
+        var email = manager.driver.findElement(By.xpath(
+                String.format("//input[@id='%s']/../../td[5]", addressData.id()))).getText();
+        var phone = manager.driver.findElement(By.xpath(
+                String.format("//input[@id='%s']/../../td[6]", addressData.id()))).getText();
+
+        return (id + "\n" + firstname + "\n" + lastname + "\n" + address + "\n" + email + "\n" + phone);
+    }
+
 
     /*
     public Map<String, String> getEmaileDict(AddressData address) {

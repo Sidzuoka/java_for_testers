@@ -36,10 +36,11 @@ public class AddressInfoTests extends TestBase{
         //Сравниваем значения из БД с знач. из GUI
         Assertions.assertEquals(expected, phones);
 
-        //System.out.println(expected);
-        //System.out.println(phones);
+        System.out.println(expected);
+        System.out.println(phones);
 
     }
+
 
 
     @Test
@@ -56,12 +57,31 @@ public class AddressInfoTests extends TestBase{
         var index = rnd.nextInt(oldAddress.size());
         var addressOne = app.hbm().getAddressList().get(index);
 
-        var emaile = app.address().getEmaileDict(addressOne);
-        var expected = Stream.of(addressOne.email(), addressOne.email2(), addressOne.email3())
-                .filter(s -> s != null && ! "".equals(s))
+        //var emaile = app.address().getEmaileDict(addressOne);
+        var address = app.address().getOneList(addressOne);
+
+
+        var expected = Stream.of(
+                        addressOne.id(),
+                        addressOne.firstname(),
+                        addressOne.lastname(),
+                        addressOne.address(),
+                        addressOne.email(),
+                        addressOne.email2(),
+                        addressOne.email3(),
+                        addressOne.home(),
+                        addressOne.mobile(),
+                        addressOne.work(),
+                        addressOne.secondary())
+                .filter(s -> s != null && !"".equals(s))
                 .collect(Collectors.joining("\n"));
-        
-        Assertions.assertEquals(expected, emaile);
+
+        System.out.println(address);
+        System.out.println(expected);
+        Assertions.assertEquals(expected, address);
+
+
+    }
 
 
         /*
@@ -82,6 +102,7 @@ public class AddressInfoTests extends TestBase{
 
          */
 
+
 /*
         var addressDict = app.address().getAddressDict(addressOne);;
 
@@ -93,9 +114,11 @@ public class AddressInfoTests extends TestBase{
         //System.out.println(expected);
         //Assertions.assertEquals(expected, phones);
 
- */
+
     }
 
+
+ */
 
 
 

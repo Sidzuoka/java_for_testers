@@ -150,7 +150,35 @@ public class AddressCreationTests extends TestBase{
             app.hbm().createGroup(new GroupData("", "group name", "group header", "group footer"));
         }
 
+
+        var groupFirst = app.hbm().getGroupList().get(0);
+        var addressFirst = app.hbm().getAddressList().get(0);
+
+        if (app.hbm().getAddresssInGroup(groupFirst).isEmpty()) {
+            app.address().addAddressToGr(addressFirst, groupFirst);
+        }
+
+
         var groupsSize = app.hbm().getGroupList().size();
+        for (int i = 0; i < (groupsSize); i++) {
+            var group = app.hbm().getGroupList().get(i);
+                for (var addressInGroup : app.hbm().getAddresssInGroup(group)) {
+                    for (var address : app.hbm().getAddressList()) {
+                        if (!Objects.equals(addressInGroup.id(), address.id())) {
+                            var oldRelated = app.hbm().getAddresssInGroup(group);
+                            app.address().addAddressToGr(address, group);
+                            var newRelated = app.hbm().getAddresssInGroup(group);
+                            Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+                        }
+                    }
+                }
+
+            }
+        }
+
+
+    /* ------первая попытка-----две параллельные ветки------------------------------
+            var groupsSize = app.hbm().getGroupList().size();
         for (int i = 0; i < (groupsSize); i++) {
             var group = app.hbm().getGroupList().get(i);
             if (!app.hbm().getAddresssInGroup(group).isEmpty()) {
@@ -177,6 +205,11 @@ public class AddressCreationTests extends TestBase{
             }
         }
     }
+
+     */
+
+
+
 
 
 

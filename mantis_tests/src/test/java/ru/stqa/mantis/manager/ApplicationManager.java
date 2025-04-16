@@ -9,15 +9,13 @@ import java.util.Properties;
 
 //помощники будут обращаться к драйверу через м-д драйвер Webdriver driver(), а не прямым чтением переменной private Webdriver driver
 
-
-
-
 public class ApplicationManager {
 
     private WebDriver driver;
     private String string;
     private Properties properties;
     private SessionHelper sessionHelper;
+    private HttpSessionHelper httpSessionHelper;
 
 
     public void init(String browser, Properties properties) {
@@ -54,6 +52,17 @@ public class ApplicationManager {
     }
 
 
+    public HttpSessionHelper http() {
+        if (httpSessionHelper == null) {
+            httpSessionHelper = new HttpSessionHelper(this);
+        }
+        return httpSessionHelper;
+    }
+
+    //метод, кот. будет возвращать из local.properties URL
+    public String property(String name) {
+        return properties.getProperty(name);
+    }
 }
 
 

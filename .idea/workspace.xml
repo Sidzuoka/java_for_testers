@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/mantis_tests/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mantis_tests/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mantis_tests/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mantis_tests/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/mantis_tests.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/mantis_tests.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mantis_tests/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mantis_tests/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/ApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/tests/LoginTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/mantis_tests/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mantis_tests/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mantis_tests/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mantis_tests/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/JdbcHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/JdbcHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressCreationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +20,9 @@
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$/addressbook_web_tests">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/mantis_tests">
       <ProjectState />
     </projectState>
     <projectState path="$PROJECT_DIR$/sandbox">
@@ -104,6 +111,7 @@
     "Gradle.GroupRemovalTests.canRemoveAllGroupsAtOnce.executor": "Run",
     "Gradle.GroupRemovalTests.canRemoveGroup.executor": "Run",
     "Gradle.GroupRemovalTests.executor": "Run",
+    "Gradle.LoginTests.canLogin.executor": "Run",
     "Gradle.SquareTests.canCalculateArea.executor": "Run",
     "Gradle.SquareTests.executor": "Run",
     "Gradle.Tests in 'addressbook_web_tests.test'.executor": "Run",
@@ -138,7 +146,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/devel/homework/java_for_testers/addressbook_web_tests",
+    "last_opened_file_path": "C:/devel/homework/java_for_testers/mantis_tests",
     "onboarding.tips.debug.path": "C:/devel/homework/java_for_testers/sandbox/src/main/java/org/example/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -147,6 +155,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\devel\homework\java_for_testers\mantis_tests" />
+    </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="common.CommonFunctions" />
       <recent name="common.Common" />
@@ -155,7 +166,7 @@
       <recent name="Square" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AddressCreationTests.canAddToGroupAddrr">
+  <component name="RunManager" selected="Gradle.LoginTests.canLogin">
     <configuration name="AddressCreationTests.canAddToGroupAddrr" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -170,30 +181,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;tests.AddressCreationTests.canAddToGroupAddrr&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="AddressCreationTests.canNotCreateAddress" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.AddressCreationTests.canNotCreateAddress&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -252,6 +239,30 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="LoginTests.canLogin" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/mantis_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.stqa.mantis.tests.LoginTests.canLogin&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="CollectionTests.setTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sandbox.test" />
       <extension name="coverage">
@@ -269,19 +280,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Gradle.LoginTests.canLogin" />
       <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
-      <item itemvalue="Gradle.AddressCreationTests.canNotCreateAddress" />
       <item itemvalue="Gradle.AddressInfoTests.testOneAddress" />
       <item itemvalue="Gradle.AddressInfoTests.testPhones" />
       <item itemvalue="JUnit.CollectionTests.setTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.LoginTests.canLogin" />
         <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
         <item itemvalue="Gradle.AddressInfoTests.testOneAddress" />
         <item itemvalue="Gradle.AddressInfoTests.testPhones" />
         <item itemvalue="JUnit.CollectionTests.setTests" />
-        <item itemvalue="Gradle.AddressCreationTests.canNotCreateAddress" />
       </list>
     </recent_temporary>
   </component>

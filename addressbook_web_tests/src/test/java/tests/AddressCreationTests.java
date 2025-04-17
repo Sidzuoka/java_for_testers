@@ -140,25 +140,22 @@ public class AddressCreationTests extends TestBase{
     @Test
     void canAddToGroupAddrr() {
 
-        if (app.hbm().getAddressCount() == 0) {
-            app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
-                    "Address", "HomeTelephone", "email", "", "", "", "", ""));
-        }
-
         if (app.hbm().getGroupCount() == 0) {
             app.hbm().createGroup(new GroupData("", "group name", "group header", "group footer"));
         }
 
         var group = app.hbm().getGroupList().get(0);
-        var addressInGroup = app.jdbc().getAddressesInGroup();
-        //System.out.println(address);
 
-        if (!(addressInGroup.isEmpty())) {
-            var oldRelated = app.hbm().getAddresssInGroup(group);
-            app.address().addAddressToGr(addressInGroup.get(0), group);
-            var newRelated = app.hbm().getAddresssInGroup(group);
-            Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+        if (app.jdbc().getAddressesWithoutGroup().size() == 0) {
+            app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
+                    "Address", "HomeTelephone", "email", "", "", "", "", ""));
         }
+
+        var oldRelated = app.hbm().getAddresssInGroup(group);
+        var address = app.jdbc().getAddressesWithoutGroup();
+        app.address().addAddressToGr(address.get(0), group);
+        var newRelated = app.hbm().getAddresssInGroup(group);
+        Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
     }
 /*
         //проверка на содержимое списков

@@ -74,7 +74,7 @@ public class JdbcHelper extends HelperBase{
 
 
 
-    public List<AddressData> getAddressesInGroup() {
+    public List<AddressData> getAddressesWithoutGroup() {
         var address = new ArrayList<AddressData>();
         try (var conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook", "root", "");
              var statement = conn.createStatement();

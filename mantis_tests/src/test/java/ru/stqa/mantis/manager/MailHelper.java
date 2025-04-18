@@ -55,7 +55,7 @@ public class MailHelper extends HelperBase {
 
     private static Folder getInbox(String username, String password) {
         //создаем сессию для работы с почтовым сервером
-        var session = Session.getInstance(new Properties()); //пеердали пустой объект properties
+        var session = Session.getInstance(new Properties()); //передали пустой объект properties
         try {
             //получаем доступ к хранилищу почты - устанавливаем соединение с сервером почтовым
             Store store = session.getStore("pop3");

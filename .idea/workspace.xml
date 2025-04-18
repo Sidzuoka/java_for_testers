@@ -109,6 +109,8 @@
     "Gradle.GroupRemovalTests.executor": "Run",
     "Gradle.JamesTests.canCreateUser.executor": "Run",
     "Gradle.LoginTests.canLogin.executor": "Run",
+    "Gradle.MailTests.canDrainInbox.executor": "Run",
+    "Gradle.MailTests.canExtractUrl.executor": "Run",
     "Gradle.MailTests.canReceiveEmail.executor": "Run",
     "Gradle.SquareTests.canCalculateArea.executor": "Run",
     "Gradle.SquareTests.executor": "Run",
@@ -165,7 +167,7 @@
       <recent name="Square" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.MailTests.canReceiveEmail">
+  <component name="RunManager" selected="Gradle.MailTests.canExtractUrl">
     <configuration name="AddressCreationTests.canAddToGroupAddrr" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -180,30 +182,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;tests.AddressCreationTests.canAddToGroupAddrr&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="AddressInfoTests.testOneAddress" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.AddressInfoTests.testOneAddress&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -238,7 +216,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="LoginTests.canLogin" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="MailTests.canDrainInbox" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/mantis_tests" />
@@ -251,7 +229,31 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.stqa.mantis.tests.LoginTests.canLogin&quot;" />
+            <option value="&quot;ru.stqa.mantis.tests.MailTests.canDrainInbox&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="MailTests.canExtractUrl" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/mantis_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.stqa.mantis.tests.MailTests.canExtractUrl&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -287,19 +289,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Gradle.MailTests.canDrainInbox" />
+      <item itemvalue="Gradle.MailTests.canExtractUrl" />
       <item itemvalue="Gradle.MailTests.canReceiveEmail" />
       <item itemvalue="Gradle.JamesTests.canCreateUser" />
-      <item itemvalue="Gradle.LoginTests.canLogin" />
       <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
-      <item itemvalue="Gradle.AddressInfoTests.testOneAddress" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.MailTests.canExtractUrl" />
         <item itemvalue="Gradle.MailTests.canReceiveEmail" />
+        <item itemvalue="Gradle.MailTests.canDrainInbox" />
         <item itemvalue="Gradle.JamesTests.canCreateUser" />
         <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
-        <item itemvalue="Gradle.LoginTests.canLogin" />
-        <item itemvalue="Gradle.AddressInfoTests.testOneAddress" />
       </list>
     </recent_temporary>
   </component>

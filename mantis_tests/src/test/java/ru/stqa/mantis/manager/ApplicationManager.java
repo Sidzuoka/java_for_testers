@@ -17,6 +17,7 @@ public class ApplicationManager {
     private SessionHelper sessionHelper;
     private HttpSessionHelper httpSessionHelper;
     private JamesCliHelper jamesCliHelper;
+    private MailHelper mailHelper;
 
 
     public void init(String browser, Properties properties) {
@@ -70,6 +71,15 @@ public class ApplicationManager {
     //метод, кот. будет возвращать из local.properties URL
     public String property(String name) {
         return properties.getProperty(name);
+    }
+
+
+    //ссылка на помощника и метод, вып-ий ленивую инициализацию
+    public MailHelper mail() {
+        if (mailHelper == null) {
+            mailHelper = new MailHelper(this);
+        }
+        return mailHelper;
     }
 }
 

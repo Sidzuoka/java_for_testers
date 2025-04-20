@@ -45,4 +45,32 @@ public class HttpSessionHelper  extends HelperBase {
             throw new RuntimeException(e);
         }
     }
+
+
+
+
+    /*
+
+    public void confirmRegistration(String password, String url) {
+        RequestBody formBody = new FormBody.Builder()
+                .add("password_confirm", password)
+                .build(); //формирует значение нужного типа и помещает ее в переменную formBody
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(formBody)
+                .build();
+        try (Response response = client.newCall(request).execute()) {
+            if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+     */
+
+
+
 }

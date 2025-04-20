@@ -17,6 +17,6 @@ public class SessionHelper extends HelperBase {
     }
 
     public boolean isLoggedIn() {
-        return isElemenPresent(By.cssSelector("span.user-info"));
+        return isListElementPresent(By.cssSelector("span.user-info"));
     }
 }

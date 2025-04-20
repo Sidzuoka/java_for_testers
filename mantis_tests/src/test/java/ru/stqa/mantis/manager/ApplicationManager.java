@@ -1,6 +1,8 @@
 package ru.stqa.mantis.manager;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -18,6 +20,7 @@ public class ApplicationManager {
     private HttpSessionHelper httpSessionHelper;
     private JamesCliHelper jamesCliHelper;
     private MailHelper mailHelper;
+    private RegisterHelper registerHelper;
 
 
     public void init(String browser, Properties properties) {
@@ -81,6 +84,19 @@ public class ApplicationManager {
         }
         return mailHelper;
     }
+
+
+    public RegisterHelper register() {
+        if(registerHelper == null) {
+            registerHelper = new RegisterHelper(this);
+        }
+        return registerHelper;
+    }
+
+
+
+
+
 }
 
 

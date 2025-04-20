@@ -1,6 +1,8 @@
 package ru.stqa.mantis.manager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+
 import java.nio.file.Paths;
 
 public class HelperBase {
@@ -25,9 +27,20 @@ public class HelperBase {
         manager.driver().findElement(locator).sendKeys(Paths.get(file).toAbsolutePath().toString());
     }
 
-    protected  boolean isElemenPresent(By locator) {
+    protected  boolean isListElementPresent(By locator) {
         //если размер вовращаемого списка больше нуля, значит элемент присутствует на странице
         return manager.driver().findElements(locator).size() > 0;
 
+    }
+
+    protected boolean isElementPresent(By locator) {
+        //если находит элемент -> возвращает его,
+        //если не находит, выбрасывает исключение
+        try {
+            manager.driver().findElement(locator);
+            return true;
+        } catch (NoSuchElementException exception) {
+            return false;
+        }
     }
 }

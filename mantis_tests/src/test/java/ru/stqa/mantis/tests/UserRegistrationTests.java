@@ -11,8 +11,40 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public class UserRegistrationTests extends TestBase {
+
+    public static Stream<String> randomUser() {
+        return Stream.of(CommonFunctions.randomString(8));
+    }
+
+    @ParameterizedTest
+    @MethodSource("randomUser")
+    void canCreateUser(String user) {
+        var email = String.format("%s@localhost", user);
+        var password = "password";
+        app.jamesApi().addUser(email, password);
+
+        app.register().canCreateNewAccount1(user, email);
+
+        var messages = app.mail().receive(email, password, Duration.ofSeconds(10));
+
+        //var url = CommonFunctions.extractUrl(messages.get(0).content());
+        var text = messages.get(0).content();
+        var pattern = Pattern.compile("http://\\S+"); // \\S - НЕ пробел --- создали шаблон
+        var matcher = pattern.matcher(text); // применили шаблон
+        if (matcher.find()) {
+            var url = text.substring(matcher.start(), matcher.end());
+            //System.out.println(url);
+            app.register().confirmRegistration(url);
+        }
+
+        app.http().login(user, "password");
+        Assertions.assertTrue(app.http().isLoggedIn());
+
+    }
+
 
     @ParameterizedTest
     @ValueSource(strings = "username")

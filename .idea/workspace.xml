@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/HttpSessionHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/HttpSessionHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mantis_tests/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/ApplicationManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/RegisterHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/RegisterHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/tests/MailTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/tests/MailTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/tests/UserRegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/tests/UserRegistrationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +119,8 @@
     "Gradle.Tests in 'addressbook_web_tests.test'.executor": "Run",
     "Gradle.Tests in 'tests'.executor": "Run",
     "Gradle.TriangleTests.executor": "Run",
-    "Gradle.UserRegistrationTests.canCreateAccount.executor": "Debug",
+    "Gradle.UserRegistrationTests.canCreateAccount.executor": "Run",
+    "Gradle.UserRegistrationTests.canCreateUser.executor": "Run",
     "Gradle.UserRegistrationTests.canRegisterUser.executor": "Run",
     "Gradle.addressbook_web_tests [:generator.Generator.main()].executor": "Run",
     "Gradle.sandbox [:Geometry.main()].executor": "Run",
@@ -170,32 +171,11 @@
       <recent name="ApplicationManager" />
       <recent name="Square" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.stqa.mantis.manager" />
+    </key>
   </component>
-  <component name="RunManager" selected="Gradle.UserRegistrationTests.canCreateAccount">
-    <configuration name="JamesTests.canCreateUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/mantis_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;ru.stqa.mantis.tests.JamesTests.canCreateUser&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.UserRegistrationTests.canCreateUser">
     <configuration name="MailTests.canDrainInbox" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -268,6 +248,30 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="UserRegistrationTests.canCreateUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/mantis_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.stqa.mantis.tests.UserRegistrationTests.canCreateUser&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="UserRegistrationTests.canRegisterUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -293,19 +297,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Gradle.UserRegistrationTests.canCreateUser" />
       <item itemvalue="Gradle.UserRegistrationTests.canCreateAccount" />
       <item itemvalue="Gradle.UserRegistrationTests.canRegisterUser" />
       <item itemvalue="Gradle.MailTests.canDrainInbox" />
       <item itemvalue="Gradle.MailTests.canReceiveEmail" />
-      <item itemvalue="Gradle.JamesTests.canCreateUser" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.UserRegistrationTests.canCreateUser" />
         <item itemvalue="Gradle.UserRegistrationTests.canCreateAccount" />
         <item itemvalue="Gradle.MailTests.canDrainInbox" />
         <item itemvalue="Gradle.UserRegistrationTests.canRegisterUser" />
         <item itemvalue="Gradle.MailTests.canReceiveEmail" />
-        <item itemvalue="Gradle.JamesTests.canCreateUser" />
       </list>
     </recent_temporary>
   </component>
@@ -339,6 +343,11 @@
           <line>13</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/JamesApiHelper.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="org.hibernate.LazyInitializationException" package="org.hibernate" />
           <option name="timeStamp" value="4" />
@@ -351,6 +360,7 @@
         <watch expression="app.hbm" />
         <watch expression="app.hbm" />
         <watch expression="app.properties" />
+        <watch expression="response" />
       </configuration>
     </watches-manager>
   </component>

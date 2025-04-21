@@ -46,6 +46,38 @@ public class RegisterHelper extends HelperBase {
         submitCreateUser();
     }
 
+
+    public void canCreateNewAccount1(String user, String email) {
+        fillUsernameAdmin();
+        submitLogin();
+        fillPasswordAdmin();
+        submitLogin();
+        submitManage();
+        openMngUsersPage();
+        initCreateNewAccount();
+        fillUsernameNewAccount1(user);
+        fillRealnameNewAccount1(user);
+        fillEmailNewAccount1(email);
+        submitCreateUser();
+    }
+
+    private void fillUsernameNewAccount1(String user) {
+        type(By.id("user-username"), user);
+    }
+
+    private void fillRealnameNewAccount1(String user) {
+        type(By.id("user-realname"), user);
+    }
+
+    private void fillEmailNewAccount1(String email) {
+        type(By.id("email-field"), email);
+    }
+
+
+
+
+
+
     private void submitManage() {
         click(By.linkText("Manage"));
     }

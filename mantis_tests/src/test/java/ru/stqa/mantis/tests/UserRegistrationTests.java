@@ -1,19 +1,36 @@
 package ru.stqa.mantis.tests;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import ru.stqa.mantis.common.CommonFunctions;
+import ru.stqa.mantis.model.DeveloperMailUser;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class UserRegistrationTests extends TestBase {
+
+    DeveloperMailUser user;
+
+    @Test
+    void canCreateUserDeveloper() {
+        var password = "password";
+        var user = app.developerMail().addUser();
+        var email = String.format('%s@developermail.com', user.name());
+
+    }
+
+    @AfterEach
+    void deleteMailUser() {
+        app.developerMail().deleteUser(user);
+    }
+
 
     public static Stream<String> randomUser() {
         return Stream.of(CommonFunctions.randomString(8));
@@ -21,7 +38,7 @@ public class UserRegistrationTests extends TestBase {
 
     @ParameterizedTest
     @MethodSource("randomUser")
-    void canCreateUser(String user) {
+    void canCreateUserJamesApi(String user) {
         var email = String.format("%s@localhost", user);
         var password = "password";
         app.jamesApi().addUser(email, password);
@@ -48,7 +65,7 @@ public class UserRegistrationTests extends TestBase {
 
     @ParameterizedTest
     @ValueSource(strings = "username")
-    public void canCreateAccount(String username) {
+    public void canCreateAccountJamesCli(String username) {
         var email = String.format("%s@localhost", username);
         app.jamesCli().addUser(
                 String.format("%s@localhost", username),

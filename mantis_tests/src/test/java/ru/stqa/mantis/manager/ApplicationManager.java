@@ -22,6 +22,7 @@ public class ApplicationManager {
     private MailHelper mailHelper;
     private RegisterHelper registerHelper;
     private JamesApiHelper jamesApiHelper;
+    private DeveloperMailHelper developerMailHelper;
 
 
     public void init(String browser, Properties properties) {
@@ -101,7 +102,12 @@ public class ApplicationManager {
         return jamesApiHelper;
     }
 
-
+    public DeveloperMailHelper developerMail() {
+        if (developerMailHelper == null) {
+            developerMailHelper = new DeveloperMailHelper(this);
+        }
+        return developerMailHelper;
+    }
 
 
 }

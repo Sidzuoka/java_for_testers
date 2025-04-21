@@ -22,7 +22,25 @@ public class UserRegistrationTests extends TestBase {
     void canCreateUserDeveloper() {
         var password = "password";
         var user = app.developerMail().addUser();
-        var email = String.format('%s@developermail.com', user.name());
+        var email = String.format("%s@developermail.com", user.name());
+
+        app.register().startCreation(user.name(), email);
+
+        var message = app.developerMail().receive(user, Duration.ofSeconds(10)); //user - содержит имя пользователя и Token
+
+        //var url = CommonFunctions.extractUrl(messages.get(0).content());
+        var text = message.get(0).content();
+        var pattern = Pattern.compile("http://\\S+"); // \\S - НЕ пробел --- создали шаблон
+        var matcher = pattern.matcher(text); // применили шаблон
+        if (matcher.find()) {
+            var url = text.substring(matcher.start(), matcher.end());
+            //System.out.println(url);
+            app.register().confirmRegistration(url);
+        }
+
+        app.http().login(user.name(), "password");
+        Assertions.assertTrue(app.http().isLoggedIn());
+
 
     }
 

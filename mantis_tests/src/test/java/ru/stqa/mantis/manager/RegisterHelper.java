@@ -47,6 +47,18 @@ public class RegisterHelper extends HelperBase {
     }
 
 
+    public void startCreation(String user, String email) {
+        if (!manager.session().isLoggedIn()) {
+            manager.session().login(manager.property("web.username"), manager.property("web.password"));
+        }
+        manager.driver().get(String.format("%s/manage_user_create_page.php", manager.property("web.baseUrl")));
+        type(By.name("username"), user);
+        type(By.name("realname"), user);
+        type(By.name("email"), email);
+        click(By.cssSelector("input[type='submit']"));
+    }
+
+
     public void canCreateNewAccount1(String user, String email) {
         fillUsernameAdmin();
         submitLogin();

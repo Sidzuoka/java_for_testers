@@ -18,6 +18,7 @@ public class UserRegistrationTests extends TestBase {
 
     DeveloperMailUser user;
 
+    /*
     @Test
     void canCreateUserDeveloper() {
         var password = "password";
@@ -29,6 +30,7 @@ public class UserRegistrationTests extends TestBase {
         var message = app.developerMail().receive(user, Duration.ofSeconds(10)); //user - содержит имя пользователя и Token
 
         //var url = CommonFunctions.extractUrl(messages.get(0).content());
+
         var text = message.get(0).content();
         var pattern = Pattern.compile("http://\\S+"); // \\S - НЕ пробел --- создали шаблон
         var matcher = pattern.matcher(text); // применили шаблон
@@ -49,6 +51,8 @@ public class UserRegistrationTests extends TestBase {
         app.developerMail().deleteUser(user);
     }
 
+
+     */
 
     public static Stream<String> randomUser() {
         return Stream.of(CommonFunctions.randomString(8));

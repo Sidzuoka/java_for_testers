@@ -23,6 +23,7 @@ public class ApplicationManager {
     private RegisterHelper registerHelper;
     private JamesApiHelper jamesApiHelper;
     private DeveloperMailHelper developerMailHelper;
+    private RestApiHelper restApiHelper;
 
 
     public void init(String browser, Properties properties) {
@@ -73,12 +74,6 @@ public class ApplicationManager {
         return jamesCliHelper;
     }
 
-    //метод, кот. будет возвращать из local.properties URL
-    public String property(String name) {
-        return properties.getProperty(name);
-    }
-
-
     //ссылка на помощника и метод, вып-ий ленивую инициализацию
     public MailHelper mail() {
         if (mailHelper == null) {
@@ -110,6 +105,18 @@ public class ApplicationManager {
     }
 
 
+    public RestApiHelper rest() {
+        if (restApiHelper == null) {
+            restApiHelper = new RestApiHelper(this);
+        }
+        return restApiHelper;
+    }
+
+
+    //метод, кот. будет возвращать из local.properties URL
+    public String property(String name) {
+        return properties.getProperty(name);
+    }
 }
 
 

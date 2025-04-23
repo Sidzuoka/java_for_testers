@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules/mantis_tests.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/mantis_tests.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/DeveloperMailHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/DeveloperMailHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/RegisterHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/RegisterHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mantis_tests/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mantis_tests/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/ApplicationManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/tests/UserRegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/tests/UserRegistrationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,8 +54,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -96,6 +98,7 @@
     "Gradle.AddressRemovalTests.canRemoveAllAddressAtOnce.executor": "Run",
     "Gradle.AddressRemovalTests.canRemoveFromGroupAddrr.executor": "Run",
     "Gradle.AddressRemovalTests.executor": "Run",
+    "Gradle.Build mantis_tests.executor": "Run",
     "Gradle.GroupCreationTests.canCreateGroup.executor": "Run",
     "Gradle.GroupCreationTests.canCreateGroupHBM.executor": "Run",
     "Gradle.GroupCreationTests.canCreateGroupWithNameOnly.executor": "Run",
@@ -108,6 +111,7 @@
     "Gradle.GroupRemovalTests.canRemoveAllGroupsAtOnce.executor": "Run",
     "Gradle.GroupRemovalTests.canRemoveGroup.executor": "Run",
     "Gradle.GroupRemovalTests.executor": "Run",
+    "Gradle.IssueCreationTests.canCreateIssue.executor": "Run",
     "Gradle.JamesTests.canCreateUser.executor": "Run",
     "Gradle.LoginTests.canLogin.executor": "Run",
     "Gradle.MailTests.canDrainInbox.executor": "Run",
@@ -150,7 +154,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/devel/homework/java_for_testers/mantis_tests/src/test/java/ru/stqa/mantis",
+    "last_opened_file_path": "C:/devel/homework/java_for_testers/mantis_tests/src/test/java",
     "onboarding.tips.debug.path": "C:/devel/homework/java_for_testers/sandbox/src/main/java/org/example/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -160,6 +164,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\devel\homework\java_for_testers\mantis_tests\src\test\java" />
       <recent name="C:\devel\homework\java_for_testers\mantis_tests\src\test\java\ru\stqa\mantis" />
       <recent name="C:\devel\homework\java_for_testers\mantis_tests" />
     </key>
@@ -174,7 +179,31 @@
       <recent name="ru.stqa.mantis.manager" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.UserRegistrationTests.canCreateUser">
+  <component name="RunManager" selected="Gradle.IssueCreationTests.canCreateIssue">
+    <configuration name="IssueCreationTests.canCreateIssue" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/mantis_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.stqa.mantis.tests.IssueCreationTests.canCreateIssue&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="MailTests.canDrainInbox" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -189,30 +218,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;ru.stqa.mantis.tests.MailTests.canDrainInbox&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="MailTests.canReceiveEmail" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/mantis_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;ru.stqa.mantis.tests.MailTests.canReceiveEmail&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -296,19 +301,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Gradle.IssueCreationTests.canCreateIssue" />
       <item itemvalue="Gradle.UserRegistrationTests.canCreateUser" />
       <item itemvalue="Gradle.UserRegistrationTests.canCreateAccount" />
       <item itemvalue="Gradle.UserRegistrationTests.canRegisterUser" />
       <item itemvalue="Gradle.MailTests.canDrainInbox" />
-      <item itemvalue="Gradle.MailTests.canReceiveEmail" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.IssueCreationTests.canCreateIssue" />
         <item itemvalue="Gradle.UserRegistrationTests.canCreateUser" />
         <item itemvalue="Gradle.UserRegistrationTests.canCreateAccount" />
         <item itemvalue="Gradle.MailTests.canDrainInbox" />
         <item itemvalue="Gradle.UserRegistrationTests.canRegisterUser" />
-        <item itemvalue="Gradle.MailTests.canReceiveEmail" />
       </list>
     </recent_temporary>
   </component>

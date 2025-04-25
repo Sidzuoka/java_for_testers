@@ -3,6 +3,7 @@ package tests;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import common.CommonFunctions;
+import io.qameta.allure.Allure;
 import model.AddressData;
 import model.GroupData;
 import org.junit.jupiter.api.Assertions;
@@ -140,22 +141,31 @@ public class AddressCreationTests extends TestBase{
     @Test
     void canAddToGroupAddrr() {
 
-        if (app.hbm().getGroupCount() == 0) {
-            app.hbm().createGroup(new GroupData("", "group name", "group header", "group footer"));
-        }
+        Allure.step("Checking precondition 1", step -> {
+            if (app.hbm().getGroupCount() == 0) {
+                app.hbm().createGroup(new GroupData("", "group name", "group header", "group footer"));
+            }
+
+        });
 
         var group = app.hbm().getGroupList().get(0);
 
-        if (app.jdbc().getAddressesWithoutGroup().size() == 0) {
-            app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
+        Allure.step("Checking precondition 2", step -> {
+            if (app.jdbc().getAddressesWithoutGroup().size() == 0) {
+                app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
                     "Address", "HomeTelephone", "email", "", "", "", "", ""));
         }
+        });
 
         var oldRelated = app.hbm().getAddresssInGroup(group);
         var address = app.jdbc().getAddressesWithoutGroup();
         app.address().addAddressToGr(address.get(0), group);
         var newRelated = app.hbm().getAddresssInGroup(group);
-        Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+
+        Allure.step("Validating results", step -> {
+            Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+        });
+
     }
 /*
         //проверка на содержимое списков

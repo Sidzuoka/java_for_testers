@@ -1,5 +1,6 @@
 package manager;
 
+import io.qameta.allure.Step;
 import manager.hbm.AddressRecord;
 import manager.hbm.GroupRecord;
 import model.AddressData;
@@ -59,6 +60,7 @@ public class HibernateHelper extends HelperBase{
     }
 
 
+    @Step
     public List<GroupData> getGroupList() {
         return converGrouptList((List<GroupRecord>) sessionFactory.fromSession(session -> {
             return session.createQuery("from GroupRecord", GroupRecord.class).list(); //нужны данные типа GroupData - в List так заявлено - используем ф-ию - преобразователь типов из GroupRecord в GroupData
@@ -73,6 +75,7 @@ public class HibernateHelper extends HelperBase{
     }
 
 
+    @Step
     //считает кол-во групп в результате выполнения запроса
     public long getGroupCount() {
         return (sessionFactory.fromSession(session -> {

@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 public class AddressInfoTests extends TestBase{
     @Test
     void testPhones() {
-        //предусловия - проверить, что список контактов не пустой
+        //предусловия - проверить, что список контактов не пустой----
         if (app.hbm().getAddressCount() == 0) {
             app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
                     "Address", "HomeTelephone", "email", "", "", "", "", ""));

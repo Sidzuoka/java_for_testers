@@ -113,7 +113,8 @@ public class AddressHelper extends HelperBase{
 
 
     private void returnToHomePage() {
-        click(By.linkText("home"));
+        //click(By.linkText("home"));
+        click(By.xpath("//a[contains(text(),'home')]"));
     }
 
     private void submitAddressModification() {

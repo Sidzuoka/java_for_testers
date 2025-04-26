@@ -141,24 +141,23 @@ public class AddressCreationTests extends TestBase{
     @Test
     void canAddToGroupAddrr() {
 
-        Allure.step("Checking precondition 1", step -> {
-            if (app.hbm().getGroupCount() == 0) {
-                app.hbm().createGroup(new GroupData("", "group name", "group header", "group footer"));
-            }
-
-        });
+        if (app.hbm().getGroupCount() == 0) {
+                app.groups().createGroup(new GroupData("", "group name", "group header", "group footer"));
+        }
 
         var group = app.hbm().getGroupList().get(0);
+        System.out.println(group);
 
-        Allure.step("Checking precondition 2", step -> {
-            if (app.jdbc().getAddressesWithoutGroup().size() == 0) {
-                app.address().createAddress(new AddressData("", "Firstname", "Lastname",
+        if (app.jdbc().getAddressesWithoutGroup().size() == 0) {
+            app.address().createAddress(new AddressData("", "Firstname", "Lastname",
                     "Address", "HomeTelephone", "email", "", "", "", "", ""));
         }
-        });
+
 
         var oldRelated = app.hbm().getAddresssInGroup(group);
         var address = app.jdbc().getAddressesWithoutGroup();
+        System.out.println(address);
+        System.out.println(address.get(0));
         app.address().addAddressToGr(address.get(0), group);
         var newRelated = app.hbm().getAddresssInGroup(group);
 

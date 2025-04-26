@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressCreationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressRemovalTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressRemovalTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +79,7 @@
     "Application.Hello.executor": "Run",
     "Gradle.AddressCreationTests.addressCreationTests.executor": "Run",
     "Gradle.AddressCreationTests.canAddAddressInGroup.executor": "Run",
-    "Gradle.AddressCreationTests.canAddToGroupAddrr.executor": "Run",
+    "Gradle.AddressCreationTests.canAddToGroupAddrr.executor": "Debug",
     "Gradle.AddressCreationTests.canCreateAddress.executor": "Run",
     "Gradle.AddressCreationTests.canCreateAddressInGroup.executor": "Run",
     "Gradle.AddressCreationTests.canCreateMultipleAddress.executor": "Run",
@@ -178,7 +178,31 @@
       <recent name="ru.stqa.mantis.manager" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AddressRemovalTests">
+  <component name="RunManager" selected="Gradle.AddressCreationTests.canAddToGroupAddrr">
+    <configuration name="AddressCreationTests.canAddToGroupAddrr" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;tests.AddressCreationTests.canAddToGroupAddrr&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="AddressRemovalTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -193,30 +217,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;tests.AddressRemovalTests&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="AddressRemovalTests.canRemoveAddress" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.AddressRemovalTests.canRemoveAddress&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -298,19 +298,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
       <item itemvalue="Gradle.AddressRemovalTests" />
-      <item itemvalue="Gradle.AddressRemovalTests.canRemoveAddress" />
       <item itemvalue="Gradle.AddressRemovalTests.canRemoveAllAddressAtOnce" />
       <item itemvalue="Gradle.AddressRemovalTests.canRemoveFromGroupAddrr" />
       <item itemvalue="Gradle.Tests in 'addressbook_web_tests.test'" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
+        <item itemvalue="Gradle.Tests in 'addressbook_web_tests.test'" />
         <item itemvalue="Gradle.AddressRemovalTests" />
         <item itemvalue="Gradle.AddressRemovalTests.canRemoveAllAddressAtOnce" />
         <item itemvalue="Gradle.AddressRemovalTests.canRemoveFromGroupAddrr" />
-        <item itemvalue="Gradle.AddressRemovalTests.canRemoveAddress" />
-        <item itemvalue="Gradle.Tests in 'addressbook_web_tests.test'" />
       </list>
     </recent_temporary>
   </component>
@@ -351,8 +351,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressRemovalTests.java</url>
-          <line>117</line>
+          <line>115</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="org.hibernate.LazyInitializationException" package="org.hibernate" />

@@ -35,8 +35,6 @@ public class AddressRemovalTests extends TestBase{
     @Test
     void canRemoveFromGroupAddrr() {
 
-
-
         if (app.hbm().getGroupCount() == 0) {
             app.hbm().createGroup(new GroupData("", "group name", "group header", "group footer"));
         }
@@ -116,7 +114,6 @@ public class AddressRemovalTests extends TestBase{
         });
         Thread.sleep(3);
         app.address().removeAllAddress();
-        //System.out.println(app.address().getList().size());
         Assertions.assertEquals(0, app.address().getList().size());
         //Assertions.assertEquals(0, app.hbm().getAddressCount());
     }

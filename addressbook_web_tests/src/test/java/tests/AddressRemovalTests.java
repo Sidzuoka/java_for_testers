@@ -15,7 +15,7 @@ public class AddressRemovalTests extends TestBase{
     @Test
     public void canRemoveAddress() {
         if (app.hbm().getAddressCount() == 0) {
-            app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
+            app.address().createAddress(new AddressData("", "Firstname", "Lastname",
                     "Address", "HomeTelephone", "email", "", "", "", "", ""));
         }
         //System.out.println(app.hbm().getAddressCount());
@@ -33,6 +33,8 @@ public class AddressRemovalTests extends TestBase{
     @Test
     void canRemoveFromGroupAddrr() {
 
+
+
         if (app.hbm().getGroupCount() == 0) {
             app.hbm().createGroup(new GroupData("", "group name", "group header", "group footer"));
         }
@@ -45,7 +47,9 @@ public class AddressRemovalTests extends TestBase{
         }
 
 
-        var address = app.hbm().getAddressList().get(0);
+        //var address = app.hbm().getAddressList().get(0);
+        var addresses = app.hbm().getAddresssInGroup(group);
+        var address = addresses.get(0);
 
         //получить список контактов, кот. входят в заданную гр.
         var oldRelated = app.hbm().getAddresssInGroup(group);
@@ -103,7 +107,7 @@ public class AddressRemovalTests extends TestBase{
     @Test
     void canRemoveAllAddressAtOnce() throws InterruptedException {
         if (app.hbm().getAddressCount() == 0) {
-            app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
+            app.address().createAddress(new AddressData("", "Firstname", "Lastname",
                     "Address", "HomeTelephone", "email", "", "", "", "", ""));
         }
 

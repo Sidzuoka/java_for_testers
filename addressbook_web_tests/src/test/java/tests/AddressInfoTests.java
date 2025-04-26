@@ -73,8 +73,8 @@ public class AddressInfoTests extends TestBase{
                 .filter(s -> s != null && !"".equals(s))
                 .collect(Collectors.joining("\n"));
 
-        //System.out.println(address);
-        //System.out.println(expected);
+        System.out.println(address);
+        System.out.println(expected);
         Assertions.assertEquals(expected, address);
     }
 }

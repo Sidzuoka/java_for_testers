@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AddressHelper extends HelperBase{
 
@@ -219,7 +221,17 @@ public class AddressHelper extends HelperBase{
         var phone = manager.driver.findElement(By.xpath(
                 String.format("//input[@id='%s']/../../td[6]", addressData.id()))).getText();
 
-        return (id + "\n" + firstname + "\n" + lastname + "\n" + address + "\n" + email + "\n" + phone);
+        //return (id + "\n" + firstname + "\n" + lastname + "\n" + address + "\n" + email + "\n" + phone);
+
+        return Stream.of(
+                        id,
+                        firstname,
+                        lastname,
+                        address,
+                        email,
+                        phone)
+                .filter(s -> s != null && !"".equals(s))
+                .collect(Collectors.joining("\n"));
     }
 
 }

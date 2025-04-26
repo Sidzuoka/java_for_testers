@@ -152,7 +152,7 @@ public class AddressCreationTests extends TestBase{
 
         Allure.step("Checking precondition 2", step -> {
             if (app.jdbc().getAddressesWithoutGroup().size() == 0) {
-                app.hbm().createAddress(new AddressData("", "Firstname", "Lastname",
+                app.address().createAddress(new AddressData("", "Firstname", "Lastname",
                     "Address", "HomeTelephone", "email", "", "", "", "", ""));
         }
         });

@@ -1,5 +1,6 @@
 package manager;
 
+import io.qameta.allure.Step;
 import model.AddressData;
 import model.GroupData;
 import org.openqa.selenium.By;
@@ -126,9 +127,9 @@ public class AddressHelper extends HelperBase{
         return manager.driver.findElements(By.name("selected[]")).size();
     }
 
+    @Step
     public void removeAllAddress() {
         openHomePage();
-        //selectAllAddress();
         selectAllAddresses();
         removeSelectedAddresses();
     }

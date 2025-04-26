@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Allure;
 import model.AddressData;
 import model.GroupData;
 import org.junit.jupiter.api.Assertions;
@@ -106,11 +107,12 @@ public class AddressRemovalTests extends TestBase{
 
     @Test
     void canRemoveAllAddressAtOnce() throws InterruptedException {
-        if (app.hbm().getAddressCount() == 0) {
-            app.address().createAddress(new AddressData("", "Firstname", "Lastname",
-                    "Address", "HomeTelephone", "email", "", "", "", "", ""));
-        }
-
+        Allure.step("Checking precondition", step -> {
+            if (app.hbm().getAddressCount() == 0) {
+                app.address().createAddress(new AddressData("", "Firstname", "Lastname",
+                                "Address", "HomeTelephone", "email", "", "", "", "", ""));
+            }
+        });
         //Thread.sleep(1000);
         app.address().removeAllAddress();
         Assertions.assertEquals(0, app.hbm().getAddressCount());

@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/JdbcHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/JdbcHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressRemovalTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressRemovalTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +178,7 @@
       <recent name="ru.stqa.mantis.manager" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AddressRemovalTests.canRemoveAllAddressAtOnce">
+  <component name="RunManager" selected="Gradle.AddressCreationTests.canAddToGroupAddrr">
     <configuration name="AddressCreationTests.canAddToGroupAddrr" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -306,9 +308,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
         <item itemvalue="Gradle.AddressRemovalTests.canRemoveAllAddressAtOnce" />
         <item itemvalue="Gradle.AddressRemovalTests.canRemoveAddress" />
-        <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
         <item itemvalue="Gradle.GroupModificationTests" />
         <item itemvalue="Gradle.GroupCreationTests" />
       </list>
@@ -350,12 +352,21 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java</url>
-          <line>97</line>
+          <line>98</line>
           <properties class="manager.AddressHelper" method="selectAddress">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java</url>
+          <line>62</line>
+          <properties class="manager.AddressHelper" method="submitAddressAddToGr">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -66,7 +66,7 @@ public class JdbcHelper extends HelperBase{
             //если список результатов не пустой, значит нужно выбросить исключение
             if (result.next()) {
                 statement.executeQuery(
-                        "DELETE address_in_groups FROM address_in_groups LEFT JOIN addressbook ON address_in_groups.domain_id = addressbook.id WHERE addressbook.id IS NULL ;");
+                        "DELETE address_in_groups FROM address_in_groups LEFT JOIN addressbook ON address_in_groups.domain_id = addressbook.id WHERE addressbook.id IS NULL;");
                 //throw new IllegalStateException("DB is corrupted");
             }
         } catch (SQLException e) {

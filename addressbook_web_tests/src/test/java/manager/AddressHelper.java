@@ -94,8 +94,15 @@ public class AddressHelper extends HelperBase{
     }
 
 
+    private void removeSelectedAllAddresses() {
+        click(By.xpath("//input[@value=\'Delete\']"));
+        manager.driver.switchTo().alert().accept();
+    }
+
+
     private void removeSelectedAddresses() {
         click(By.xpath("//input[@value=\'Delete\']"));
+        
     }
 
     private void selectAddress(AddressData address) {
@@ -115,6 +122,7 @@ public class AddressHelper extends HelperBase{
     private void returnToHomePage() {
         //click(By.linkText("home"));
         click(By.xpath("//a[contains(text(),'home')]"));
+
     }
 
     private void submitAddressModification() {
@@ -134,7 +142,7 @@ public class AddressHelper extends HelperBase{
     public void removeAllAddress() {
         openHomePage();
         selectAllAddresses();
-        removeSelectedAddresses();
+        removeSelectedAllAddresses();
         returnToHomePage();
     }
 

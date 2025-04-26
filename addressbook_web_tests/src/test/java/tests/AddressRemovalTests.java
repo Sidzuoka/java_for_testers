@@ -29,6 +29,7 @@ public class AddressRemovalTests extends TestBase{
         var expectedList = new ArrayList<>(oldAddress);
         expectedList.remove(index);
         Assertions.assertEquals(newAddress, expectedList);
+
     }
 
     @Test

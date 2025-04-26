@@ -134,6 +134,7 @@ public class AddressHelper extends HelperBase{
         openHomePage();
         selectAllAddresses();
         removeSelectedAddresses();
+        returnToHomePage();
     }
 
     private void selectAllAddresses() {

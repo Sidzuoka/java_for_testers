@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/groups.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/groups.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressInfoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressInfoTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressRemovalTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/tests/AddressRemovalTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +179,7 @@
       <recent name="ru.stqa.mantis.manager" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AddressInfoTests.testOneAddress">
+  <component name="RunManager" selected="Gradle.AddressRemovalTests.canRemoveAllAddressAtOnce">
     <configuration name="AddressCreationTests.canAddToGroupAddrr" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -275,7 +276,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="GroupModificationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GroupCreationTests.canCreateMultipleGroups" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
@@ -288,7 +289,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tests.GroupModificationTests&quot;" />
+            <option value="&quot;tests.GroupCreationTests.canCreateMultipleGroups&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -303,16 +304,16 @@
       <item itemvalue="Gradle.AddressInfoTests.testOneAddress" />
       <item itemvalue="Gradle.AddressRemovalTests.canRemoveAddress" />
       <item itemvalue="Gradle.AddressRemovalTests.canRemoveAllAddressAtOnce" />
-      <item itemvalue="Gradle.GroupModificationTests" />
+      <item itemvalue="Gradle.GroupCreationTests.canCreateMultipleGroups" />
       <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AddressRemovalTests.canRemoveAllAddressAtOnce" />
+        <item itemvalue="Gradle.GroupCreationTests.canCreateMultipleGroups" />
         <item itemvalue="Gradle.AddressInfoTests.testOneAddress" />
         <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
-        <item itemvalue="Gradle.AddressRemovalTests.canRemoveAllAddressAtOnce" />
         <item itemvalue="Gradle.AddressRemovalTests.canRemoveAddress" />
-        <item itemvalue="Gradle.GroupModificationTests" />
       </list>
     </recent_temporary>
   </component>

@@ -115,7 +115,9 @@ public class AddressRemovalTests extends TestBase{
         });
         //Thread.sleep(1000);
         app.address().removeAllAddress();
-        Assertions.assertEquals(0, app.hbm().getAddressCount());
+        //System.out.println(app.address().getList().size());
+        Assertions.assertEquals(0, app.address().getList().size());
+        //Assertions.assertEquals(0, app.hbm().getAddressCount());
     }
 
     /*

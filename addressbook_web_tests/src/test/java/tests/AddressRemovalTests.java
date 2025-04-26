@@ -113,7 +113,7 @@ public class AddressRemovalTests extends TestBase{
                                 "Address", "HomeTelephone", "email", "", "", "", "", ""));
             }
         });
-        //Thread.sleep(1000);
+        Thread.sleep(3);
         app.address().removeAllAddress();
         //System.out.println(app.address().getList().size());
         Assertions.assertEquals(0, app.address().getList().size());

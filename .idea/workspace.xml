@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/AddressHelper.java" afterDir="false" />
-    </list>
+    <list default="true" id="d9a56569-cfce-4738-9729-dad967021025" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -176,31 +174,7 @@
       <recent name="ru.stqa.mantis.manager" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AddressRemovalTests.canRemoveFromGroupAddrr">
-    <configuration name="AddressCreationTests.canAddToGroupAddrr" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.AddressCreationTests.canAddToGroupAddrr&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.AddressRemovalTests.canRemoveAllAddressAtOnce">
     <configuration name="AddressInfoTests.testOneAddress" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -215,6 +189,30 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;tests.AddressInfoTests.testOneAddress&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="AddressRemovalTests.canRemoveAddress" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;tests.AddressRemovalTests.canRemoveAddress&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -299,18 +297,18 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.AddressInfoTests.testOneAddress" />
+      <item itemvalue="Gradle.AddressRemovalTests.canRemoveAddress" />
       <item itemvalue="Gradle.AddressRemovalTests.canRemoveAllAddressAtOnce" />
       <item itemvalue="Gradle.AddressRemovalTests.canRemoveFromGroupAddrr" />
       <item itemvalue="Gradle.GroupCreationTests.canCreateMultipleGroups" />
-      <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.AddressRemovalTests.canRemoveFromGroupAddrr" />
         <item itemvalue="Gradle.AddressRemovalTests.canRemoveAllAddressAtOnce" />
+        <item itemvalue="Gradle.AddressRemovalTests.canRemoveAddress" />
+        <item itemvalue="Gradle.AddressRemovalTests.canRemoveFromGroupAddrr" />
         <item itemvalue="Gradle.GroupCreationTests.canCreateMultipleGroups" />
         <item itemvalue="Gradle.AddressInfoTests.testOneAddress" />
-        <item itemvalue="Gradle.AddressCreationTests.canAddToGroupAddrr" />
       </list>
     </recent_temporary>
   </component>
